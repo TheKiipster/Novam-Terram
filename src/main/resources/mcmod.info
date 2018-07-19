@@ -1,0 +1,16 @@
+[
+{
+  "modid": "novamterram",
+  "name": "Novam Terram",
+  "description": "Neat Biomes",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExampleDude"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
