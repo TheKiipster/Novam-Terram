@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
+import kipster.nt.biomes.desert.BiomeSandDunes.GoldGenerator;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
@@ -15,6 +16,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import net.minecraft.world.gen.feature.WorldGenFossils;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeSandDunes extends Biome 
@@ -52,6 +54,11 @@ public class BiomeSandDunes extends Biome
 	        {
 	            super.decorate(worldIn, rand, pos);
 
+	            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
+		 	       WorldGenerator gold = new GoldGenerator();
+		 	       if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, gold, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.GOLD))
+		 	    	   gold.generate(worldIn, rand, pos);
+	            
 	            if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.DESERT_WELL))
 	            if (rand.nextInt(1000) == 0)
 	            {
@@ -67,4 +74,25 @@ public class BiomeSandDunes extends Biome
 	                (new WorldGenFossils()).generate(worldIn, rand, pos);
 	            }
 	        }
+
+		   	 public static class GoldGenerator extends WorldGenerator
+		   	    {
+		   	        @Override
+		   	        public boolean generate(World worldIn, Random rand, BlockPos pos)
+		   	        {
+		   	            int count = 5 + rand.nextInt(6);
+		   	            for (int i = 0; i < count; i++)
+		   	            {
+		   	                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332
+		   	                BlockPos blockpos = pos.add(rand.nextInt(16) + offset, rand.nextInt(28) + 2, rand.nextInt(16) + offset);
+
+		   	                net.minecraft.block.state.IBlockState state = worldIn.getBlockState(blockpos);
+		   	                if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, net.minecraft.block.state.pattern.BlockMatcher.forBlock(Blocks.STONE)))
+		   	                {
+		   	                    worldIn.setBlockState(blockpos, Blocks.GOLD_ORE.getDefaultState(), 16 | 2);
+		   	                }
+		   	            }
+		   	            return true;
+		   	        }
+		   	    }
 	    }

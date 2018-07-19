@@ -3,6 +3,7 @@ package kipster.nt;
 import kipster.nt.util.handlers.RegistryHandler;
 
 import kipster.nt.proxy.CommonProxy;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,6 +17,8 @@ public class NovamTerram {
 	public static final String name = "Novam Terram";
 	public static final String version = "1.0";
 
+	public static final CreativeTabs NOVAMTERRAMTAB = new NovamTerramTab("novamterramtab");
+	
 	@Mod.Instance(modId)
 	public static NovamTerram instance;
 	
