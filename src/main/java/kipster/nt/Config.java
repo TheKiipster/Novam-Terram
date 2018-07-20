@@ -16,6 +16,7 @@ public class Config {
     public static boolean disableAutumnTaigaHills = false;
     public static boolean disableTaigaPlains = false;
     public static boolean disableCliffs = false;
+    public static boolean disableMegaAutumnTaiga = false;
     
     //Icy
     
@@ -30,6 +31,8 @@ public class Config {
     public static boolean disableGreenSwamp = false;
     public static boolean disableOakForest = false;
     public static boolean disableTallOakForest = false;
+    public static boolean disableShrubland = false;
+    public static boolean disableDenseShrubland = false;
     
 
     public static void readConfig() {
@@ -54,6 +57,7 @@ public class Config {
         disableAutumnTaigaHills = cfg.get(CATEGORY_BIOMES_COOL, "disableAutumnTaigaHills", disableAutumnTaigaHills).getBoolean();
         disableTaigaPlains = cfg.get(CATEGORY_BIOMES_COOL, "disableTaigaPlains", disableTaigaPlains).getBoolean();
         disableCliffs = cfg.get(CATEGORY_BIOMES_COOL, "disableCliffs", disableCliffs).getBoolean();
+        disableMegaAutumnTaiga = cfg.get(CATEGORY_BIOMES_COOL, "disableMegaAutumnTaiga", disableMegaAutumnTaiga).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_ICY, "Icy Biome configuration");
         
@@ -69,6 +73,8 @@ public class Config {
         disableGreenSwamp = cfg.get(CATEGORY_BIOMES_WARM, "disableGreenSwamp", disableGreenSwamp).getBoolean();
         disableOakForest = cfg.get(CATEGORY_BIOMES_WARM, "disableOakForest", disableOakForest).getBoolean();
         disableTallOakForest = cfg.get(CATEGORY_BIOMES_WARM, "disableTallOakForest", disableTallOakForest).getBoolean();
+        disableShrubland = cfg.get(CATEGORY_BIOMES_WARM, "disableShrubland", disableShrubland).getBoolean();
+        disableDenseShrubland = cfg.get(CATEGORY_BIOMES_WARM, "disableDenseShrubland", disableDenseShrubland).getBoolean();
 		
     }
  

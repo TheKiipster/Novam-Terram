@@ -20,6 +20,7 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
@@ -80,6 +81,7 @@ public class BiomeAutumnTaigaHills extends Biome
            int l1 = rand.nextInt(worldIn.getHeight(pos.add(j1, 0, k1)).getY() + 32);
            DOUBLE_PLANT_GENERATOR.generate(worldIn, rand, pos.add(j1, l1, k1));
        }
+      
        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
        WorldGenerator diamonds = new DiamondGenerator();
        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
@@ -93,8 +95,8 @@ public class BiomeAutumnTaigaHills extends Biome
              BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
              LAKE.generate(worldIn, rand, blockpos);
            }
-
-       super.decorate(worldIn, rand, pos);
+           
+           super.decorate(worldIn, rand, pos);
        }
    }
    

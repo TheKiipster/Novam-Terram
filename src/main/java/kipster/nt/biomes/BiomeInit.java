@@ -21,7 +21,7 @@ public class BiomeInit {
 	
 	public static Set<Biome> presentBiomes;
 	
-	public static Biome oakForestBiome = new BiomeTaigaPlains();
+	public static Biome oakForestBiome = new BiomeOakForest();
 	public static Biome tallOakforestBiome = new BiomeOakForestTall();
 	public static Biome sandDunesBiome = new BiomeSandDunes();
 	public static Biome redsandDunesBiome = new BiomeRedSandDunes();
@@ -30,13 +30,18 @@ public class BiomeInit {
 	public static Biome autumnTaigaBiome = new BiomeAutumnTaiga();
 	public static Biome autumntaigaHillsBiome = new BiomeAutumnTaigaHills();
 	public static Biome cliffsBiome = new BiomeCliffs();
+	public static Biome megaautumnTaigaBiome = new BiomeMegaAutumnTaiga();
+	public static Biome shrublandBiome = new BiomeShrubland();
+	public static Biome denseShrublandBiome = new BiomeDenseShrubland();
 	
 	public static void registerBiomes() {
 		
 		//WARM
-		initBiome(oakForestBiome, "Oak_Forest", 9, Config.disableOakForest, false, BiomeType.WARM, Type.FOREST);
+		initBiome(oakForestBiome, "Oak_Forest", 8, Config.disableOakForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(tallOakforestBiome, "Tall_Oak_Forest", 2, Config.disableTallOakForest, false, BiomeType.WARM, Type.FOREST);
-		initBiome(greenSwampBiome, "Green_Swamp", 9, Config.disableGreenSwamp, false, BiomeType.WARM, Type.SWAMP);
+		initBiome(greenSwampBiome, "Green_Swamp", 8, Config.disableGreenSwamp, false, BiomeType.WARM, Type.SWAMP);
+		initBiome(shrublandBiome, "Shrubland", 8, Config.disableShrubland, false, BiomeType.WARM, Type.PLAINS);
+		initBiome(denseShrublandBiome, "Dense_Shrubland", 2, Config.disableDenseShrubland, false, BiomeType.WARM, Type.PLAINS);
 		
 		//DESERT
 		initBiome(sandDunesBiome, "Sand_Dunes", 5, Config.disableRedSandDunes, true, BiomeType.DESERT, Type.SANDY);
@@ -44,9 +49,10 @@ public class BiomeInit {
 		
 		//COOL
 		initBiome(taigaPlainsBiome, "Taiga_Plains", 6, Config.disableTaigaPlains, true, BiomeType.COOL, Type.PLAINS);
-		initBiome(autumnTaigaBiome, "Autumn_Taiga", 8, Config.disableAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
+		initBiome(autumnTaigaBiome, "Autumn_Taiga", 7, Config.disableAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
 		initBiome(autumntaigaHillsBiome, "Autumn_Taiga_Hills", 2, Config.disableAutumnTaigaHills, true, BiomeType.COOL, Type.CONIFEROUS);
-		initBiome(cliffsBiome, "Cliffs", 8, Config.disableCliffs, true, BiomeType.COOL, Type.HILLS);
+		initBiome(cliffsBiome, "Cliffs", 7, Config.disableCliffs, true, BiomeType.COOL, Type.HILLS);
+		initBiome(megaautumnTaigaBiome, "Mega_Autumn_Taiga", 2, Config.disableAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
 		
 		//ICY
 		

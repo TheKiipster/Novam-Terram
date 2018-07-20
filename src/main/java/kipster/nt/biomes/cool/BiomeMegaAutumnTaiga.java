@@ -3,20 +3,21 @@ package kipster.nt.biomes.cool;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.cool.BiomeAutumnTaiga.DiamondGenerator;
+import kipster.nt.biomes.cool.BiomeMegaAutumnTaiga.DiamondGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
-import kipster.nt.world.gen.trees.WorldGenTreeAutumnTaigaOrange;
-import kipster.nt.world.gen.trees.WorldGenTreeAutumnTaigaYellow;
-import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
-import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
+import kipster.nt.world.gen.trees.WorldGenTreeBigAutumnTaigaOrange;
+import kipster.nt.world.gen.trees.WorldGenTreeBigAutumnTaigaYellow;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeTaiga;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenMegaPineTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockTallGrass;
@@ -27,19 +28,19 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeAutumnTaiga extends Biome 
+public class BiomeMegaAutumnTaiga extends Biome 
 {	
-	
-	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree YELLOW = new WorldGenTreeAutumnTaigaYellow(false, false);
-	protected static final WorldGenAbstractTree ORANGE = new WorldGenTreeAutumnTaigaOrange(false, false);
-   private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
+   
+	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
+	protected static final WorldGenAbstractTree YELLOW = new WorldGenTreeBigAutumnTaigaYellow(true);
+	protected static final WorldGenAbstractTree ORANGE = new WorldGenTreeBigAutumnTaigaOrange(true);
+	private final WorldGenMegaPineTree spruceGenerator= new WorldGenMegaPineTree(false, true);
 	 
-	public BiomeAutumnTaiga() 
+	public BiomeMegaAutumnTaiga() 
 	{
-		super(new BiomeProperties("Autumn Taiga").setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setTemperature(Biomes.TAIGA.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()));
+		super(new BiomeProperties("Mega Autumn Taiga").setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setTemperature(Biomes.TAIGA.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()));
 		
-		BiomeManager.addVillageBiome(BiomeInit.autumnTaigaBiome , true);
+		BiomeManager.addVillageBiome(BiomeInit.megaautumnTaigaBiome , true);
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
@@ -47,11 +48,26 @@ public class BiomeAutumnTaiga extends Biome
        this.spawnableCreatureList.clear();
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
-       this.decorator.treesPerChunk = 7;
+       this.decorator.treesPerChunk = 5;
        this.decorator.flowersPerChunk = 2;
        this.decorator.grassPerChunk = 4;
 
 	}
+	
+    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
+    {
+        
+            if (noiseVal > 1.75D)
+            {
+                this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
+            }
+            else if (noiseVal > -0.95D)
+            {
+                this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+            }
+
+        this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+    }
 
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
@@ -82,7 +98,6 @@ public class BiomeAutumnTaiga extends Biome
            int l1 = rand.nextInt(worldIn.getHeight(pos.add(j1, 0, k1)).getY() + 32);
            DOUBLE_PLANT_GENERATOR.generate(worldIn, rand, pos.add(j1, l1, k1));
        }
-       
        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
        WorldGenerator diamonds = new DiamondGenerator();
        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
