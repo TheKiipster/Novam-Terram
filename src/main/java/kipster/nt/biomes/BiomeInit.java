@@ -40,6 +40,7 @@ public class BiomeInit {
 	public static Biome bogBiome = new BiomeBog();
 	public static Biome dryForestBiome = new BiomeDryForest();
 	public static Biome dryforestHillsBiome = new BiomeDryForestHills();
+	public static Biome springsBiome = new BiomeSprings();
 	
 	public static void registerBiomes() {
 		
@@ -55,6 +56,7 @@ public class BiomeInit {
 		initBiome(lowlandsBiome, "Lowlands", 6, Config.disableLowlands, false, BiomeType.WARM, Type.PLAINS);
 		initBiome(dryForestBiome, "Dry_Forest", 5, Config.disableDryForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(dryforestHillsBiome, "Dry_Forest_Hills", 2, Config.disableDryForestHills, false, BiomeType.WARM, Type.FOREST);
+		initBiome(springsBiome, "Springs", 1, Config.disableSprings, false, BiomeType.WARM, Type.WET);
 		
 		//DESERT
 		initBiome(sandDunesBiome, "Sand_Dunes", 5, Config.disableSandDunes, true, BiomeType.DESERT, Type.SANDY);

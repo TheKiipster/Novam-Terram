@@ -40,6 +40,7 @@ public class Config {
     public static boolean disableBog = false;
     public static boolean disableDryForest = false;
     public static boolean disableDryForestHills = false;
+    public static boolean disableSprings = false;
 
     public static void readConfig() {
         Configuration cfg = RegistryHandler.config;
@@ -88,6 +89,7 @@ public class Config {
         disableBog = cfg.get(CATEGORY_BIOMES_WARM, "disableBog", disableBog).getBoolean();
         disableDryForest = cfg.get(CATEGORY_BIOMES_WARM, "disableDryForest", disableDryForest).getBoolean();
         disableDryForestHills = cfg.get(CATEGORY_BIOMES_WARM, "disableDryForestHills", disableDryForestHills).getBoolean();
+        disableSprings = cfg.get(CATEGORY_BIOMES_WARM, "disableSprings", disableSprings).getBoolean();
 		
     }
  

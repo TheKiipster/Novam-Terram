@@ -66,7 +66,7 @@ public class RegistryHandler
 	
 	public static void initRegistries()
 	{
-		
+		OreDictionaryHandler.registerOreDictionary();
 	}
 	
 	public static void postInitRegistries()
