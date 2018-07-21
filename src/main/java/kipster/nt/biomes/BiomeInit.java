@@ -33,6 +33,13 @@ public class BiomeInit {
 	public static Biome megaautumnTaigaBiome = new BiomeMegaAutumnTaiga();
 	public static Biome shrublandBiome = new BiomeShrubland();
 	public static Biome denseShrublandBiome = new BiomeDenseShrubland();
+	public static Biome highlandsBiome = new BiomeHighlands();
+	public static Biome pinelandsBiome = new BiomePinelands();
+	public static Biome lowlandsBiome = new BiomeLowlands();
+	public static Biome sahelBiome = new BiomeSahel();
+	public static Biome bogBiome = new BiomeBog();
+	public static Biome dryForestBiome = new BiomeDryForest();
+	public static Biome dryforestHillsBiome = new BiomeDryForestHills();
 	
 	public static void registerBiomes() {
 		
@@ -40,19 +47,26 @@ public class BiomeInit {
 		initBiome(oakForestBiome, "Oak_Forest", 8, Config.disableOakForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(tallOakforestBiome, "Tall_Oak_Forest", 2, Config.disableTallOakForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(greenSwampBiome, "Green_Swamp", 8, Config.disableGreenSwamp, false, BiomeType.WARM, Type.SWAMP);
+		initBiome(bogBiome, "Bog", 4, Config.disableGreenSwamp, false, BiomeType.WARM, Type.SWAMP);
 		initBiome(shrublandBiome, "Shrubland", 8, Config.disableShrubland, false, BiomeType.WARM, Type.PLAINS);
 		initBiome(denseShrublandBiome, "Dense_Shrubland", 2, Config.disableDenseShrubland, false, BiomeType.WARM, Type.PLAINS);
+		initBiome(highlandsBiome, "Highlands", 8, Config.disableHighlands, false, BiomeType.WARM, Type.HILLS);
+		initBiome(pinelandsBiome, "Pinelands", 4, Config.disablePinelands, false, BiomeType.WARM, Type.HILLS);
+		initBiome(lowlandsBiome, "Lowlands", 6, Config.disableLowlands, false, BiomeType.WARM, Type.PLAINS);
+		initBiome(dryForestBiome, "Dry_Forest", 5, Config.disableDryForest, false, BiomeType.WARM, Type.FOREST);
+		initBiome(dryforestHillsBiome, "Dry_Forest_Hills", 2, Config.disableDryForestHills, false, BiomeType.WARM, Type.FOREST);
 		
 		//DESERT
-		initBiome(sandDunesBiome, "Sand_Dunes", 5, Config.disableRedSandDunes, true, BiomeType.DESERT, Type.SANDY);
-		initBiome(redsandDunesBiome, "Red_Sand_Dunes", 5, Config.disableSandDunes, true, BiomeType.DESERT, Type.SANDY);
+		initBiome(sandDunesBiome, "Sand_Dunes", 5, Config.disableSandDunes, true, BiomeType.DESERT, Type.SANDY);
+		initBiome(redsandDunesBiome, "Red_Sand_Dunes", 5, Config.disableRedSandDunes, true, BiomeType.DESERT, Type.SANDY);
+		initBiome(sahelBiome, "Sahel", 7, Config.disableSahel, true, BiomeType.DESERT, Type.SANDY);
 		
 		//COOL
 		initBiome(taigaPlainsBiome, "Taiga_Plains", 6, Config.disableTaigaPlains, true, BiomeType.COOL, Type.PLAINS);
 		initBiome(autumnTaigaBiome, "Autumn_Taiga", 7, Config.disableAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
 		initBiome(autumntaigaHillsBiome, "Autumn_Taiga_Hills", 2, Config.disableAutumnTaigaHills, true, BiomeType.COOL, Type.CONIFEROUS);
 		initBiome(cliffsBiome, "Cliffs", 7, Config.disableCliffs, true, BiomeType.COOL, Type.HILLS);
-		initBiome(megaautumnTaigaBiome, "Mega_Autumn_Taiga", 2, Config.disableAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
+		initBiome(megaautumnTaigaBiome, "Mega_Autumn_Taiga", 2, Config.disableMegaAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
 		
 		//ICY
 		

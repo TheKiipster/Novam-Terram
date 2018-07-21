@@ -3,13 +3,15 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
+import kipster.nt.world.gen.trees.WorldGenTreeBigAutumnTaigaOrange;
+import kipster.nt.world.gen.trees.WorldGenTreeDead;
 import kipster.nt.world.gen.trees.WorldGenTreeOak;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import kipster.nt.biomes.warm.BiomeGreenSwamp.EmeraldGenerator;
+import kipster.nt.biomes.warm.BiomeBog.EmeraldGenerator;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenFossils;
@@ -29,34 +31,40 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BiomeGreenSwamp extends Biome 
+public class BiomeBog extends Biome 
 {
  protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
-
-	public BiomeGreenSwamp() 
+ protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false, false);
+	public BiomeBog() 
 	{
-		super(new BiomeProperties("Green Swamp").setBaseHeight(Biomes.SWAMPLAND.getBaseHeight()).setHeightVariation(Biomes.SWAMPLAND.getHeightVariation()).setTemperature(Biomes.SWAMPLAND.getDefaultTemperature()).setRainfall(Biomes.SWAMPLAND.getRainfall()).setWaterColor(0x379A3E));
+		super(new BiomeProperties("Bog").setBaseHeight(Biomes.SWAMPLAND.getBaseHeight()).setHeightVariation(Biomes.SWAMPLAND.getHeightVariation()).setTemperature(Biomes.SWAMPLAND.getDefaultTemperature()).setRainfall(Biomes.SWAMPLAND.getRainfall()).setWaterColor(0x634A22));
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		    this.decorator.treesPerChunk = 2;
+		    this.decorator.treesPerChunk = 3;
 	        this.decorator.flowersPerChunk = 1;
 	        this.decorator.deadBushPerChunk = 1;
-	        this.decorator.mushroomsPerChunk = 8;
-	        this.decorator.reedsPerChunk = 10;
-	        this.decorator.clayPerChunk = 1;
-	        this.decorator.waterlilyPerChunk = 4;
+	        this.decorator.mushroomsPerChunk = 10;
+	        this.decorator.reedsPerChunk = 13;
+	        this.decorator.clayPerChunk = 8;
+	        this.decorator.waterlilyPerChunk = 7;
 	        this.decorator.sandPatchesPerChunk = 1;
 	        this.decorator.gravelPatchesPerChunk = 0;
 	        this.decorator.grassPerChunk = 6;
-	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 1, 1, 1));
+	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 2, 2, 2));
 	    }
-
-	    public WorldGenAbstractTree getRandomTreeFeature(Random rand)
-	    {
-	        return SWAMP_FEATURE;
-	    }
+	@Override
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+	if (rand.nextInt(2) > 0)
+	{
+		  return DEAD;
+	}
+	else
+	{
+	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? SWAMP_FEATURE : SWAMP_FEATURE);
+	}
+	}
 	    
 	    public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	    {
@@ -134,11 +142,11 @@ public class BiomeGreenSwamp extends Biome
 	    }
 	        @Override
 	    	public int getModdedBiomeGrassColor(int original) {
-	    	    return 0x74A34C;
+	    	    return 0x747036;
 	    	}
 	    	@Override
 	    	public int getModdedBiomeFoliageColor(int original) {
-	    	    return 0x74A34C;
+	    	    return 0x5C803C;
 	    }
 
 	    @Override

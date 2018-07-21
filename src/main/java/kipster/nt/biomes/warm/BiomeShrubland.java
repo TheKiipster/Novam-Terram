@@ -78,6 +78,7 @@ public class BiomeShrubland extends Biome
 	                {
 	                    worldIn.setBlockState(blockpos, Blocks.EMERALD_ORE.getDefaultState(), 16 | 2);
 	                }
+	                net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	            }
 	            return true;
 	        }

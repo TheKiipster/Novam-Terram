@@ -64,7 +64,7 @@ public class BiomeOakForestTall extends Biome
 	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	           LAKE.generate(worldIn, rand, blockpos);
 	         }
-	   
+	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	        }
 
 	    super.decorate(worldIn, rand, pos);

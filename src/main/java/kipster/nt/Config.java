@@ -25,6 +25,7 @@ public class Config {
     
     public static boolean disableSandDunes = false;
     public static boolean disableRedSandDunes = false;
+    public static boolean disableSahel = false;
     
     //Warm
 	
@@ -33,7 +34,12 @@ public class Config {
     public static boolean disableTallOakForest = false;
     public static boolean disableShrubland = false;
     public static boolean disableDenseShrubland = false;
-    
+    public static boolean disableHighlands = false;
+    public static boolean disablePinelands = false;
+    public static boolean disableLowlands = false;
+    public static boolean disableBog = false;
+    public static boolean disableDryForest = false;
+    public static boolean disableDryForestHills = false;
 
     public static void readConfig() {
         Configuration cfg = RegistryHandler.config;
@@ -67,6 +73,7 @@ public class Config {
         
         disableSandDunes = cfg.get(CATEGORY_BIOMES_DESERT, "disableSandDunes", disableSandDunes).getBoolean();
         disableRedSandDunes = cfg.get(CATEGORY_BIOMES_DESERT, "disableRedSandDunes", disableRedSandDunes).getBoolean();
+        disableSahel = cfg.get(CATEGORY_BIOMES_DESERT, "disableSahel", disableSahel).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_WARM, "Warm Biome configuration");
         
@@ -75,6 +82,12 @@ public class Config {
         disableTallOakForest = cfg.get(CATEGORY_BIOMES_WARM, "disableTallOakForest", disableTallOakForest).getBoolean();
         disableShrubland = cfg.get(CATEGORY_BIOMES_WARM, "disableShrubland", disableShrubland).getBoolean();
         disableDenseShrubland = cfg.get(CATEGORY_BIOMES_WARM, "disableDenseShrubland", disableDenseShrubland).getBoolean();
+        disableHighlands = cfg.get(CATEGORY_BIOMES_WARM, "disableHighlands", disableHighlands).getBoolean();
+        disablePinelands = cfg.get(CATEGORY_BIOMES_WARM, "disablePinelands", disablePinelands).getBoolean();
+        disableLowlands = cfg.get(CATEGORY_BIOMES_WARM, "disableLowlands", disableLowlands).getBoolean();
+        disableBog = cfg.get(CATEGORY_BIOMES_WARM, "disableBog", disableBog).getBoolean();
+        disableDryForest = cfg.get(CATEGORY_BIOMES_WARM, "disableDryForest", disableDryForest).getBoolean();
+        disableDryForestHills = cfg.get(CATEGORY_BIOMES_WARM, "disableDryForestHills", disableDryForestHills).getBoolean();
 		
     }
  

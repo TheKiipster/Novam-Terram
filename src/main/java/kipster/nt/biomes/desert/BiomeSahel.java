@@ -4,35 +4,46 @@ import java.util.Iterator;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.desert.BiomeSandDunes.GoldGenerator;
+import kipster.nt.biomes.desert.BiomeSahel.GoldGenerator;
+import kipster.nt.world.gen.WorldGenPatches;
+import kipster.nt.world.gen.trees.WorldGenTreeShrubAcacia;
+import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityRabbit;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import net.minecraft.world.gen.feature.WorldGenFossils;
+import net.minecraft.world.gen.feature.WorldGenSavannaTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeSandDunes extends Biome 
+public class BiomeSahel extends Biome 
 {
-	public BiomeSandDunes() 
+	private static final WorldGenAbstractTree SAVANNA_TREE = new WorldGenSavannaTree(false);
+	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 5);
+	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
+	
+	public BiomeSahel() 
 	{
-		super(new BiomeProperties("Sand Dunes").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
+		super(new BiomeProperties("Sahel").setBaseHeight(0.125F).setHeightVariation(0.046F).setTemperature(0.95F).setRainfall(0.9F));
 		
-		topBlock = Blocks.SAND.getDefaultState();
-		fillerBlock = Blocks.SAND.getDefaultState();
-		
-			this.decorator.treesPerChunk = -999;
-	        this.decorator.deadBushPerChunk = 2;
-	        this.decorator.reedsPerChunk = 50;
+			this.decorator.treesPerChunk = 3;
+			this.decorator.flowersPerChunk = 3;
+			this.decorator.grassPerChunk = 4;
+	        this.decorator.deadBushPerChunk = 5;
+	        this.decorator.reedsPerChunk = 25;
 	        this.decorator.cactiPerChunk = 10;
 	        this.spawnableCreatureList.clear();
+	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityChicken.class, 10, 4, 4));
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	        Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
 
@@ -50,6 +61,28 @@ public class BiomeSandDunes extends Biome
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombieVillager.class, 1, 1, 1));
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityHusk.class, 80, 4, 4));
 	}
+	
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
+    {
+        return (WorldGenAbstractTree)(rand.nextInt(4) > 0 ? SAVANNA_TREE : SHRUB_ACACIA);
+}
+	
+	@Override
+    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+        if (noiseVal > 2D) {
+            this.topBlock = Blocks.GRASS.getDefaultState();
+            this.fillerBlock = Blocks.DIRT.getDefaultState(); }
+        
+        else {
+        	
+         this.topBlock = Blocks.SAND.getDefaultState();
+            this.fillerBlock = Blocks.SAND.getDefaultState();
+        }
+
+        this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+        
+		}
+	
 	        public void decorate(World worldIn, Random rand, BlockPos pos)
 	        {
 	            super.decorate(worldIn, rand, pos);
@@ -59,6 +92,14 @@ public class BiomeSandDunes extends Biome
 		 	       if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, gold, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.GOLD))
 		 	    	   gold.generate(worldIn, rand, pos);
 	            
+		 	  	int grasspatchChance = rand.nextInt(4);
+				if (grasspatchChance == 0) {
+					int k6 = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+					GRASS_PATCHES.generate(worldIn, rand, blockpos);
+				}
+				
 	            if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.DESERT_WELL))
 	            if (rand.nextInt(1000) == 0)
 	            {
@@ -96,4 +137,14 @@ public class BiomeSandDunes extends Biome
 		   	            return true;
 		   	        }
 		   	    }
+		   	 
+		   	@Override
+		   	public int getModdedBiomeGrassColor(int original) {
+		   	    return 0x92B25C;
+		   	}
+
+		   	@Override
+		   	public int getModdedBiomeFoliageColor(int original) {
+		   	    return 0x92B25C;
+		   	}
 	    }
