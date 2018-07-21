@@ -37,7 +37,7 @@ public class BiomeBog extends Biome
  protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false, false);
 	public BiomeBog() 
 	{
-		super(new BiomeProperties("Bog").setBaseHeight(Biomes.SWAMPLAND.getBaseHeight()).setHeightVariation(Biomes.SWAMPLAND.getHeightVariation()).setTemperature(Biomes.SWAMPLAND.getDefaultTemperature()).setRainfall(Biomes.SWAMPLAND.getRainfall()).setWaterColor(0x634A22));
+		super(new BiomeProperties("Bog").setBaseHeight(Biomes.SWAMPLAND.getBaseHeight()).setHeightVariation(Biomes.SWAMPLAND.getHeightVariation()).setTemperature(Biomes.SWAMPLAND.getDefaultTemperature()).setRainfall(Biomes.SWAMPLAND.getRainfall()).setWaterColor(0x523507));
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
@@ -65,12 +65,7 @@ public class BiomeBog extends Biome
 	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? SWAMP_FEATURE : SWAMP_FEATURE);
 	}
 	}
-	    
-	    public WorldGenerator getRandomWorldGenForGrass(Random rand)
-	    {
-	        return rand.nextInt(4) == 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
-	    }
-
+	   
 	    public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
 	    {
 	        return BlockFlower.EnumFlowerType.BLUE_ORCHID;
@@ -121,25 +116,9 @@ public class BiomeBog extends Biome
 	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, emeralds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.EMERALD))
 	            emeralds.generate(worldIn, rand, pos);
 	        
-	        int i = rand.nextInt(16) + 8;
-	        int j = rand.nextInt(16) + 8;
-	        int height = worldIn.getHeight(pos.add(i, 0, j)).getY() * 2; // could == 0, which crashes nextInt
-	        if (height < 1) height = 1;
-	        int k = rand.nextInt(height);
-	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), pos.add(i, k, j), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.PUMPKIN))
-	        (new WorldGenMelon()).generate(worldIn, rand, pos.add(i, k, j));
-	        WorldGenVines worldgenvines = new WorldGenVines();
-
-	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-	        for (int j1 = 0; j1 < 50; ++j1)
-	        {
-	            k = rand.nextInt(16) + 8;
-	            int l = 128;
-	            int i1 = rand.nextInt(16) + 8;
-	            worldgenvines.generate(worldIn, rand, pos.add(k, 128, i1));
-	        }
 	        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	    }
+	    
 	        @Override
 	    	public int getModdedBiomeGrassColor(int original) {
 	    	    return 0x747036;

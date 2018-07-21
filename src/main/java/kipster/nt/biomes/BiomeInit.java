@@ -47,7 +47,7 @@ public class BiomeInit {
 		initBiome(oakForestBiome, "Oak_Forest", 8, Config.disableOakForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(tallOakforestBiome, "Tall_Oak_Forest", 2, Config.disableTallOakForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(greenSwampBiome, "Green_Swamp", 8, Config.disableGreenSwamp, false, BiomeType.WARM, Type.SWAMP);
-		initBiome(bogBiome, "Bog", 4, Config.disableGreenSwamp, false, BiomeType.WARM, Type.SWAMP);
+		initBiome(bogBiome, "Bog", 4, Config.disableBog, false, BiomeType.WARM, Type.SWAMP);
 		initBiome(shrublandBiome, "Shrubland", 8, Config.disableShrubland, false, BiomeType.WARM, Type.PLAINS);
 		initBiome(denseShrublandBiome, "Dense_Shrubland", 2, Config.disableDenseShrubland, false, BiomeType.WARM, Type.PLAINS);
 		initBiome(highlandsBiome, "Highlands", 8, Config.disableHighlands, false, BiomeType.WARM, Type.HILLS);
