@@ -41,6 +41,7 @@ public class BiomeGreenSwamp extends Biome
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
 		    this.decorator.treesPerChunk = 2;
+		    this.decorator.bigMushroomsPerChunk = 1;
 	        this.decorator.flowersPerChunk = 1;
 	        this.decorator.deadBushPerChunk = 1;
 	        this.decorator.mushroomsPerChunk = 8;

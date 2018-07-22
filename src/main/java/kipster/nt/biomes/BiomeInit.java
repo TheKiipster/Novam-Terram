@@ -41,6 +41,8 @@ public class BiomeInit {
 	public static Biome dryForestBiome = new BiomeDryForest();
 	public static Biome dryforestHillsBiome = new BiomeDryForestHills();
 	public static Biome springsBiome = new BiomeSprings();
+	public static Biome tundraBiome = new BiomeTundra();
+	public static Biome icyTundraBiome = new BiomeIcyTundra();
 	
 	public static void registerBiomes() {
 		
@@ -71,6 +73,8 @@ public class BiomeInit {
 		initBiome(megaautumnTaigaBiome, "Mega_Autumn_Taiga", 2, Config.disableMegaAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
 		
 		//ICY
+		initBiome(tundraBiome, "Tundra", 6, Config.disableTundra, true, BiomeType.ICY, Type.COLD);
+		initBiome(icyTundraBiome, "Tundra_Icy", 2, Config.disableIcyTundra, true, BiomeType.ICY, Type.COLD);
 		
 	}
 	

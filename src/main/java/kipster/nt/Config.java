@@ -20,6 +20,9 @@ public class Config {
     
     //Icy
     
+    public static boolean disableTundra = false;
+    public static boolean disableIcyTundra = false;
+    
     
     //Desert
     
