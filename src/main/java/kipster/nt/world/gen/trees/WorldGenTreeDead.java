@@ -1,39 +1,33 @@
 package kipster.nt.world.gen.trees;
 
 import java.util.Random;
-
-import kipster.nt.blocks.BlockInit;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockOldLeaf;
+import net.minecraft.block.BlockNewLeaf;
+import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class WorldGenTreeDead extends WorldGenAbstractTree
 {
-    private static final IBlockState LOG = Blocks.LOG.getDefaultState();
+    private static final IBlockState TRUNK = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.OAK);
     private static final IBlockState LEAF = Blocks.AIR.getDefaultState();
-    private final boolean useExtraRandomHeight;
 
-    public WorldGenTreeDead(boolean notify, boolean useExtraRandomHeightIn)
+    public WorldGenTreeDead(boolean doBlockNotify)
     {
-        super(notify);
-        this.useExtraRandomHeight = useExtraRandomHeightIn;
+        super(doBlockNotify);
     }
 
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
-        int i = rand.nextInt(3) + 5;
-
-        if (this.useExtraRandomHeight)
-        {
-            i += rand.nextInt(7);
-        }
-
+        int i = rand.nextInt(3) + rand.nextInt(3) + 5;
         boolean flag = true;
 
         if (position.getY() >= 1 && position.getY() + i + 1 <= 256)
@@ -58,9 +52,9 @@ public class WorldGenTreeDead extends WorldGenAbstractTree
                 {
                     for (int i1 = position.getZ() - k; i1 <= position.getZ() + k && flag; ++i1)
                     {
-                        if (j >= 0 && j < worldIn.getHeight())
+                        if (j >= 0 && j < 256)
                         {
-                            if (!this.isReplaceable(worldIn, blockpos$mutableblockpos.setPos(l, j, i1)))
+                            if (!this.isReplaceable(worldIn,blockpos$mutableblockpos.setPos(l, j, i1)))
                             {
                                 flag = false;
                             }
@@ -81,47 +75,120 @@ public class WorldGenTreeDead extends WorldGenAbstractTree
             {
                 BlockPos down = position.down();
                 IBlockState state = worldIn.getBlockState(down);
-                boolean isSoil = state.getBlock().canSustainPlant(state, worldIn, down, net.minecraft.util.EnumFacing.UP, (net.minecraft.block.BlockSapling)Blocks.SAPLING);
+                boolean isSoil = state.getBlock().canSustainPlant(state, worldIn, down, net.minecraft.util.EnumFacing.UP, ((net.minecraft.block.BlockSapling)Blocks.SAPLING));
 
                 if (isSoil && position.getY() < worldIn.getHeight() - i - 1)
                 {
                     state.getBlock().onPlantGrow(state, worldIn, down, position);
+                    EnumFacing enumfacing = EnumFacing.Plane.HORIZONTAL.random(rand);
+                    int k2 = i - rand.nextInt(4) - 1;
+                    int l2 = 3 - rand.nextInt(3);
+                    int i3 = position.getX();
+                    int j1 = position.getZ();
+                    int k1 = 0;
 
-                    for (int i2 = position.getY() - 3 + i; i2 <= position.getY() + i; ++i2)
+                    for (int l1 = 0; l1 < i; ++l1)
                     {
-                        int k2 = i2 - (position.getY() + i);
-                        int l2 = 1 - k2 / 2;
+                        int i2 = position.getY() + l1;
 
-                        for (int i3 = position.getX() - l2; i3 <= position.getX() + l2; ++i3)
+                        if (l1 >= k2 && l2 > 0)
                         {
-                            int j1 = i3 - position.getX();
+                            i3 += enumfacing.getFrontOffsetX();
+                            j1 += enumfacing.getFrontOffsetZ();
+                            --l2;
+                        }
 
-                            for (int k1 = position.getZ() - l2; k1 <= position.getZ() + l2; ++k1)
+                        BlockPos blockpos = new BlockPos(i3, i2, j1);
+                        state = worldIn.getBlockState(blockpos);
+
+                        if (state.getBlock().isAir(state, worldIn, blockpos) || state.getBlock().isLeaves(state, worldIn, blockpos))
+                        {
+                            this.placeLogAt(worldIn, blockpos);
+                            k1 = i2;
+                        }
+                    }
+
+                    BlockPos blockpos2 = new BlockPos(i3, k1, j1);
+
+                    for (int j3 = -3; j3 <= 3; ++j3)
+                    {
+                        for (int i4 = -3; i4 <= 3; ++i4)
+                        {
+                            if (Math.abs(j3) != 3 || Math.abs(i4) != 3)
                             {
-                                int l1 = k1 - position.getZ();
-
-                                if (Math.abs(j1) != l2 || Math.abs(l1) != l2 || rand.nextInt(2) != 0 && k2 != 0)
-                                {
-                                    BlockPos blockpos = new BlockPos(i3, i2, k1);
-                                    IBlockState state2 = worldIn.getBlockState(blockpos);
-
-                                    if (state2.getBlock().isAir(state2, worldIn, blockpos) || state2.getBlock().isAir(state2, worldIn, blockpos))
-                                    {
-                                        this.setBlockAndNotifyAdequately(worldIn, blockpos, LEAF);
-                                    }
-                                }
+                                this.placeLeafAt(worldIn, blockpos2.add(j3, 0, i4));
                             }
                         }
                     }
 
-                    for (int j2 = 0; j2 < i; ++j2)
-                    {
-                        BlockPos upN = position.up(j2);
-                        IBlockState state2 = worldIn.getBlockState(upN);
+                    blockpos2 = blockpos2.up();
 
-                        if (state2.getBlock().isAir(state2, worldIn, upN) || state2.getBlock().isLeaves(state2, worldIn, upN))
+                    for (int k3 = -1; k3 <= 1; ++k3)
+                    {
+                        for (int j4 = -1; j4 <= 1; ++j4)
                         {
-                            this.setBlockAndNotifyAdequately(worldIn, position.up(j2), LOG);
+                            this.placeLeafAt(worldIn, blockpos2.add(k3, 0, j4));
+                        }
+                    }
+
+                    this.placeLeafAt(worldIn, blockpos2.east(2));
+                    this.placeLeafAt(worldIn, blockpos2.west(2));
+                    this.placeLeafAt(worldIn, blockpos2.south(2));
+                    this.placeLeafAt(worldIn, blockpos2.north(2));
+                    i3 = position.getX();
+                    j1 = position.getZ();
+                    EnumFacing enumfacing1 = EnumFacing.Plane.HORIZONTAL.random(rand);
+
+                    if (enumfacing1 != enumfacing)
+                    {
+                        int l3 = k2 - rand.nextInt(2) - 1;
+                        int k4 = 1 + rand.nextInt(3);
+                        k1 = 0;
+
+                        for (int l4 = l3; l4 < i && k4 > 0; --k4)
+                        {
+                            if (l4 >= 1)
+                            {
+                                int j2 = position.getY() + l4;
+                                i3 += enumfacing1.getFrontOffsetX();
+                                j1 += enumfacing1.getFrontOffsetZ();
+                                BlockPos blockpos1 = new BlockPos(i3, j2, j1);
+                                state = worldIn.getBlockState(blockpos1);
+
+                                if (state.getBlock().isAir(state, worldIn, blockpos1) || state.getBlock().isLeaves(state, worldIn, blockpos1))
+                                {
+                                    this.placeLogAt(worldIn, blockpos1);
+                                    k1 = j2;
+                                }
+                            }
+
+                            ++l4;
+                        }
+
+                        if (k1 > 0)
+                        {
+                            BlockPos blockpos3 = new BlockPos(i3, k1, j1);
+
+                            for (int i5 = -2; i5 <= 2; ++i5)
+                            {
+                                for (int k5 = -2; k5 <= 2; ++k5)
+                                {
+                                    if (Math.abs(i5) != 2 || Math.abs(k5) != 2)
+                                    {
+                                        this.placeLeafAt(worldIn, blockpos3.add(i5, 0, k5));
+                                    }
+                                }
+                            }
+
+                            blockpos3 = blockpos3.up();
+
+                            for (int j5 = -1; j5 <= 1; ++j5)
+                            {
+                                for (int l5 = -1; l5 <= 1; ++l5)
+                                {
+                                    this.placeLeafAt(worldIn, blockpos3.add(j5, 0, l5));
+                                }
+                            }
                         }
                     }
 
@@ -136,6 +203,21 @@ public class WorldGenTreeDead extends WorldGenAbstractTree
         else
         {
             return false;
+        }
+    }
+
+    private void placeLogAt(World worldIn, BlockPos pos)
+    {
+        this.setBlockAndNotifyAdequately(worldIn, pos, TRUNK);
+    }
+
+    private void placeLeafAt(World worldIn, BlockPos pos)
+    {
+        IBlockState state = worldIn.getBlockState(pos);
+
+        if (state.getBlock().isAir(state, worldIn, pos) || state.getBlock().isLeaves(state, worldIn, pos))
+        {
+            this.setBlockAndNotifyAdequately(worldIn, pos, LEAF);
         }
     }
 }

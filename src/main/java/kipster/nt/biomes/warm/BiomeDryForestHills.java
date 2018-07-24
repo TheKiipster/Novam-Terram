@@ -28,7 +28,7 @@ public class BiomeDryForestHills extends Biome
 	//protected static final WorldGenPatches COARSE_PATCHES = new WorldGenPatches(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT), 3);
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
 	protected static final WorldGenTreeOak OAK_TREE = new WorldGenTreeOak(false, false);
-	protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false, false);
+	protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false);
 	
 	public BiomeDryForestHills() 
 	{

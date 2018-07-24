@@ -17,11 +17,13 @@ public class Config {
     public static boolean disableTaigaPlains = false;
     public static boolean disableCliffs = false;
     public static boolean disableMegaAutumnTaiga = false;
+    public static boolean disablePineForest = false;
     
     //Icy
     
     public static boolean disableTundra = false;
     public static boolean disableIcyTundra = false;
+    public static boolean disableSnowyPineForest = false;
     
     
     //Desert
@@ -44,6 +46,8 @@ public class Config {
     public static boolean disableDryForest = false;
     public static boolean disableDryForestHills = false;
     public static boolean disableSprings = false;
+    public static boolean disableDenseMixedForest = false;
+    public static boolean disableMixedForest = false;
 
     public static void readConfig() {
         Configuration cfg = RegistryHandler.config;
@@ -68,10 +72,13 @@ public class Config {
         disableTaigaPlains = cfg.get(CATEGORY_BIOMES_COOL, "disableTaigaPlains", disableTaigaPlains).getBoolean();
         disableCliffs = cfg.get(CATEGORY_BIOMES_COOL, "disableCliffs", disableCliffs).getBoolean();
         disableMegaAutumnTaiga = cfg.get(CATEGORY_BIOMES_COOL, "disableMegaAutumnTaiga", disableMegaAutumnTaiga).getBoolean();
+        disablePineForest = cfg.get(CATEGORY_BIOMES_COOL, "disablePineForest", disablePineForest).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_ICY, "Icy Biome configuration");
         
-        
+        disableTundra = cfg.get(CATEGORY_BIOMES_ICY, "disableTundra", disableTundra).getBoolean();
+        disableIcyTundra = cfg.get(CATEGORY_BIOMES_ICY, "disableIcyTundra", disableIcyTundra).getBoolean();
+        disableSnowyPineForest = cfg.get(CATEGORY_BIOMES_ICY, "disableSnowyPineForest", disableSnowyPineForest).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_DESERT, "Desert Biome configuration");
         
@@ -93,6 +100,8 @@ public class Config {
         disableDryForest = cfg.get(CATEGORY_BIOMES_WARM, "disableDryForest", disableDryForest).getBoolean();
         disableDryForestHills = cfg.get(CATEGORY_BIOMES_WARM, "disableDryForestHills", disableDryForestHills).getBoolean();
         disableSprings = cfg.get(CATEGORY_BIOMES_WARM, "disableSprings", disableSprings).getBoolean();
+        disableMixedForest = cfg.get(CATEGORY_BIOMES_WARM, "disableMixedForest", disableMixedForest).getBoolean();
+        disableDenseMixedForest = cfg.get(CATEGORY_BIOMES_WARM, "disableDenseMixedForest", disableDenseMixedForest).getBoolean();
 		
     }
  

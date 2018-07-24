@@ -3,59 +3,68 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.warm.BiomeDryForest.EmeraldGenerator;
-import kipster.nt.world.gen.WorldGenPatches;
-import kipster.nt.world.gen.trees.WorldGenTreeDead;
+import kipster.nt.biomes.warm.BiomeMixedForest.EmeraldGenerator;
 import kipster.nt.world.gen.trees.WorldGenTreeOak;
+import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenBirchTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenTaiga1;
+import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraft.block.BlockDirt;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeDryForest extends Biome 
+public class BiomeMixedForest extends Biome 
 {
 	
-	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 5);
-	//protected static final WorldGenPatches COARSE_PATCHES = new WorldGenPatches(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT), 3);
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
+	protected static final WorldGenBirchTree SUPER_BIRCH_TREE = new WorldGenBirchTree(false, true);
 	protected static final WorldGenTreeOak OAK_TREE = new WorldGenTreeOak(false, false);
-	protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false);
+	private final WorldGenTaiga1 otherspruceGenerator = new WorldGenTaiga1();
+	private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
 	
-	public BiomeDryForest() 
+	public BiomeMixedForest() 
 	{
-		super(new BiomeProperties("Dry Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
+		super(new BiomeProperties("Mixed Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		
+		topBlock = Blocks.GRASS.getDefaultState();
+		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		
-		this.decorator.treesPerChunk = 10;
+		this.decorator.treesPerChunk = 8;
 		this.decorator.flowersPerChunk = 1;
-	    this.decorator.grassPerChunk = 2;
+	    this.decorator.grassPerChunk = 3;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 		
 	}
 	
-	@Override
-	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
-	if (rand.nextInt(2) > 0)
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	{
-		  return DEAD;
-	}
-	else
-	{
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? OAK_TREE : OAK_TREE);
-	}
-	}
+		  if (rand.nextInt(3) > 0)
+	        {
+	    return (WorldGenAbstractTree)(rand.nextInt(3) > 0 ? this.spruceGenerator : super.getRandomTreeFeature(rand));
+	        }
+	    else if (rand.nextInt(5) != 0)
+        {
+            return (WorldGenAbstractTree)(rand.nextInt(10) == 0 ? BIG_TREE_FEATURE : SUPER_BIRCH_TREE);
+        }
+	    else if (rand.nextInt(4) != 0)
+        {
+            return (WorldGenAbstractTree)(rand.nextInt(10) == 0 ? this.otherspruceGenerator : TREE_FEATURE);
+        }
+        else
+        {
+            return OAK_TREE;
+        }
+}
     
 	public void decorate(World worldIn, Random rand, BlockPos pos)
 	{
@@ -72,35 +81,20 @@ public class BiomeDryForest extends Biome
 	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	           LAKE.generate(worldIn, rand, blockpos);
 	         }
-	         int grassChance = rand.nextInt(4);
-	 		if (grassChance == 0) {
-	 			int k6 = rand.nextInt(16) + 8;
-	 			int l = rand.nextInt(16) + 8;
-	 			BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-	 			GRASS_PATCHES.generate(worldIn, rand, blockpos);
-	 		
-		 		}
 	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	        }
 
 	    super.decorate(worldIn, rand, pos);
 	        }
 	
-	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
-    {
-        
-            if (noiseVal > 1.75D)
-            {
-                this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
-            }
-            else if (noiseVal > -0.95D)
-            {
-            	this.topBlock = Blocks.DIRT.getDefaultState();
-        		this.fillerBlock = Blocks.DIRT.getDefaultState();
-            }
-
-        this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
-    }
+	@Override
+	public int getModdedBiomeGrassColor(int original) {
+	    return 0x8BAB3A;
+	}
+	@Override
+	public int getModdedBiomeFoliageColor(int original) {
+	    return 0x8BAB3A;
+	}
 	
 	public static class EmeraldGenerator extends WorldGenerator
     {
@@ -122,13 +116,4 @@ public class BiomeDryForest extends Biome
             return true;
         }
     }
-	
-	@Override
-	public int getModdedBiomeGrassColor(int original) {
-	    return 0xA99D5D;
-	}
-	@Override
-	public int getModdedBiomeFoliageColor(int original) {
-	    return 0xA99D5D;
-	}
 }

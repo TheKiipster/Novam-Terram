@@ -34,7 +34,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BiomeBog extends Biome 
 {
  protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
- protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false, false);
+ protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false);
+ 
 	public BiomeBog() 
 	{
 		super(new BiomeProperties("Bog").setBaseHeight(Biomes.SWAMPLAND.getBaseHeight()).setHeightVariation(Biomes.SWAMPLAND.getHeightVariation()).setTemperature(Biomes.SWAMPLAND.getDefaultTemperature()).setRainfall(Biomes.SWAMPLAND.getRainfall()).setWaterColor(0x523507));

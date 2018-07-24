@@ -43,6 +43,10 @@ public class BiomeInit {
 	public static Biome springsBiome = new BiomeSprings();
 	public static Biome tundraBiome = new BiomeTundra();
 	public static Biome icyTundraBiome = new BiomeIcyTundra();
+	public static Biome mixedForestBiome = new BiomeMixedForest();
+	public static Biome densemixedForestBiome = new BiomeDenseMixedForest();
+	public static Biome pineForestBiome = new BiomePineForest();
+	public static Biome snowypineForestBiome = new BiomeSnowyPineForest();
 	
 	public static void registerBiomes() {
 		
@@ -59,6 +63,8 @@ public class BiomeInit {
 		initBiome(dryForestBiome, "Dry_Forest", 5, Config.disableDryForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(dryforestHillsBiome, "Dry_Forest_Hills", 2, Config.disableDryForestHills, false, BiomeType.WARM, Type.FOREST);
 		initBiome(springsBiome, "Springs", 1, Config.disableSprings, false, BiomeType.WARM, Type.WET);
+		initBiome(mixedForestBiome, "Mixed_Forest", 6, Config.disableMixedForest, false, BiomeType.WARM, Type.FOREST);
+		initBiome(densemixedForestBiome, "Dense_Mixed_Forest", 2, Config.disableDenseMixedForest, false, BiomeType.WARM, Type.FOREST);
 		
 		//DESERT
 		initBiome(sandDunesBiome, "Sand_Dunes", 5, Config.disableSandDunes, true, BiomeType.DESERT, Type.SANDY);
@@ -71,10 +77,12 @@ public class BiomeInit {
 		initBiome(autumntaigaHillsBiome, "Autumn_Taiga_Hills", 2, Config.disableAutumnTaigaHills, true, BiomeType.COOL, Type.CONIFEROUS);
 		initBiome(cliffsBiome, "Cliffs", 7, Config.disableCliffs, true, BiomeType.COOL, Type.HILLS);
 		initBiome(megaautumnTaigaBiome, "Mega_Autumn_Taiga", 2, Config.disableMegaAutumnTaiga ,true, BiomeType.COOL, Type.CONIFEROUS);
+		initBiome(pineForestBiome, "Pine_Forest", 6, Config.disablePineForest ,true, BiomeType.COOL, Type.CONIFEROUS);
 		
 		//ICY
 		initBiome(tundraBiome, "Tundra", 6, Config.disableTundra, true, BiomeType.ICY, Type.COLD);
 		initBiome(icyTundraBiome, "Tundra_Icy", 2, Config.disableIcyTundra, true, BiomeType.ICY, Type.COLD);
+		initBiome(snowypineForestBiome, "Snowy_Pine_Forest", 3, Config.disableSnowyPineForest ,true, BiomeType.ICY, Type.CONIFEROUS);
 		
 	}
 	

@@ -5,6 +5,7 @@ import java.util.Random;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.cool.BiomeTaigaPlains.DiamondGenerator;
 import kipster.nt.world.gen.WorldGenLine;
+import kipster.nt.world.gen.trees.WorldGenTreePine;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
 import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
 import net.minecraft.entity.passive.EntityLlama;
