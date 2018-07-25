@@ -47,7 +47,7 @@ public class BiomeSnowyPineForest extends Biome
        this.spawnableCreatureList.clear();
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
-       this.decorator.treesPerChunk = 3;
+       this.decorator.treesPerChunk = 1;
        this.decorator.flowersPerChunk = 2;
        this.decorator.grassPerChunk = 7;
 
@@ -56,12 +56,12 @@ public class BiomeSnowyPineForest extends Biome
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 	
-	  return (WorldGenAbstractTree)(rand.nextInt(5) == 0 ? this.pineGenerator : this.pineGenerator);
+	  return (WorldGenAbstractTree)(rand.nextInt(6) == 0 ? this.pineGenerator : this.pineGenerator);
 	}
 
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)
    {
-       return rand.nextInt(5) > 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
+       return rand.nextInt(6) > 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
    }
 
    public void decorate(World worldIn, Random rand, BlockPos pos)

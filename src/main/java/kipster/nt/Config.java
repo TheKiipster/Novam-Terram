@@ -24,7 +24,12 @@ public class Config {
     public static boolean disableTundra = false;
     public static boolean disableIcyTundra = false;
     public static boolean disableSnowyPineForest = false;
-    
+    public static boolean disableColdForest = false;
+    public static boolean disableColdBirchForest = false;
+    public static boolean disableColdRoofedForest = false;
+    public static boolean disableColdMegaTaiga = false;
+    public static boolean disableColdMegaSpruceTaiga = false;
+    public static boolean disableAlps = false;
     
     //Desert
     
@@ -79,6 +84,13 @@ public class Config {
         disableTundra = cfg.get(CATEGORY_BIOMES_ICY, "disableTundra", disableTundra).getBoolean();
         disableIcyTundra = cfg.get(CATEGORY_BIOMES_ICY, "disableIcyTundra", disableIcyTundra).getBoolean();
         disableSnowyPineForest = cfg.get(CATEGORY_BIOMES_ICY, "disableSnowyPineForest", disableSnowyPineForest).getBoolean();
+        disableTundra = cfg.get(CATEGORY_BIOMES_ICY, "disableTundra", disableTundra).getBoolean();
+        disableColdForest = cfg.get(CATEGORY_BIOMES_ICY, "disableColdForest", disableColdForest).getBoolean();
+        disableColdBirchForest = cfg.get(CATEGORY_BIOMES_ICY, "disableColdBirchForest", disableColdBirchForest).getBoolean();
+        disableColdRoofedForest = cfg.get(CATEGORY_BIOMES_ICY, "disableColdRoofedForest", disableColdRoofedForest).getBoolean();
+        disableColdMegaTaiga = cfg.get(CATEGORY_BIOMES_ICY, "disableColdMegaTaiga", disableColdMegaTaiga).getBoolean();
+        disableColdMegaSpruceTaiga = cfg.get(CATEGORY_BIOMES_ICY, "disableColdMegaSpruceTaiga", disableColdMegaSpruceTaiga).getBoolean();
+        disableAlps = cfg.get(CATEGORY_BIOMES_ICY, "disableAlps", disableAlps).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_DESERT, "Desert Biome configuration");
         

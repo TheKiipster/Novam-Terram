@@ -8,6 +8,8 @@ import kipster.nt.Config;
 import kipster.nt.biomes.cool.*;
 import kipster.nt.biomes.desert.*;
 import kipster.nt.biomes.warm.*;
+import net.minecraft.world.biome.BiomeTaiga;
+import net.minecraft.world.biome.BiomeForest;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraftforge.common.BiomeDictionary;
@@ -47,6 +49,12 @@ public class BiomeInit {
 	public static Biome densemixedForestBiome = new BiomeDenseMixedForest();
 	public static Biome pineForestBiome = new BiomePineForest();
 	public static Biome snowypineForestBiome = new BiomeSnowyPineForest();
+	public static Biome coldForestBiome = new BiomeColdForest(BiomeForest.Type.NORMAL, "Cold Forest");
+	public static Biome coldbirchForestBiome = new BiomeColdForest(BiomeForest.Type.BIRCH, "Cold Birch Forest");
+	public static Biome coldroofedForestBiome = new BiomeColdForest(BiomeForest.Type.ROOFED, "Cold Roofed Forest");
+	public static Biome coldmegaTaigaBiome = new BiomeColdMegaTaiga(BiomeTaiga.Type.MEGA, "Cold Mega Taiga");
+	public static Biome coldmegaSpruceBiome = new BiomeColdMegaTaiga(BiomeTaiga.Type.MEGA_SPRUCE, "Cold Mega Spruce Taiga");
+	public static Biome alpsBiome = new BiomeAlps();
 	
 	public static void registerBiomes() {
 		
@@ -81,9 +89,14 @@ public class BiomeInit {
 		
 		//ICY
 		initBiome(tundraBiome, "Tundra", 6, Config.disableTundra, true, BiomeType.ICY, Type.COLD);
+		initBiome(coldForestBiome, "Cold_Forest", 6, Config.disableColdForest, true, BiomeType.ICY, Type.FOREST);
+		initBiome(coldbirchForestBiome, "Cold_Birch_Forest", 6, Config.disableColdBirchForest, true, BiomeType.ICY, Type.FOREST);
+		initBiome(coldroofedForestBiome, "Cold_Roofed_Forest", 6, Config.disableColdRoofedForest, true, BiomeType.ICY, Type.FOREST);
+		initBiome(coldmegaTaigaBiome, "Cold_Mega_Taiga", 4, Config.disableColdMegaTaiga, true, BiomeType.ICY, Type.CONIFEROUS);
+		initBiome(coldmegaSpruceBiome, "Cold_Mega_Spruce_Taiga", 4, Config.disableColdMegaSpruceTaiga, true, BiomeType.ICY, Type.CONIFEROUS);
 		initBiome(icyTundraBiome, "Tundra_Icy", 2, Config.disableIcyTundra, true, BiomeType.ICY, Type.COLD);
 		initBiome(snowypineForestBiome, "Snowy_Pine_Forest", 3, Config.disableSnowyPineForest ,true, BiomeType.ICY, Type.CONIFEROUS);
-		
+		initBiome(alpsBiome, "Alps", 5, Config.disableAlps, true, BiomeType.ICY, Type.MOUNTAIN);
 	}
 	
 	private static Biome initBiome(Biome biome, String name, int weight, boolean disabled, boolean canSpawn, BiomeType biomeType, Type... types)	{
