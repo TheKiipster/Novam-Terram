@@ -24,7 +24,7 @@ public class WorldGenTreePine extends WorldGenAbstractTree
 
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
-        int i = rand.nextInt(18) + 17;
+        int i = rand.nextInt(18) + 8;
         int j = 1 + rand.nextInt(6);
         int k = i - j;
         int l = 2 + rand.nextInt(5);
