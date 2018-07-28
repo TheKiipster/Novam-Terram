@@ -34,7 +34,7 @@ public class BiomeSahel extends Biome
 	
 	public BiomeSahel() 
 	{
-		super(new BiomeProperties("Sahel").setBaseHeight(-0.28F).setHeightVariation(0.1F).setTemperature(0.95F).setRainfall(0.9F));
+		super(new BiomeProperties("Sahel").setBaseHeight(0.125F).setHeightVariation(0.046F).setTemperature(0.95F).setRainfall(0.9F));
 		
 			this.decorator.treesPerChunk = 3;
 			this.decorator.flowersPerChunk = 3;
