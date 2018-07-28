@@ -4,15 +4,18 @@ import java.util.Iterator;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.desert.BiomeSahel.GoldGenerator;
+import kipster.nt.biomes.desert.BiomeOutback.GoldGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubAcacia;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
+import net.minecraft.block.BlockSand;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.entity.passive.EntityDonkey;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -26,25 +29,26 @@ import net.minecraft.world.gen.feature.WorldGenSavannaTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeSahel extends Biome 
+public class BiomeOutback extends Biome 
 {
-	private static final WorldGenAbstractTree SAVANNA_TREE = new WorldGenSavannaTree(false);
-	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 5);
+	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 7);
 	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
 	
-	public BiomeSahel() 
+	public BiomeOutback() 
 	{
-		super(new BiomeProperties("Sahel").setBaseHeight(-0.28F).setHeightVariation(0.1F).setTemperature(0.95F).setRainfall(0.9F));
+		super(new BiomeProperties("Outback").setBaseHeight(0.123F).setHeightVariation(0.044F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(0.9F));
 		
 			this.decorator.treesPerChunk = 3;
-			this.decorator.flowersPerChunk = 3;
-			this.decorator.grassPerChunk = 4;
-	        this.decorator.deadBushPerChunk = 5;
+			this.decorator.flowersPerChunk = 2;
+			this.decorator.grassPerChunk = 10;
+	        this.decorator.deadBushPerChunk = 15;
 	        this.decorator.reedsPerChunk = 25;
-	        this.decorator.cactiPerChunk = 10;
+	        this.decorator.cactiPerChunk = 17;
 	        this.spawnableCreatureList.clear();
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityChicken.class, 10, 4, 4));
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
+	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 5, 2, 6));
+	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 3));
 	        Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
 
 	        while (iterator.hasNext())
@@ -64,19 +68,19 @@ public class BiomeSahel extends Biome
 	
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-        return (WorldGenAbstractTree)(rand.nextInt(4) > 0 ? SAVANNA_TREE : SHRUB_ACACIA);
+        return (WorldGenAbstractTree)(rand.nextInt(4) > 0 ? SHRUB_ACACIA : SHRUB_ACACIA);
 }
 	
 	@Override
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
-        if (noiseVal > 2D) {
+        if (noiseVal > 1.8D) {
             this.topBlock = Blocks.GRASS.getDefaultState();
             this.fillerBlock = Blocks.DIRT.getDefaultState(); }
         
         else {
         	
-         this.topBlock = Blocks.SAND.getDefaultState();
-            this.fillerBlock = Blocks.SAND.getDefaultState();
+         this.topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
+            this.fillerBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
         }
 
         this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
@@ -140,11 +144,11 @@ public class BiomeSahel extends Biome
 		   	 
 		   	@Override
 		   	public int getModdedBiomeGrassColor(int original) {
-		   	    return 0x92B25C;
+		   	    return 0x92A53F;
 		   	}
 
 		   	@Override
 		   	public int getModdedBiomeFoliageColor(int original) {
-		   	    return 0x92B25C;
+		   	    return 0x71A11F;
 		   	}
 	    }

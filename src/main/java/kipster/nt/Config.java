@@ -36,6 +36,7 @@ public class Config {
     public static boolean disableSandDunes = false;
     public static boolean disableRedSandDunes = false;
     public static boolean disableSahel = false;
+    public static boolean disableOutback = false;
     
     //Warm
 	
@@ -53,7 +54,11 @@ public class Config {
     public static boolean disableSprings = false;
     public static boolean disableDenseMixedForest = false;
     public static boolean disableMixedForest = false;
-
+    public static boolean disableBlossomForest = false;
+    public static boolean disableBlossomForestHills = false;
+    public static boolean disableEstuary = false;
+    public static boolean disableMeadow = false;
+    
     public static void readConfig() {
         Configuration cfg = RegistryHandler.config;
         try {
@@ -97,6 +102,7 @@ public class Config {
         disableSandDunes = cfg.get(CATEGORY_BIOMES_DESERT, "disableSandDunes", disableSandDunes).getBoolean();
         disableRedSandDunes = cfg.get(CATEGORY_BIOMES_DESERT, "disableRedSandDunes", disableRedSandDunes).getBoolean();
         disableSahel = cfg.get(CATEGORY_BIOMES_DESERT, "disableSahel", disableSahel).getBoolean();
+        disableOutback = cfg.get(CATEGORY_BIOMES_DESERT, "disableOutback", disableOutback).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_WARM, "Warm Biome configuration");
         
@@ -114,7 +120,11 @@ public class Config {
         disableSprings = cfg.get(CATEGORY_BIOMES_WARM, "disableSprings", disableSprings).getBoolean();
         disableMixedForest = cfg.get(CATEGORY_BIOMES_WARM, "disableMixedForest", disableMixedForest).getBoolean();
         disableDenseMixedForest = cfg.get(CATEGORY_BIOMES_WARM, "disableDenseMixedForest", disableDenseMixedForest).getBoolean();
-		
+        disableBlossomForest = cfg.get(CATEGORY_BIOMES_WARM, "disableBlossomForest", disableBlossomForest).getBoolean();
+        disableBlossomForestHills = cfg.get(CATEGORY_BIOMES_WARM, "disableBlossomForestHills", disableBlossomForestHills).getBoolean();
+        disableEstuary = cfg.get(CATEGORY_BIOMES_WARM, "disableEstuary", disableEstuary).getBoolean();
+        disableMeadow = cfg.get(CATEGORY_BIOMES_WARM, "disableMeadow", disableMeadow).getBoolean();
+        
     }
  
 }

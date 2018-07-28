@@ -55,6 +55,11 @@ public class BiomeInit {
 	public static Biome coldmegaTaigaBiome = new BiomeColdMegaTaiga(BiomeTaiga.Type.MEGA, "Cold Mega Taiga");
 	public static Biome coldmegaSpruceBiome = new BiomeColdMegaTaiga(BiomeTaiga.Type.MEGA_SPRUCE, "Cold Mega Spruce Taiga");
 	public static Biome alpsBiome = new BiomeAlps();
+	public static Biome blossomForestBiome = new BiomeBlossomForest();
+	public static Biome blossomforestHillsBiome = new BiomeBlossomForestHills();
+	public static Biome outbackBiome = new BiomeOutback();
+	public static Biome estuaryBiome = new BiomeEstuary();
+	public static Biome meadowBiome = new BiomeMeadow();
 	
 	public static void registerBiomes() {
 		
@@ -73,11 +78,16 @@ public class BiomeInit {
 		initBiome(springsBiome, "Springs", 1, Config.disableSprings, false, BiomeType.WARM, Type.WET);
 		initBiome(mixedForestBiome, "Mixed_Forest", 6, Config.disableMixedForest, false, BiomeType.WARM, Type.FOREST);
 		initBiome(densemixedForestBiome, "Dense_Mixed_Forest", 2, Config.disableDenseMixedForest, false, BiomeType.WARM, Type.FOREST);
+		initBiome(blossomForestBiome, "Blossom Forest", 7, Config.disableBlossomForest, false, BiomeType.WARM, Type.FOREST);
+		initBiome(blossomforestHillsBiome, "Blossom Forest Hills", 2, Config.disableBlossomForestHills, false, BiomeType.WARM, Type.FOREST);
+		initBiome(estuaryBiome, "Estuary", 4, Config.disableEstuary, false, BiomeType.WARM, Type.SWAMP);
+		initBiome(meadowBiome, "Meadow", 8, Config.disableMeadow, false, BiomeType.WARM, Type.PLAINS);
 		
 		//DESERT
 		initBiome(sandDunesBiome, "Sand_Dunes", 5, Config.disableSandDunes, true, BiomeType.DESERT, Type.SANDY);
 		initBiome(redsandDunesBiome, "Red_Sand_Dunes", 5, Config.disableRedSandDunes, true, BiomeType.DESERT, Type.SANDY);
 		initBiome(sahelBiome, "Sahel", 7, Config.disableSahel, true, BiomeType.DESERT, Type.SANDY);
+		initBiome(outbackBiome, "Outback", 6, Config.disableOutback, true, BiomeType.DESERT, Type.SANDY);
 		
 		//COOL
 		initBiome(taigaPlainsBiome, "Taiga_Plains", 6, Config.disableTaigaPlains, true, BiomeType.COOL, Type.PLAINS);

@@ -2,6 +2,12 @@ itemGroup.novamterramtab=Novam Terram
 
 tile.conifer_leaves_yellow.name=Yellow Conifer Leaves
 tile.conifer_leaves_orange.name=Orange Conifer Leaves
+tile.cherry_leaves_purple.name=Cherry Leaves
+tile.cherry_leaves_pink.name=Cherry Leaves
+tile.cherry_leaves_white.name=Cherry Leaves
 
 tile.conifer_sapling_yellow.name=Yellow Conifer Sapling
 tile.conifer_sapling_orange.name=Orange Conifer Sapling
+tile.cherry_sapling_purple.name=Cherry Sapling
+tile.cherry_sapling_pink.name=Cherry Sapling
+tile.cherry_sapling_white.name=Cherry Sapling
