@@ -31,7 +31,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomeGreenSwamp extends Biome 
 {
- protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
+	protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
 
 	public BiomeGreenSwamp() 
 	{

@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 import net.minecraft.world.gen.feature.WorldGenSavannaTree;
@@ -33,6 +34,7 @@ public class BiomeOutback extends Biome
 {
 	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 7);
 	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
+	protected static final WorldGenBlockBlob CLAY_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.HARDENED_CLAY, 1);
 	
 	public BiomeOutback() 
 	{
@@ -103,6 +105,14 @@ public class BiomeOutback extends Biome
 					BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 					GRASS_PATCHES.generate(worldIn, rand, blockpos);
 				}
+				if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+		            int genChance = rand.nextInt(3);
+		            if (genChance == 0) {
+		                int k6 = rand.nextInt(16) + 8;
+		                int l = rand.nextInt(16) + 8;
+		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+		                CLAY_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
+		            }
 				
 	            if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.DESERT_WELL))
 	            if (rand.nextInt(1000) == 0)
@@ -119,6 +129,7 @@ public class BiomeOutback extends Biome
 	                (new WorldGenFossils()).generate(worldIn, rand, pos);
 	            }
 	            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
+	        }
 	        }
 
 		   	 public static class GoldGenerator extends WorldGenerator

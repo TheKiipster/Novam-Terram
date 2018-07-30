@@ -30,7 +30,7 @@ public class BiomeRedSandDunes extends Biome
 		fillerBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
 		
 			this.decorator.treesPerChunk = -999;
-	        this.decorator.deadBushPerChunk = 2;
+	        this.decorator.deadBushPerChunk = 18;
 	        this.decorator.reedsPerChunk = 50;
 	        this.decorator.cactiPerChunk = 10;
 	        this.spawnableCreatureList.clear();
