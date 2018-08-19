@@ -17,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -30,13 +31,13 @@ public class BiomeBlossomForestHills extends Biome
 {
 	
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree PURPLE = new WorldGenTreeCherryPurple(false, false);
-	protected static final WorldGenAbstractTree PINK = new WorldGenTreeCherryPink(false, false);
+	protected static final WorldGenAbstractTree PURPLE_TREE = new WorldGenTreeCherryPurple(false, false);
+	protected static final WorldGenAbstractTree PINK_TREE = new WorldGenTreeCherryPink(false, false);
 	private final WorldGenTreeCherryWhite whiteCherryGenerator = new WorldGenTreeCherryWhite(false, false);
 	
-	public BiomeBlossomForestHills() 
-	{
-		super(new BiomeProperties("Blossom Forest Hills").setBaseHeight(Biomes.FOREST_HILLS.getBaseHeight()).setHeightVariation(Biomes.FOREST_HILLS.getHeightVariation()).setTemperature(Biomes.FOREST_HILLS.getDefaultTemperature()).setRainfall(Biomes.FOREST_HILLS.getRainfall()));
+	public BiomeBlossomForestHills(BiomeProperties properties)
+	{	
+		super(properties);
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
@@ -66,11 +67,11 @@ public class BiomeBlossomForestHills extends Biome
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 	if (rand.nextInt(2) > 0)
 	{
-		  return PURPLE;
+		  return PURPLE_TREE;
 	}
 	else
 	{
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.whiteCherryGenerator : PINK);
+	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.whiteCherryGenerator : PINK_TREE);
 	}
 }
 	

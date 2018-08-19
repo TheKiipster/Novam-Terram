@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeForest;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -25,9 +26,9 @@ public class BiomeOakForestTall extends Biome
 	protected static final WorldGenTreeOak OAK_TREE = new WorldGenTreeOak(false, false);
 	protected static final WorldGenTreeOak TALL_OAK_TREE = new WorldGenTreeOak(false, true);
 	
-	public BiomeOakForestTall() 
-	{
-		super(new BiomeProperties("Tall Oak Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
+	public BiomeOakForestTall(BiomeProperties properties)
+	{	
+		super(properties);
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();

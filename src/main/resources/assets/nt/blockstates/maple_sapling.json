@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+     "defaults": {
+        "model": "nt:maple_sapling",
+        "uvlock": true
+    },
+    "variants": {
+        "normal": [{ }],
+        "inventory": [{ }],
+        "stage=0":[{ "model": "nt:maple_sapling"}],
+        "stage=1":[{"model": "nt:maple_sapling" }]
+    }
+}

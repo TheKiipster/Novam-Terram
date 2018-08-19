@@ -29,7 +29,7 @@ public class WorldGenTreeOak extends WorldGenAbstractTree
 
         if (this.useExtraRandomHeight)
         {
-            i += rand.nextInt(7);
+            i += rand.nextInt(8);
         }
 
         boolean flag = true;

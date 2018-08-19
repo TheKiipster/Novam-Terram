@@ -3,7 +3,7 @@ package kipster.nt.biomes.cool;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.cool.BiomeTaigaPlains.DiamondGenerator;
+import kipster.nt.biomes.cool.BiomeConiferousPlains.DiamondGenerator;
 import kipster.nt.world.gen.WorldGenLine;
 import kipster.nt.world.gen.trees.WorldGenTreePine;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
@@ -16,6 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -31,12 +32,10 @@ public class BiomeCliffs extends Biome
 	protected static final WorldGenBlockBlob COBBLESTONE_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.COBBLESTONE, 1);
 	protected static final WorldGenLine COBBLESTONE_LINE = new WorldGenLine(Blocks.COBBLESTONE, 1);
 	
-	public BiomeCliffs() 
-	{
-		super(new BiomeProperties("Cliffs").setBaseHeight(3.4F).setHeightVariation(0.4F).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.EXTREME_HILLS.getRainfall()));
-		
-		BiomeManager.addVillageBiome(BiomeInit.cliffsBiome , true);
-		
+	 public BiomeCliffs(BiomeProperties properties)
+	  	{	
+	  		super(properties);
+	  	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		

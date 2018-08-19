@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBirchTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -30,10 +31,10 @@ public class BiomeMixedForest extends Biome
 	private final WorldGenTaiga1 otherspruceGenerator = new WorldGenTaiga1();
 	private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
 	
-	public BiomeMixedForest() 
-	{
-		super(new BiomeProperties("Mixed Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
-		
+	public BiomeMixedForest(BiomeProperties properties)
+	{	
+		super(properties);
+	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		

@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBirchTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -36,12 +37,12 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 public class BiomeBirchHills extends Biome 
 {
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree POPLAR = new WorldGenTreePoplar(false, false);
+	protected static final WorldGenAbstractTree POPLAR_TREE = new WorldGenTreePoplar(false, false);
 	protected static final WorldGenTreeShrubBirch SHRUB_BIRCH = new WorldGenTreeShrubBirch();
 	
-	public BiomeBirchHills() 
-	{
-		super(new BiomeProperties("Birch Hills").setBaseHeight(0.6F).setHeightVariation(0.5F).setTemperature(0.8F).setRainfall(0.4F));
+	public BiomeBirchHills(BiomeProperties properties)
+	{	
+		super(properties);
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
@@ -65,7 +66,7 @@ public class BiomeBirchHills extends Biome
 	}
 	else
 	{
-		return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? POPLAR : POPLAR);
+		return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? POPLAR_TREE : POPLAR_TREE);
 		
 		}
 	}

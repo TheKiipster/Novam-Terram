@@ -12,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -30,12 +31,10 @@ public class BiomeDryForestHills extends Biome
 	protected static final WorldGenTreeOak OAK_TREE = new WorldGenTreeOak(false, false);
 	protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false);
 	
-	public BiomeDryForestHills() 
-	{
-		super(new BiomeProperties("Dry Forest Hills").setBaseHeight(Biomes.FOREST_HILLS.getBaseHeight()).setHeightVariation(Biomes.FOREST_HILLS.getHeightVariation()).setTemperature(Biomes.FOREST_HILLS.getDefaultTemperature()).setRainfall(Biomes.FOREST_HILLS.getRainfall()));
-		
-		
-		
+	public BiomeDryForestHills(BiomeProperties properties)
+	{	
+		super(properties);
+	
 		this.decorator.treesPerChunk = 10;
 		this.decorator.flowersPerChunk = 1;
 	    this.decorator.grassPerChunk = 2;

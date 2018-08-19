@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
@@ -34,12 +35,12 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 public class BiomeMeadow extends Biome 
 {
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree POPLAR = new WorldGenTreePoplar(false, false);
+	protected static final WorldGenAbstractTree POPLAR_TREE = new WorldGenTreePoplar(false, false);
 	
-	public BiomeMeadow() 
-	{
-		super(new BiomeProperties("Meadow").setBaseHeight(0.1F).setHeightVariation(0.020F).setTemperature(0.8F).setRainfall(0.4F));
-		
+	public BiomeMeadow(BiomeProperties properties)
+	{	
+		super(properties);
+	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
@@ -74,7 +75,7 @@ public class BiomeMeadow extends Biome
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) 
 	{
-		return (WorldGenAbstractTree)(rand.nextInt(1) == 0 ? POPLAR : POPLAR);
+		return (WorldGenAbstractTree)(rand.nextInt(1) == 0 ? POPLAR_TREE : POPLAR_TREE);
 	}
 	
 	public void addDoublePlants(World p_185378_1_, Random p_185378_2_, BlockPos p_185378_3_, int p_185378_4_)

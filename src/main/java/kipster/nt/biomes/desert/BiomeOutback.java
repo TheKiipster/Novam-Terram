@@ -21,6 +21,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
@@ -36,10 +37,10 @@ public class BiomeOutback extends Biome
 	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
 	protected static final WorldGenBlockBlob CLAY_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.HARDENED_CLAY, 1);
 	
-	public BiomeOutback() 
-	{
-		super(new BiomeProperties("Outback").setBaseHeight(0.123F).setHeightVariation(0.044F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(0.9F));
-		
+	public BiomeOutback(BiomeProperties properties)
+	{	
+		super(properties);
+	
 			this.decorator.treesPerChunk = 3;
 			this.decorator.flowersPerChunk = 2;
 			this.decorator.grassPerChunk = 10;

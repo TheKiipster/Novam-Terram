@@ -15,6 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -38,11 +39,10 @@ import net.minecraft.block.BlockDoublePlant;
 		private final WorldGenerator silverfishSpawner = new WorldGenMinable(Blocks.MONSTER_EGG.getDefaultState().withProperty(BlockSilverfish.VARIANT, BlockSilverfish.EnumType.STONE), 9);
 	    private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
 		
-		public BiomeAlps() 
-		{
-			
-			super(new BiomeProperties("Alps").setBaseHeight(5F).setHeightVariation(0.8F).setTemperature(Biomes.EXTREME_HILLS.getDefaultTemperature()).setRainfall(Biomes.EXTREME_HILLS.getRainfall()));
-			
+	    public BiomeAlps(BiomeProperties properties)
+		{	
+			super(properties);
+		
 			this.decorator.generateFalls = true;
 			this.decorator.treesPerChunk = 5;
 			this.decorator.flowersPerChunk = 1;

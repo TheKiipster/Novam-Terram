@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
@@ -28,10 +29,10 @@ public class BiomeShrubland extends Biome
 	
 	protected static final WorldGenAbstractTree SHRUB_OAK = new WorldGenTreeShrubOak();
 	
-	public BiomeShrubland() 
-	{
-		super(new BiomeProperties("Shrubland").setBaseHeight(0.1F).setHeightVariation(0.024F).setTemperature(0.8F).setRainfall(0.4F));
-		
+	public BiomeShrubland(BiomeProperties properties)
+	{	
+		super(properties);
+	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		

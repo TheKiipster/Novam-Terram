@@ -15,6 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -34,12 +35,10 @@ public class BiomePineForest extends Biome
 	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
    private final WorldGenTreePine pineGenerator = new WorldGenTreePine(true);
 	 
-	public BiomePineForest() 
-	{
-		super(new BiomeProperties("Pine Forest").setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setTemperature(Biomes.TAIGA.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()));
-		
-		BiomeManager.addVillageBiome(BiomeInit.pineForestBiome , true);
-		
+	 public BiomePineForest(BiomeProperties properties)
+	  	{	
+	  		super(properties);
+	  	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		

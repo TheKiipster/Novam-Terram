@@ -18,6 +18,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
@@ -32,10 +33,10 @@ public class BiomeSahel extends Biome
 	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 5);
 	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
 	
-	public BiomeSahel() 
-	{
-		super(new BiomeProperties("Sahel").setBaseHeight(0.125F).setHeightVariation(0.046F).setTemperature(0.95F).setRainfall(0.9F));
-		
+	public BiomeSahel(BiomeProperties properties)
+	{	
+		super(properties);
+	
 			this.decorator.treesPerChunk = 3;
 			this.decorator.flowersPerChunk = 3;
 			this.decorator.grassPerChunk = 4;

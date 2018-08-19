@@ -39,10 +39,10 @@ public class BiomeEstuary extends Biome
 	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 7);
 	protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
 
-	public BiomeEstuary() 
-	{
-		super(new BiomeProperties("Estuary").setBaseHeight(-0.28F).setHeightVariation(0.11F).setTemperature(Biomes.SWAMPLAND.getDefaultTemperature()).setRainfall(Biomes.SWAMPLAND.getRainfall()));
-		
+	public BiomeEstuary(BiomeProperties properties)
+	{	
+		super(properties);
+	
 			topBlock = Blocks.GRASS.getDefaultState();
 			fillerBlock = Blocks.DIRT.getDefaultState();
 		

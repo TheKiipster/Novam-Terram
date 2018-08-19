@@ -14,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -30,16 +31,14 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 public class BiomeAutumnTaigaHills extends Biome 
 {	
 	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree YELLOW = new WorldGenTreeAutumnTaigaYellow(false, false);
-	protected static final WorldGenAbstractTree ORANGE = new WorldGenTreeAutumnTaigaOrange(false, false);
+	protected static final WorldGenAbstractTree YELLOW_TREE = new WorldGenTreeAutumnTaigaYellow(false, false);
+	protected static final WorldGenAbstractTree ORANGE_TREE = new WorldGenTreeAutumnTaigaOrange(false, false);
    private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
 	 
-	public BiomeAutumnTaigaHills() 
-	{
-		super(new BiomeProperties("Autumn Taiga Hills").setBaseHeight(Biomes.TAIGA_HILLS.getBaseHeight()).setHeightVariation(Biomes.TAIGA_HILLS.getHeightVariation()).setTemperature(Biomes.TAIGA_HILLS.getDefaultTemperature()).setRainfall(Biomes.TAIGA_HILLS.getRainfall()));
-		
-		BiomeManager.addVillageBiome(BiomeInit.autumntaigaHillsBiome , true);
-		
+   public BiomeAutumnTaigaHills(BiomeProperties properties)
+	{	
+		super(properties);
+	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
@@ -60,7 +59,7 @@ public class BiomeAutumnTaigaHills extends Biome
 	}
 	else
 	{
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? YELLOW : ORANGE);
+	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? YELLOW_TREE : ORANGE_TREE);
 	}
 }
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)

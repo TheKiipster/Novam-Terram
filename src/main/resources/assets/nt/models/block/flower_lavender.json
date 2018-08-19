@@ -1,0 +1,7 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "particle": "nt:blocks/flower_lavender",
+        "cross": "nt:blocks/flower_lavender"
+    }
+}

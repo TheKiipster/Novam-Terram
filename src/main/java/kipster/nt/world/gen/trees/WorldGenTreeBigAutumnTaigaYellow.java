@@ -232,9 +232,9 @@ public class WorldGenTreeBigAutumnTaigaYellow extends WorldGenAbstractTree
      */
     void generateLeaves()
     {
-        for (WorldGenTreeBigAutumnTaigaYellow.FoliageCoordinates WordlGenTreeBigAutumnTaigaYellow$foliagecoordinates : this.foliageCoords)
+        for (WorldGenTreeBigAutumnTaigaYellow.FoliageCoordinates WorldGenTreeBigAutumnTaigaYellow$foliagecoordinates : this.foliageCoords)
         {
-            this.generateLeafNode(WordlGenTreeBigAutumnTaigaYellow$foliagecoordinates);
+            this.generateLeafNode(WorldGenTreeBigAutumnTaigaYellow$foliagecoordinates);
         }
     }
 
@@ -270,14 +270,14 @@ public class WorldGenTreeBigAutumnTaigaYellow extends WorldGenAbstractTree
      */
     void generateLeafNodeBases()
     {
-        for (WorldGenTreeBigAutumnTaigaYellow.FoliageCoordinates WordlGenTreeBigAutumnTaigaYellow$foliagecoordinates : this.foliageCoords)
+        for (WorldGenTreeBigAutumnTaigaYellow.FoliageCoordinates WorldGenTreeBigAutumnTaigaYellow$foliagecoordinates : this.foliageCoords)
         {
-            int i = WordlGenTreeBigAutumnTaigaYellow$foliagecoordinates.getBranchBase();
+            int i = WorldGenTreeBigAutumnTaigaYellow$foliagecoordinates.getBranchBase();
             BlockPos blockpos = new BlockPos(this.basePos.getX(), i, this.basePos.getZ());
 
-            if (!blockpos.equals(WordlGenTreeBigAutumnTaigaYellow$foliagecoordinates) && this.leafNodeNeedsBase(i - this.basePos.getY()))
+            if (!blockpos.equals(WorldGenTreeBigAutumnTaigaYellow$foliagecoordinates) && this.leafNodeNeedsBase(i - this.basePos.getY()))
             {
-                this.limb(blockpos, WordlGenTreeBigAutumnTaigaYellow$foliagecoordinates, Blocks.LOG);
+                this.limb(blockpos, WorldGenTreeBigAutumnTaigaYellow$foliagecoordinates, Blocks.LOG);
             }
         }
     }

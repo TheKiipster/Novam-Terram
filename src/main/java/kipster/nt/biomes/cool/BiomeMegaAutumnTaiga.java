@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeTaiga;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
@@ -32,15 +33,13 @@ public class BiomeMegaAutumnTaiga extends Biome
 {	
    
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree YELLOW = new WorldGenTreeBigAutumnTaigaYellow(true);
-	protected static final WorldGenAbstractTree ORANGE = new WorldGenTreeBigAutumnTaigaOrange(true);
+	protected static final WorldGenAbstractTree YELLOW_TREE = new WorldGenTreeBigAutumnTaigaYellow(true);
+	protected static final WorldGenAbstractTree ORANGE_TREE = new WorldGenTreeBigAutumnTaigaOrange(true);
 	private final WorldGenMegaPineTree spruceGenerator= new WorldGenMegaPineTree(false, true);
 	 
-	public BiomeMegaAutumnTaiga() 
-	{
-		super(new BiomeProperties("Mega Autumn Taiga").setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setTemperature(Biomes.TAIGA.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()));
-		
-		BiomeManager.addVillageBiome(BiomeInit.megaautumnTaigaBiome , true);
+	   public BiomeMegaAutumnTaiga(BiomeProperties properties)
+		{	
+			super(properties);
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
@@ -77,7 +76,7 @@ public class BiomeMegaAutumnTaiga extends Biome
 	}
 	else
 	{
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? YELLOW : ORANGE);
+	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? YELLOW_TREE : ORANGE_TREE);
 	}
 }
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)

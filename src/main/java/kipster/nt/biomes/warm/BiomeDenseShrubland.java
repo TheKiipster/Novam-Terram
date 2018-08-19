@@ -13,6 +13,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
@@ -32,10 +33,10 @@ public class BiomeDenseShrubland extends Biome
 	protected static final WorldGenAbstractTree SHRUB_SPRUCE = new WorldGenTreeShrubSpruce();
 	protected static final WorldGenAbstractTree SHRUB_BIRCH = new WorldGenTreeShrubBirch();
 	
-	public BiomeDenseShrubland() 
-	{
-		super(new BiomeProperties("Dense Shrubland").setBaseHeight(0.1F).setHeightVariation(0.024F).setTemperature(0.8F).setRainfall(0.4F));
-		
+	public BiomeDenseShrubland(BiomeProperties properties)
+	{	
+		super(properties);
+	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		

@@ -23,9 +23,9 @@ public class BiomeOakForest extends Biome
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
 	protected static final WorldGenTreeOak OAK_TREE = new WorldGenTreeOak(false, false);
 	
-	public BiomeOakForest() 
-	{
-		super(new BiomeProperties("Oak Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
+	public BiomeOakForest(BiomeProperties properties)
+		{	
+			super(properties);
 		
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();

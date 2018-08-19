@@ -12,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenIcePath;
 import net.minecraft.world.gen.feature.WorldGenIceSpike;
@@ -36,10 +37,10 @@ public class BiomeIcyTundra extends Biome
 	protected static final WorldGenPatches SNOW_PATCHES = new WorldGenPatches(Blocks.SNOW.getDefaultState(), 5);
 	protected static final WorldGenAbstractTree SHRUB_SPRUCE = new WorldGenTreeShrubSpruce();
 	
-	public BiomeIcyTundra() 
-	{
-		super(new BiomeProperties("Icy Tundra").setBaseHeight(Biomes.PLAINS.getBaseHeight()).setHeightVariation(Biomes.PLAINS.getHeightVariation()).setTemperature(-1).setRainfall(Biomes.FROZEN_OCEAN.getRainfall()).setSnowEnabled());
-		
+	public BiomeIcyTundra(BiomeProperties properties)
+	{	
+		super(properties);
+	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		

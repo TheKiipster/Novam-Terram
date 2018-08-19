@@ -4,6 +4,7 @@ import java.io.File;
 
 import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
+import kipster.nt.biomes.BiomeInit;
 import kipster.nt.blocks.BlockInit;
 import kipster.nt.items.ItemInit;
 import kipster.nt.util.interfaces.IHasModel;
@@ -60,7 +61,7 @@ public class RegistryHandler
 		 File directory = e.getModConfigurationDirectory();
 	     config = new Configuration(new File(directory.getPath(), "novamterram.cfg"));
 	     Config.readConfig();
-		BiomeInit.registerBiomes();
+		BiomeInit.initBiomes();
 		
 	}
 	
