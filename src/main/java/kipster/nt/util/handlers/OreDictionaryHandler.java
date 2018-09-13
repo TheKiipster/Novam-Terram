@@ -13,6 +13,9 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("treeLeaves", BlockInit.CHERRYLEAVESWHITE);
 		OreDictionary.registerOre("treeLeaves", BlockInit.MAPLELEAVES);
 		OreDictionary.registerOre("treeLeaves", BlockInit.SPRUCELEAVESRED);
+		OreDictionary.registerOre("treeLeaves", BlockInit.SPRUCELEAVESBLUE);
+		OreDictionary.registerOre("treeLeaves", BlockInit.JACARANDALEAVES);
+		OreDictionary.registerOre("treeLeaves", BlockInit.OAKLEAVESRED);
 		OreDictionary.registerOre("treeSapling", BlockInit.CONIFERSAPLINGORANGE);
 		OreDictionary.registerOre("treeSapling", BlockInit.CONIFERSAPLINGYELLOW);
 		OreDictionary.registerOre("treeSapling", BlockInit.CHERRYSAPLINGPINK);
@@ -20,5 +23,8 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("treeSapling", BlockInit.CHERRYSAPLINGWHITE);
 		OreDictionary.registerOre("treeSapling", BlockInit.MAPLESAPLING);
 		OreDictionary.registerOre("treeSapling", BlockInit.SPRUCESAPLINGRED);
+		OreDictionary.registerOre("treeSapling", BlockInit.SPRUCESAPLINGBLUE);
+		OreDictionary.registerOre("treeSapling", BlockInit.JACARANDASAPLING);
+		OreDictionary.registerOre("treeSapling", BlockInit.OAKSAPLINGRED);
 	}
 }

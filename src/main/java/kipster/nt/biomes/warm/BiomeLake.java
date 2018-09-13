@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
@@ -19,10 +20,9 @@ public class BiomeLake extends Biome
 	
 	private final WorldGenTaiga2 spruceGenerator = new WorldGenTaiga2(false);
 	
-	public BiomeLake() 
-	{
-		super(new BiomeProperties("Lake").setBaseHeight(-0.7F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.4F));
-		
+	public BiomeLake(BiomeProperties properties)
+	{	
+		super(properties);
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		

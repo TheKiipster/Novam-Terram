@@ -17,7 +17,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 public class BiomeColdForestHills extends BiomeForest
 {
 		public BiomeColdForestHills(BiomeForest.Type type, String name) {
-	        super(type, new BiomeProperties(name).setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()).setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setSnowEnabled());
+	        super(type, new BiomeProperties(name).setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()).setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setSnowEnabled());
 	    }
 		
 		public void decorate(World worldIn, Random rand, BlockPos pos)
@@ -51,12 +51,12 @@ public class BiomeColdForestHills extends BiomeForest
 	            return true;
 	        }
 	    }
-	    @Override
+		@Override
 	    public int getModdedBiomeGrassColor(int original) {
-	        return 0xA1B269;
+	        return super.getModdedBiomeGrassColor(0xA1B269);
 	    }
 	    @Override
 	    public int getModdedBiomeFoliageColor(int original) {
-	        return 0xA1B269;
+	        return super.getModdedBiomeFoliageColor(0xA1B269);
 	    }
 	}

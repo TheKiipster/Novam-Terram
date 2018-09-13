@@ -3,8 +3,10 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.warm.BiomeMixedForest.EmeraldGenerator;
+import kipster.nt.biomes.warm.BiomeWoodland.EmeraldGenerator;
+import kipster.nt.world.gen.trees.WorldGenTreeBigOak;
 import kipster.nt.world.gen.trees.WorldGenTreeOak;
+import kipster.nt.world.gen.trees.WorldGenTreeShrubOak;
 import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
@@ -22,23 +24,22 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeMixedForest extends Biome 
+public class BiomeWoodland extends Biome 
 {
 	
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenBirchTree SUPER_BIRCH_TREE = new WorldGenBirchTree(false, true);
-	protected static final WorldGenTreeOak OAK_TREE = new WorldGenTreeOak(false, false);
-	private final WorldGenTaiga1 otherspruceGenerator = new WorldGenTaiga1();
-	private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
+
+	protected static final WorldGenTreeBigOak OAK_TREE = new WorldGenTreeBigOak(false);
+	protected static final WorldGenAbstractTree SHRUB_OAK = new WorldGenTreeShrubOak();
 	
-	public BiomeMixedForest(BiomeProperties properties)
+	public BiomeWoodland(BiomeProperties properties)
 	{	
 		super(properties);
 	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		this.decorator.treesPerChunk = 8;
+		this.decorator.treesPerChunk = 11;
 		this.decorator.flowersPerChunk = 1;
 	    this.decorator.grassPerChunk = 3;
 	    this.decorator.generateFalls = true;
@@ -49,21 +50,14 @@ public class BiomeMixedForest extends Biome
 	
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	{
-		  if (rand.nextInt(3) > 0)
-	        {
-	    return (WorldGenAbstractTree)(rand.nextInt(3) > 0 ? this.spruceGenerator : super.getRandomTreeFeature(rand));
-	        }
-	    else if (rand.nextInt(5) != 0)
+	
+	     if (rand.nextInt(1) != 0)
         {
-            return (WorldGenAbstractTree)(rand.nextInt(10) == 0 ? BIG_TREE_FEATURE : SUPER_BIRCH_TREE);
-        }
-	    else if (rand.nextInt(4) != 0)
-        {
-            return (WorldGenAbstractTree)(rand.nextInt(10) == 0 ? this.otherspruceGenerator : TREE_FEATURE);
+            return (WorldGenAbstractTree)(rand.nextInt(10) == 0 ? OAK_TREE : OAK_TREE);
         }
         else
         {
-            return OAK_TREE;
+            return SHRUB_OAK;
         }
 }
     
@@ -74,13 +68,13 @@ public class BiomeMixedForest extends Biome
 	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, emeralds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.EMERALD))
 	            emeralds.generate(worldIn, rand, pos);
 	        
-		 if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
-	         int boulderChance = rand.nextInt(12);
-	         if (boulderChance == 0) {
-	          int k6 = rand.nextInt(16) + 8;
-	          int l = rand.nextInt(16) + 8;
-	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-	           LAKE.generate(worldIn, rand, blockpos);
+	        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
+	            int boulderChance = rand.nextInt(4);
+	            if (boulderChance == 0) {
+	             int k6 = rand.nextInt(4) + 8;
+	             int l = rand.nextInt(4) + 8;
+	              BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+	              LAKE.generate(worldIn, rand, blockpos);
 	         }
 	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	        }
@@ -90,11 +84,11 @@ public class BiomeMixedForest extends Biome
 	
 	@Override
 	public int getModdedBiomeGrassColor(int original) {
-	    return super.getModdedBiomeGrassColor(0x8BAB3A);
+	    return super.getModdedBiomeGrassColor(0xA8B253);
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return super.getModdedBiomeFoliageColor(0x8BAB3A);
+	    return super.getModdedBiomeFoliageColor(0xA8B253);
 	}
 	
 	public static class EmeraldGenerator extends WorldGenerator

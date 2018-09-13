@@ -136,11 +136,11 @@ public class BiomeGreenSwamp extends Biome
 	    }
 	        @Override
 	    	public int getModdedBiomeGrassColor(int original) {
-	    	    return 0x74A34C;
+	    	    return super.getModdedBiomeGrassColor(0x74A34C);
 	    	}
 	    	@Override
 	    	public int getModdedBiomeFoliageColor(int original) {
-	    	    return 0x74A34C;
+	    	    return super.getModdedBiomeFoliageColor(0x74A34C);
 	    }
 
 	    @Override

@@ -3,6 +3,7 @@ package kipster.nt.biomes.desert;
 import java.util.Iterator;
 import java.util.Random;
 
+import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.desert.BiomeRockland.GoldGenerator;
 import kipster.nt.world.gen.WorldGenLine;
@@ -127,7 +128,7 @@ public class BiomeRockland extends Biome
      	           }
 	            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	        }
-	            if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	            if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance = rand.nextInt(3);
 		            if (genChance == 0) {
 		                int k6 = rand.nextInt(16) + 8;
@@ -135,7 +136,7 @@ public class BiomeRockland extends Biome
 		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 		                STONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 		            }
-		            if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+		            if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 			            int genChance1 = rand.nextInt(3);
 			            if (genChance1 == 0) {
 			                int k6 = rand.nextInt(16) + 8;
@@ -149,11 +150,11 @@ public class BiomeRockland extends Biome
 	        
 	        @Override
 			public int getModdedBiomeGrassColor(int original) {
-			    return 0xCCB675;
+			    return super.getModdedBiomeGrassColor(0xCCB675);
 			}
 			@Override
 			public int getModdedBiomeFoliageColor(int original) {
-			    return 0xCCB675;
+			    return super.getModdedBiomeFoliageColor(0xCCB675);
 	}
 	        
 		   	 public static class GoldGenerator extends WorldGenerator

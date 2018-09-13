@@ -108,12 +108,12 @@ public class BiomeLowland extends Biome
 	
 	 @Override
 	 public int getModdedBiomeGrassColor(int original) {
-		    return 0x84B26E;
+		    return super.getModdedBiomeGrassColor(0x84B26E);
 		}
 	 
 	 @Override
 	 public int getModdedBiomeFoliageColor(int original) {
-		    return 0x84B26E;
+		    return super.getModdedBiomeFoliageColor(0x84B26E);
 		    
 	}
 }

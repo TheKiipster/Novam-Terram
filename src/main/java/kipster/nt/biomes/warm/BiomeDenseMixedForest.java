@@ -113,11 +113,11 @@ public class BiomeDenseMixedForest extends Biome
 	
 	@Override
 	public int getModdedBiomeGrassColor(int original) {
-	    return 0x8BAB3A;
+	    return super.getModdedBiomeGrassColor(0x8BAB3A);
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return 0x8BAB3A;
+	    return super.getModdedBiomeFoliageColor(0x8BAB3A);
 	}
 	
 	public static class EmeraldGenerator extends WorldGenerator

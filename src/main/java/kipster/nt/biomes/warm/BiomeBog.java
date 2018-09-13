@@ -123,11 +123,11 @@ public class BiomeBog extends Biome
 	    
 	        @Override
 	    	public int getModdedBiomeGrassColor(int original) {
-	    	    return 0x747036;
+	    	    return super.getModdedBiomeGrassColor(0x747036);
 	    	}
 	    	@Override
 	    	public int getModdedBiomeFoliageColor(int original) {
-	    	    return 0x5C803C;
+	    	    return super.getModdedBiomeFoliageColor(0x5C803C);
 	    }
 
 	    @Override

@@ -210,11 +210,11 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	
 	@Override
 	public int getModdedBiomeGrassColor(int original) {
-	    return 0x41B04E;
+	    return super.getModdedBiomeGrassColor(0x41B04E);
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return 0x41B04E;
+	    return super.getModdedBiomeFoliageColor(0x41B04E);
 	}
 	
 	public static class EmeraldGenerator extends WorldGenerator

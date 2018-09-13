@@ -137,13 +137,14 @@ public class BiomeIcyTundra extends Biome
 	            return true;
 	        }
 	    }
-	 
-	 	@Override
-		public int getModdedBiomeGrassColor(int original) {
-		    return 0xB2893A;
-		}
+	 @Override
+	    public int getGrassColorAtPos(BlockPos pos)
+	    {
+	        double d0 = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+	        return d0 < -0.1D ? super.getModdedBiomeGrassColor(0xAB853E) : super.getModdedBiomeGrassColor(0xB46438);
+	    }
 		@Override
 		public int getModdedBiomeFoliageColor(int original) {
-		    return 0xB2893A;
+		    return super.getModdedBiomeFoliageColor(0xB2893A);
 	}
 }

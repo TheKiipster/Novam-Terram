@@ -53,10 +53,10 @@ public class BiomeColdForest extends BiomeForest
 	    }
 	    @Override
 	    public int getModdedBiomeGrassColor(int original) {
-	        return 0xA1B269;
+	        return super.getModdedBiomeGrassColor(0xA1B269);
 	    }
 	    @Override
 	    public int getModdedBiomeFoliageColor(int original) {
-	        return 0xA1B269;
+	        return super.getModdedBiomeFoliageColor(0xA1B269);
 	    }
 	}
