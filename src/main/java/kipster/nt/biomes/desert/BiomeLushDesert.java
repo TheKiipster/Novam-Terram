@@ -184,11 +184,11 @@ public class BiomeLushDesert extends Biome
 		   	    }
 		  	@Override
 		   	public int getModdedBiomeGrassColor(int original) {
-		   	    return 0x6FB011;
+		   	    return super.getModdedBiomeGrassColor(0x6FB011);
 		   	}
 
 		   	@Override
 		   	public int getModdedBiomeFoliageColor(int original) {
-		   	    return 0x6FB011;
+		   	    return super.getModdedBiomeFoliageColor(0x6FB011);
 	    }
 }

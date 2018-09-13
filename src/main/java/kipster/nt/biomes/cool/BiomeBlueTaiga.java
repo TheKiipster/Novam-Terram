@@ -32,7 +32,7 @@ public class BiomeBlueTaiga extends Biome
 {	
 	
 	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree BLUE = new WorldGenTreeBlueSpruce2(false);
+	protected static final WorldGenAbstractTree BLUE_SPRUCE = new WorldGenTreeBlueSpruce2(false);
    private final WorldGenTreeBlueSpruce1 spruceGenerator = new WorldGenTreeBlueSpruce1();
 	 
    public BiomeBlueTaiga(BiomeProperties properties)
@@ -54,7 +54,7 @@ public class BiomeBlueTaiga extends Biome
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.spruceGenerator : BLUE);
+	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.spruceGenerator : BLUE_SPRUCE);
 	}
 
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)

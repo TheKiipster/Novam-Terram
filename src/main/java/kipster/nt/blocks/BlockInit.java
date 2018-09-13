@@ -23,6 +23,8 @@ public class BlockInit {
 	public static final Block JACARANDALEAVES= new BlockLeavesJacaranda("jacaranda_leaves", Material.LEAVES);
 	public static final Block SPRUCELEAVESRED = new BlockLeavesRedSpruce("spruce_leaves_red", Material.LEAVES);
 	public static final Block SPRUCELEAVESBLUE = new BlockLeavesBlueSpruce("spruce_leaves_blue", Material.LEAVES);
+	public static final Block OAKLEAVESRED = new BlockLeavesRedOak("oak_leaves_red", Material.LEAVES);
+	
 	
 	//SAPLING
 	public static final Block CONIFERSAPLINGYELLOW = new BlockSaplingConiferYellow("conifer_sapling_yellow", Material.LEAVES);
@@ -34,5 +36,6 @@ public class BlockInit {
 	public static final Block JACARANDASAPLING = new BlockSaplingJacaranda("jacaranda_sapling", Material.LEAVES);
 	public static final Block SPRUCESAPLINGRED = new BlockSaplingRedSpruce("spruce_sapling_red", Material.LEAVES);
 	public static final Block SPRUCESAPLINGBLUE = new BlockSaplingBlueSpruce("spruce_sapling_blue", Material.LEAVES);
+	public static final Block OAKSAPLINGRED = new BlockSaplingRedOak("oak_sapling_red", Material.LEAVES);
 
 }

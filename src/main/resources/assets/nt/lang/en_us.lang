@@ -7,6 +7,9 @@ tile.cherry_leaves_pink.name=Cherry Leaves
 tile.cherry_leaves_white.name=Cherry Leaves
 tile.maple_leaves.name=Maple Leaves
 tile.spruce_leaves_red.name=Red Spruce Leaves
+tile.spruce_leaves_blue.name=Blue Spruce Leaves
+tile.jacaranda_leaves.name=Jacaranda Leaves
+tile.oak_leaves_red.name=Red Oak Leaves
 
 tile.conifer_sapling_yellow.name=Yellow Conifer Sapling
 tile.conifer_sapling_orange.name=Orange Conifer Sapling
@@ -15,3 +18,6 @@ tile.cherry_sapling_pink.name=Cherry Sapling
 tile.cherry_sapling_white.name=Cherry Sapling
 tile.maple_sapling.name=Maple Sapling
 tile.spruce_sapling_red.name=Red Spruce Sapling
+tile.spruce_sapling_blue.name=Blue Spruce Sapling
+tile.jacaranda_sapling.name=Jacaranda Sapling
+tile.oak_sapling_red.name=Red Oak Sapling

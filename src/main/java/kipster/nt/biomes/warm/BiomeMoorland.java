@@ -95,12 +95,12 @@ public class BiomeMoorland extends Biome
 	    public int getGrassColorAtPos(BlockPos pos)
 	    {
 	        double d0 = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-	        return d0 < -0.1D ? 0x9C8B45 : 0xB3BC49;
+	        return d0 < -0.1D ? super.getModdedBiomeGrassColor(0x9C8B45) : super.getModdedBiomeGrassColor(0xB3BC49);
 	    }
 
 	   	@Override
 	   	public int getModdedBiomeFoliageColor(int original) {
-	   	    return 0x8EA13D;
+	   	    return super.getModdedBiomeFoliageColor(0x8EA13D);
 	   	}
 
 	    @Override

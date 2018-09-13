@@ -1,9 +1,10 @@
 package kipster.nt.biomes.icy;
 
+import java.util.Iterator;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.icy.BiomeTundra.LapisGenerator;
+import kipster.nt.biomes.icy.BiomeSnowDune.LapisGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
 import net.minecraft.init.Biomes;
@@ -13,47 +14,55 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenIcePath;
+import net.minecraft.world.gen.feature.WorldGenIceSpike;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.monster.EntityPolarBear;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityStray;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeTundra extends Biome 
+public class BiomeSnowDune extends Biome 
 {
 	
-	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenPatches ICE_PATCHES = new WorldGenPatches(Blocks.ICE.getDefaultState(), 5);
-	protected static final WorldGenPatches GRAVEL_PATCHES = new WorldGenPatches(Blocks.GRAVEL.getDefaultState(), 5);
-	protected static final WorldGenAbstractTree SHRUB_SPRUCE = new WorldGenTreeShrubSpruce();
+	private final WorldGenIceSpike iceSpike = new WorldGenIceSpike();
+	protected static final WorldGenPatches ICE_PATCHES = new WorldGenPatches(Blocks.PACKED_ICE.getDefaultState(), 5);
+
 	
-	public BiomeTundra(BiomeProperties properties)
+	public BiomeSnowDune(BiomeProperties properties)
 	{	
 		super(properties);
 	
-		topBlock = Blocks.GRASS.getDefaultState();
-		fillerBlock = Blocks.DIRT.getDefaultState();
+		topBlock = Blocks.SNOW.getDefaultState();
+		fillerBlock = Blocks.SNOW.getDefaultState();
 		
-		this.decorator.extraTreeChance = 4;
+	
         this.decorator.flowersPerChunk = 0;
-        this.decorator.grassPerChunk = 3;
+        this.decorator.grassPerChunk = 1;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
-	}
-	
-	@Override
-	public WorldGenAbstractTree getRandomTreeFeature(Random rand) 
-	{
-		return (WorldGenAbstractTree)(rand.nextInt(2) == 0 ? SHRUB_SPRUCE : SHRUB_SPRUCE);
-	}
-	
-	public WorldGenerator getRandomWorldGenForGrass(Random rand)
-	{
-	    return rand.nextInt(4) == 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
+	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityPolarBear.class, 1, 1, 2));
+        Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
+
+        while (iterator.hasNext())
+        {
+            Biome.SpawnListEntry biome$spawnlistentry = iterator.next();
+
+            if (biome$spawnlistentry.entityClass == EntitySkeleton.class)
+            {
+                iterator.remove();
+            }
+        }
+
+        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySkeleton.class, 20, 4, 4));
+        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityStray.class, 80, 4, 4));
 	}
 	
 	public void decorate(World worldIn, Random rand, BlockPos pos)
@@ -63,29 +72,17 @@ public class BiomeTundra extends Biome
 	       if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, lapis, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.LAPIS))
 	    	   lapis.generate(worldIn, rand, pos);
 	       
-		int stonepatchChance = rand.nextInt(3);
-		if (stonepatchChance == 0) {
-			int k6 = rand.nextInt(16) + 8;
-			int l = rand.nextInt(16) + 8;
-			BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-			GRAVEL_PATCHES.generate(worldIn, rand, blockpos);
-		}
-		int icepatchChance = rand.nextInt(3);
-		if (icepatchChance == 0) {
-			int k6 = rand.nextInt(16) + 8;
-			int l = rand.nextInt(16) + 8;
-			BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-			ICE_PATCHES.generate(worldIn, rand, blockpos);
-		}
-		 if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
-	           int boulderChance = rand.nextInt(4);
-	           if (boulderChance == 0) {
-	            int k6 = rand.nextInt(4) + 8;
-	            int l = rand.nextInt(4) + 8;
-	             BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-	             LAKE.generate(worldIn, rand, blockpos);
-	         }
-		}
+		
+			int snowpatchChance = rand.nextInt(4);
+			if (snowpatchChance == 0) {
+				int k6 = rand.nextInt(16) + 8;
+				int l = rand.nextInt(16) + 8;
+				BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+				ICE_PATCHES.generate(worldIn, rand, blockpos);
+			}
+		
+
+           
 	    super.decorate(worldIn, rand, pos);
 		}
 
@@ -110,14 +107,5 @@ public class BiomeTundra extends Biome
 	            return true;
 	        }
 	    }
-	 	@Override
-	    public int getGrassColorAtPos(BlockPos pos)
-	    {
-	        double d0 = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-	        return d0 < -0.1D ? super.getModdedBiomeGrassColor(0xAB853E) : super.getModdedBiomeGrassColor(0xB46438);
-	    }
-		@Override
-		public int getModdedBiomeFoliageColor(int original) {
-		    return super.getModdedBiomeFoliageColor(0xB2893A);
-	}
+	 
 }

@@ -3,6 +3,7 @@ package kipster.nt.biomes.desert;
 import java.util.Iterator;
 import java.util.Random;
 
+import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.desert.BiomeOutback.GoldGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
@@ -106,7 +107,7 @@ public class BiomeOutback extends Biome
 					BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 					GRASS_PATCHES.generate(worldIn, rand, blockpos);
 				}
-				if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+				 if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance = rand.nextInt(3);
 		            if (genChance == 0) {
 		                int k6 = rand.nextInt(16) + 8;
@@ -156,11 +157,11 @@ public class BiomeOutback extends Biome
 		   	 
 		   	@Override
 		   	public int getModdedBiomeGrassColor(int original) {
-		   	    return 0x92A53F;
+		   	    return super.getModdedBiomeGrassColor(0x92A53F);
 		   	}
 
 		   	@Override
 		   	public int getModdedBiomeFoliageColor(int original) {
-		   	    return 0x71A11F;
+		   	    return super.getModdedBiomeFoliageColor(0x71A11F);
 		   	}
 	    }

@@ -124,10 +124,10 @@ public class BiomeDryForest extends Biome
 	
 	@Override
 	public int getModdedBiomeGrassColor(int original) {
-	    return 0xA99D5D;
+	    return super.getModdedBiomeGrassColor(0xA99D5D);
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return 0xA99D5D;
+	    return super.getModdedBiomeFoliageColor(0xA99D5D);
 	}
 }

@@ -103,11 +103,11 @@ public class BiomeAutumnTaiga extends Biome
    
 	@Override
 	public int getModdedBiomeGrassColor(int original) {
-	    return 0xA4BA6B;
+	    return super.getModdedBiomeGrassColor(0xA4BA6B);
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return 0xA4BA6B;
+	    return super.getModdedBiomeFoliageColor(0xA4BA6B);
 	}
 	
 	 public static class DiamondGenerator extends WorldGenerator

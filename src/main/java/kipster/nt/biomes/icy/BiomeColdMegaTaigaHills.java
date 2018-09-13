@@ -17,7 +17,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 public class BiomeColdMegaTaigaHills extends BiomeTaiga	{
 
     public BiomeColdMegaTaigaHills(BiomeTaiga.Type type, String name) {
-        super(type, new BiomeProperties(name).setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()).setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setSnowEnabled());
+        super(type, new BiomeProperties(name).setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()).setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setSnowEnabled());
 }
 		
 		public void decorate(World worldIn, Random rand, BlockPos pos)
@@ -53,10 +53,10 @@ public class BiomeColdMegaTaigaHills extends BiomeTaiga	{
 	    }
 		@Override
 	    public int getModdedBiomeGrassColor(int original) {
-	        return 0xA1B269;
+	        return super.getModdedBiomeGrassColor(0xA1B269);
 	    }
 	    @Override
 	    public int getModdedBiomeFoliageColor(int original) {
-	        return 0xA1B269;
+	        return super.getModdedBiomeFoliageColor(0xA1B269);
 	    }
 	}

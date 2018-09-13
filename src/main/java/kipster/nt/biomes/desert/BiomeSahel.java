@@ -141,11 +141,11 @@ public class BiomeSahel extends Biome
 		   	 
 		   	@Override
 		   	public int getModdedBiomeGrassColor(int original) {
-		   	    return 0x92B25C;
+		   	    return super.getModdedBiomeGrassColor(0x92B25C);
 		   	}
 
 		   	@Override
 		   	public int getModdedBiomeFoliageColor(int original) {
-		   	    return 0x92B25C;
+		   	    return super.getModdedBiomeFoliageColor(0x92B25C);
 		   	}
 	    }

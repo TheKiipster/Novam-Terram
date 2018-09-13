@@ -98,11 +98,11 @@ public class BiomeSnowyPineForest extends Biome
    
 	@Override
 	public int getModdedBiomeGrassColor(int original) {
-	    return 0x567C48;
+	    return super.getModdedBiomeGrassColor(0x567C48);
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return 0x567C48;
+	    return super.getModdedBiomeFoliageColor(0x567C48);
 	}
 	
 	 public static class LapisGenerator extends WorldGenerator

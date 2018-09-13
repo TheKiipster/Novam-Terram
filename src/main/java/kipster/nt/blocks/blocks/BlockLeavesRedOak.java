@@ -34,9 +34,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockLeavesBlueSpruce extends BlockLeaves implements IHasModel
+public class BlockLeavesRedOak extends BlockLeaves implements IHasModel
 {
-	public BlockLeavesBlueSpruce(String name, Material material) 
+	public BlockLeavesRedOak(String name, Material material) 
 	{
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -62,7 +62,7 @@ public class BlockLeavesBlueSpruce extends BlockLeaves implements IHasModel
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(BlockInit.OAKSAPLINGRED);
+        return Item.getItemFromBlock(BlockInit.SPRUCESAPLINGBLUE);
     }
 
 

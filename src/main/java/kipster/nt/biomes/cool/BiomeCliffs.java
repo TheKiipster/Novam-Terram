@@ -2,6 +2,7 @@ package kipster.nt.biomes.cool;
 
 import java.util.Random;
 
+import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.cool.BiomeConiferousPlains.DiamondGenerator;
 import kipster.nt.world.gen.WorldGenLine;
@@ -63,8 +64,10 @@ public class BiomeCliffs extends Biome
 	       WorldGenerator diamonds = new DiamondGenerator();
 	       if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
 	    	   diamonds.generate(worldIn, rand, pos);
-		
-		  if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	   
+	       net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
+
+	       if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 	            int genChance = rand.nextInt(3);
 	            if (genChance == 0) {
 	                int k6 = rand.nextInt(16) + 8;
@@ -72,28 +75,26 @@ public class BiomeCliffs extends Biome
 	                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	                COBBLESTONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 	            }
-	            if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	            if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance1 = rand.nextInt(3);
 		            if (genChance1 == 0) {
 		                int k6 = rand.nextInt(16) + 8;
 		                int l = rand.nextInt(16) + 8;
 		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 		                COBBLESTONE_LINE.generate(worldIn, rand, blockpos);
-	        }
-		            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-		  
+		            }
+	            }
+	       }
 	super.decorate(worldIn, rand, pos);
 		
-	            }
-		  }
 	}
 	@Override
 	public int getModdedBiomeGrassColor(int original) {
-	    return 0x8cb06b;
+	    return super.getModdedBiomeGrassColor(0x8cb06b);
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return 0x8cb06b;
+	    return super.getModdedBiomeFoliageColor(0x8cb06b);
 	}
 
 	 public static class DiamondGenerator extends WorldGenerator
