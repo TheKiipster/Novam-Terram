@@ -32,7 +32,7 @@ public class BiomeHighland extends Biome
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		this.decorator.treesPerChunk = 2;
+		this.decorator.treesPerChunk = 3;
 		this.decorator.flowersPerChunk = 4;
 	    this.decorator.grassPerChunk = 8;
 	    this.decorator.gravelPatchesPerChunk = 2;

@@ -3,7 +3,8 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.warm.BiomeLowland.EmeraldGenerator;
+import kipster.nt.biomes.warm.BiomeForestedLakes.EmeraldGenerator;
+import kipster.nt.world.gen.trees.WorldGenTreeOak;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
 import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
 import net.minecraft.init.Biomes;
@@ -12,48 +13,48 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
-import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenBirchTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeLowland extends Biome 
+public class BiomeForestedLakes extends Biome 
 {
 	
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
+	protected static final WorldGenAbstractTree OAK_TREE = new WorldGenTreeOak(false, false);
+	private final WorldGenBirchTree birchGenerator = new WorldGenBirchTree(false, false);
 	protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
 	
-	public BiomeLowland(BiomeProperties properties)
+	public BiomeForestedLakes(BiomeProperties properties)
 	{	
 		super(properties);
 	
+		topBlock = Blocks.GRASS.getDefaultState();
+		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		this.decorator.treesPerChunk = 1;
+		this.decorator.treesPerChunk = 5;
 		this.decorator.flowersPerChunk = 1;
 	    this.decorator.grassPerChunk = 6;
-	    this.decorator.gravelPatchesPerChunk = 1;
 	    this.decorator.waterlilyPerChunk = 2;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 5, 2, 6));
-	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
-	    
+		
 	}
 	
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 	{
-	  return (WorldGenAbstractTree)(rand.nextInt(1) == 0 ? this.spruceGenerator : TREE_FEATURE);
+	  return (WorldGenAbstractTree)(rand.nextInt(2) == 0 ? OAK_TREE : this.birchGenerator);
 	}
 	
 	}
@@ -63,21 +64,6 @@ public class BiomeLowland extends Biome
 	    return rand.nextInt(4) == 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
 	}
 	
-	@Override
-    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
-        if (noiseVal > 2.6D) {
-            this.topBlock = Blocks.STONE.getDefaultState();
-            this.fillerBlock = Blocks.STONE.getDefaultState(); }
-        
-        else {
-        	
-         this.topBlock = Blocks.GRASS.getDefaultState();
-            this.fillerBlock = Blocks.DIRT.getDefaultState();
-        }
-
-        this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
-        
-		}
     
 	public void decorate(World worldIn, Random rand, BlockPos pos)
 	{
@@ -122,13 +108,12 @@ public class BiomeLowland extends Biome
     }
 	
 	 @Override
-	 public int getModdedBiomeGrassColor(int original) {
-		    return super.getModdedBiomeGrassColor(0x91BD78);
-		}
-	 
-	 @Override
-	 public int getModdedBiomeFoliageColor(int original) {
-		    return super.getModdedBiomeFoliageColor(0x91BD78);
-		    
-	}
+	   	public int getModdedBiomeGrassColor(int original) {
+	   	    return super.getModdedBiomeGrassColor(0x72B04E);
+	   	}
+
+	   	@Override
+	   	public int getModdedBiomeFoliageColor(int original) {
+	   	    return super.getModdedBiomeFoliageColor(0x72B04E);
+	   	}
 }

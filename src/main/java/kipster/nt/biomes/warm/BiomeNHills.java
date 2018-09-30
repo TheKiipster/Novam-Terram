@@ -98,7 +98,16 @@ public class BiomeNHills extends Biome
 		         }
 	    super.decorate(worldIn, rand, pos);
 		}
-			 
+	
+	 @Override
+	  	public int getModdedBiomeGrassColor(int original) {
+	  	    return super.getModdedBiomeGrassColor(0x6BA157);
+	  	}
+
+	  	@Override
+	  	public int getModdedBiomeFoliageColor(int original) {
+	  	    return super.getModdedBiomeFoliageColor(0x6BA157);
+	  	}
 
 	 public static class EmeraldGenerator extends WorldGenerator
 	    {

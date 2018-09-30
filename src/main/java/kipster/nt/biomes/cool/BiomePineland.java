@@ -36,7 +36,7 @@ public class BiomePineland extends Biome
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		this.decorator.treesPerChunk = 2;
+		this.decorator.treesPerChunk = 3;
 		this.decorator.flowersPerChunk = 4;
 	    this.decorator.grassPerChunk = 8;
 	    this.decorator.gravelPatchesPerChunk = 2;
@@ -110,12 +110,12 @@ public class BiomePineland extends Biome
 	
 	 @Override
 	 public int getModdedBiomeGrassColor(int original) {
-		    return super.getModdedBiomeGrassColor(0x6CB867);
+		    return super.getModdedBiomeGrassColor(0x7EB867);
 		}
 	 
 	 @Override
 	 public int getModdedBiomeFoliageColor(int original) {
-		    return super.getModdedBiomeFoliageColor(0x6CB867);
+		    return super.getModdedBiomeFoliageColor(0x7EB867);
 		    
 	}
 }

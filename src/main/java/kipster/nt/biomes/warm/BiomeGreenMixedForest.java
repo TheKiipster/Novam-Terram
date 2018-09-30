@@ -3,7 +3,7 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.warm.BiomeMixedForest.EmeraldGenerator;
+import kipster.nt.biomes.warm.BiomeGreenMixedForest.EmeraldGenerator;
 import kipster.nt.world.gen.trees.WorldGenTreeOak;
 import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
 import net.minecraft.init.Biomes;
@@ -18,11 +18,12 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTaiga1;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeMixedForest extends Biome 
+public class BiomeGreenMixedForest extends Biome 
 {
 	
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
@@ -31,18 +32,19 @@ public class BiomeMixedForest extends Biome
 	private final WorldGenTaiga1 otherspruceGenerator = new WorldGenTaiga1();
 	private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
 	
-	public BiomeMixedForest(BiomeProperties properties)
+	public BiomeGreenMixedForest(BiomeProperties properties)
 	{	
 		super(properties);
 	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		this.decorator.treesPerChunk = 8;
-		this.decorator.flowersPerChunk = 1;
-	    this.decorator.grassPerChunk = 3;
+		this.decorator.treesPerChunk = 7;
+		this.decorator.flowersPerChunk = 4;
+	    this.decorator.grassPerChunk = 4;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
+	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 		
 	}
@@ -74,13 +76,13 @@ public class BiomeMixedForest extends Biome
 	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, emeralds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.EMERALD))
 	            emeralds.generate(worldIn, rand, pos);
 	        
-		 if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
-	         int boulderChance = rand.nextInt(12);
-	         if (boulderChance == 0) {
-	          int k6 = rand.nextInt(16) + 8;
-	          int l = rand.nextInt(16) + 8;
-	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-	           LAKE.generate(worldIn, rand, blockpos);
+	        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
+	            int boulderChance = rand.nextInt(4);
+	            if (boulderChance == 0) {
+	             int k6 = rand.nextInt(4) + 8;
+	             int l = rand.nextInt(4) + 8;
+	              BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+	              LAKE.generate(worldIn, rand, blockpos);
 	         }
 	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	        }
@@ -89,13 +91,14 @@ public class BiomeMixedForest extends Biome
 	        }
 	
 	@Override
-	public int getModdedBiomeGrassColor(int original) {
-	    return super.getModdedBiomeGrassColor(0x8DA54F);
-	}
-	@Override
-	public int getModdedBiomeFoliageColor(int original) {
-	    return super.getModdedBiomeFoliageColor(0x8DA54F);
-	}
+   	public int getModdedBiomeGrassColor(int original) {
+   	    return super.getModdedBiomeGrassColor(0x72B04E);
+   	}
+
+   	@Override
+   	public int getModdedBiomeFoliageColor(int original) {
+   	    return super.getModdedBiomeFoliageColor(0x72B04E);
+   	}
 	
 	public static class EmeraldGenerator extends WorldGenerator
     {

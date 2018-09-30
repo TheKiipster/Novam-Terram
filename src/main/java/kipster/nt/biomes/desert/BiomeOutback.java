@@ -44,10 +44,10 @@ public class BiomeOutback extends Biome
 	
 			this.decorator.treesPerChunk = 3;
 			this.decorator.flowersPerChunk = 2;
-			this.decorator.grassPerChunk = 10;
+			this.decorator.grassPerChunk = 13;
 	        this.decorator.deadBushPerChunk = 15;
-	        this.decorator.reedsPerChunk = 25;
-	        this.decorator.cactiPerChunk = 17;
+	        this.decorator.reedsPerChunk = 28;
+	        this.decorator.cactiPerChunk = 19;
 	        this.spawnableCreatureList.clear();
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityChicken.class, 10, 4, 4));
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));

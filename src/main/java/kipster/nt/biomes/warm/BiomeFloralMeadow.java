@@ -3,7 +3,7 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.warm.BiomeMeadow.EmeraldGenerator;
+import kipster.nt.biomes.warm.BiomeFloralMeadow.EmeraldGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreePoplar;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubOak;
@@ -32,21 +32,21 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeMeadow extends Biome 
+public class BiomeFloralMeadow extends Biome 
 {
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
 	protected static final WorldGenAbstractTree POPLAR_TREE = new WorldGenTreePoplar(false, false);
 	
-	public BiomeMeadow(BiomeProperties properties)
+	public BiomeFloralMeadow(BiomeProperties properties)
 	{	
 		super(properties);
 	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		this.decorator.extraTreeChance = 3F;
-        this.decorator.flowersPerChunk = 13;
-        this.decorator.grassPerChunk = 18;
+		this.decorator.extraTreeChance = 0.5F;
+        this.decorator.flowersPerChunk = 50;
+        this.decorator.grassPerChunk = 4;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
@@ -150,12 +150,12 @@ public class BiomeMeadow extends Biome
 	
 	@Override
    	public int getModdedBiomeGrassColor(int original) {
-   	    return super.getModdedBiomeGrassColor(0x73AC42);
+   	    return super.getModdedBiomeGrassColor(0x7EB448);
    	}
 
    	@Override
    	public int getModdedBiomeFoliageColor(int original) {
-   	    return super.getModdedBiomeFoliageColor(0x73AC42);
+   	    return super.getModdedBiomeFoliageColor(0x7EB448);
    	}
    	
 	 public static class EmeraldGenerator extends WorldGenerator
