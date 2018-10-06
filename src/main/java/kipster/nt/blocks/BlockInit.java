@@ -37,5 +37,26 @@ public class BlockInit {
 	public static final Block SPRUCESAPLINGRED = new BlockSaplingRedSpruce("spruce_sapling_red", Material.LEAVES);
 	public static final Block SPRUCESAPLINGBLUE = new BlockSaplingBlueSpruce("spruce_sapling_blue", Material.LEAVES);
 	public static final Block OAKSAPLINGRED = new BlockSaplingRedOak("oak_sapling_red", Material.LEAVES);
+	
+	//CREATIVEONLYSAPLING
+	public static final Block SHRUBSAPLINGACACIA = new BlockSaplingShrubAcacia("shrub_sapling_acacia", Material.LEAVES);
+	public static final Block SHRUBSAPLINGBIRCH = new BlockSaplingShrubBirch("shrub_sapling_birch", Material.LEAVES);
+	public static final Block SHRUBSAPLINGBLUESPRUCE = new BlockSaplingShrubBlueSpruce("shrub_sapling_bluespruce", Material.LEAVES);
+	public static final Block SHRUBSAPLINGCHERRYPINK = new BlockSaplingShrubCherryPink("shrub_sapling_cherrypink", Material.LEAVES);
+	public static final Block SHRUBSAPLINGCHERRYPURPLE = new BlockSaplingShrubCherryPurple("shrub_sapling_cherrypurple", Material.LEAVES);
+	public static final Block SHRUBSAPLINGCHERRYWHITE = new BlockSaplingShrubCherryWhite("shrub_sapling_cherrywhite", Material.LEAVES);
+	public static final Block SHRUBSAPLINGCONIFERORANGE = new BlockSaplingShrubConiferOrange("shrub_sapling_coniferorange", Material.LEAVES);
+	public static final Block SHRUBSAPLINGCONIFERYELLOW = new BlockSaplingShrubConiferYellow("shrub_sapling_coniferyellow", Material.LEAVES);
+	public static final Block SHRUBSAPLINGDARKOAK = new BlockSaplingShrubDarkOak("shrub_sapling_darkoak", Material.LEAVES);
+	public static final Block SHRUBSAPLINGJACARANDA = new BlockSaplingShrubJacaranda("shrub_sapling_jacaranda", Material.LEAVES);
+	public static final Block SHRUBSAPLINGJUNGLE = new BlockSaplingShrubJungle("shrub_sapling_jungle", Material.LEAVES);
+	public static final Block SHRUBSAPLINGMAPLE = new BlockSaplingShrubMaple("shrub_sapling_maple", Material.LEAVES);
+	public static final Block SHRUBSAPLINGOAK = new BlockSaplingShrubOak("shrub_sapling_oak", Material.LEAVES);
+	public static final Block SHRUBSAPLINGREDOAK = new BlockSaplingShrubRedOak("shrub_sapling_redoak", Material.LEAVES);
+	public static final Block SHRUBSAPLINGREDSPRUCE = new BlockSaplingShrubRedSpruce("shrub_sapling_redspruce", Material.LEAVES);
+	public static final Block SHRUBSAPLINGSHRUBSPRUCE = new BlockSaplingShrubSpruce("shrub_sapling_spruce", Material.LEAVES);
+	public static final Block SAPLINGPINE = new BlockSaplingPine("sapling_pine", Material.LEAVES);
+	public static final Block SAPLINGPOPlAR = new BlockSaplingPoplar("sapling_poplar", Material.LEAVES);
+	public static final Block SAPLINGTALLSPRUCE = new BlockSaplingTallSpruce("sapling_tallspruce", Material.LEAVES);
 
 }

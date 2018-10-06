@@ -27,6 +27,7 @@ public class BiomeInit
 		
 		//WARM
 		///public static Biome hills = new BiomeNHills(new BiomeProperties("Hills").setBaseHeight(1.44F).setHeightVariation(0.64F).setTemperature(Biomes.EXTREME_HILLS.getDefaultTemperature()).setRainfall(Biomes.EXTREME_HILLS.getRainfall()));
+		public static Biome aegeanarchipelago = new BiomeAegeanArchipelago(new BiomeProperties("Aegean Archipelago").setBaseHeight(-1.8F).setHeightVariation(0.85F).setTemperature(0.5F).setRainfall(0.3F).setWaterColor(0x00b8ff));
 		public static Biome aliummeadow = new BiomeAliumMeadow(new BiomeProperties("Alium Meadow").setBaseHeight(0.11F).setHeightVariation(0.025F).setTemperature(0.8F).setRainfall(0.4F));
 		public static Biome birchhills = new BiomeBirchHills(new BiomeProperties("Birch Hills").setBaseHeight(0.62F).setHeightVariation(0.5F).setTemperature(0.8F).setRainfall(0.4F));
 		public static Biome blossomforest = new BiomeBlossomForest(new BiomeProperties("Blossom Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
@@ -57,9 +58,10 @@ public class BiomeInit
 		public static Biome oakforesthills = new BiomeOakForest(new BiomeProperties("Oak Forest Hills").setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome poppymeadow = new BiomePoppyMeadow(new BiomeProperties("Poppy Meadow").setBaseHeight(0.11F).setHeightVariation(0.025F).setTemperature(0.8F).setRainfall(0.4F));
 		public static Biome shrubland = new BiomeShrubland(new BiomeProperties("Shrubland").setBaseHeight(0.11F).setHeightVariation(0.025F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome stonemountains = new BiomeStoneMountains(new BiomeProperties("Stone Mountains").setBaseHeight(1.58F).setHeightVariation(0.69F).setTemperature(Biomes.EXTREME_HILLS.getDefaultTemperature()).setRainfall(Biomes.EXTREME_HILLS.getRainfall()));
 		public static Biome talloakforest = new BiomeOakForestTall(new BiomeProperties("Tall Oak Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome talloakforesthills = new BiomeOakForestTall(new BiomeProperties("Tall Oak Forest Hills").setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
-		public static Biome aegeanarchipelago = new BiomeAegeanArchipelago(new BiomeProperties("Aegean Archipelago").setBaseHeight(-1.8F).setHeightVariation(0.85F).setTemperature(0.5F).setRainfall(0.3F).setWaterColor(0x00b8ff));
+		public static Biome tropicalswamp = new BiomeTropicalSwamp(new BiomeProperties("Tropical Swamp").setBaseHeight(Biomes.SWAMPLAND.getBaseHeight()).setHeightVariation(Biomes.SWAMPLAND.getHeightVariation()).setTemperature(Biomes.JUNGLE.getDefaultTemperature()).setRainfall(Biomes.SWAMPLAND.getRainfall()).setWaterColor(0x22AC20));
 		
 		
 		//COOL
@@ -153,8 +155,10 @@ public class BiomeInit
 			registerBiome(oakforesthills, "oak_forest_hills", 2, Config.disableOakForestHills, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(poppymeadow, "poppy_meadow", 2, Config.disablePoppyMeadow, true, BiomeType.WARM, Type.PLAINS, Type.MAGICAL, Type.RARE);
 			registerBiome(shrubland, "shrubland", 7, Config.disableShrubland, true, BiomeType.WARM, Type.PLAINS);
+			registerBiome(stonemountains, "stone_mountains", 3, Config.disableMountains, true, BiomeType.WARM, Type.HILLS);
 			registerBiome(talloakforest, "tall_oak_forest", 4, Config.disableTallOakForest, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(talloakforesthills, "tall_oak_forest_hills", 2, Config.disableTallOakForestHills, false, BiomeType.WARM, Type.FOREST);
+			registerBiome(tropicalswamp, "tropical_swamp", 4, Config.disableGreenSwamp, false, BiomeType.WARM, Type.SWAMP, Type.JUNGLE);
 			
 			//COOL
 			registerBiome(autumntaiga, "autumn_taiga", 8, Config.disableAutumnTaiga, true, BiomeType.COOL, Type.FOREST);
