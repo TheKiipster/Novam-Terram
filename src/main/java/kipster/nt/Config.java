@@ -33,6 +33,7 @@ public class Config {
     public static boolean disablePineForest = false;
     public static boolean disablePineland = false;
     public static boolean disableRockyTaiga = false;
+    public static boolean disableStoneMountains = false;
     
     //Desert
     
@@ -48,6 +49,7 @@ public class Config {
     public static boolean disableSandyScrubland = false;
     public static boolean disableScrubland = false;
     public static boolean disableSerengeti = false;
+    public static boolean disableTropicalDesert = false;
     
     //Icy
     
@@ -94,6 +96,7 @@ public class Config {
     public static boolean disableGreenMixedForest = false;
     public static boolean disableGreenMixedForestHills = false;
     public static boolean disableGreenSwamp = false;
+    public static boolean disableHeath = false;
     public static boolean disableHighland = false;
     public static boolean disableHills = false;
     public static boolean disableHotSpring = false;
@@ -110,6 +113,7 @@ public class Config {
     public static boolean disableShrubland = false;
     public static boolean disableTallOakForest = false;
     public static boolean disableTallOakForestHills = false;
+    public static boolean disableTropicalSwamp = false;
     
     
     public static void readConfig() {
@@ -150,6 +154,7 @@ public class Config {
         disablePineForest = cfg.get(CATEGORY_BIOMES_COOL, "disablePineForest", disablePineForest).getBoolean();
         disablePineland = cfg.get(CATEGORY_BIOMES_WARM, "disablePineland", disablePineland).getBoolean();
         disableRockyTaiga = cfg.get(CATEGORY_BIOMES_WARM, "disableRockyTaiga", disableRockyTaiga).getBoolean();
+        disableStoneMountains = cfg.get(CATEGORY_BIOMES_WARM, "disableStoneMountains",disableStoneMountains).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_DESERT, "Desert Biome Configuration");
         
@@ -165,6 +170,7 @@ public class Config {
         disableSandyScrubland = cfg.get(CATEGORY_BIOMES_DESERT, "disableSandyScrubland", disableSandyScrubland).getBoolean();
         disableScrubland = cfg.get(CATEGORY_BIOMES_DESERT, "disableScrubland", disableScrubland).getBoolean();
         disableSerengeti = cfg.get(CATEGORY_BIOMES_DESERT, "disableSerengeti", disableSerengeti).getBoolean();
+        disableTropicalDesert = cfg.get(CATEGORY_BIOMES_DESERT, "disableTropicalDesert", disableTropicalDesert).getBoolean();
         
         cfg.addCustomCategoryComment(CATEGORY_BIOMES_ICY, "Icy Biome Configuration");
         
@@ -211,6 +217,7 @@ public class Config {
         disableGreenMixedForest = cfg.get(CATEGORY_BIOMES_WARM, "disableGreenMixedForest", disableGreenMixedForest).getBoolean();
         disableGreenMixedForestHills = cfg.get(CATEGORY_BIOMES_WARM, "disableGreenMixedForestHills", disableGreenMixedForestHills).getBoolean();
         disableGreenSwamp = cfg.get(CATEGORY_BIOMES_WARM, "disableGreenSwamp", disableGreenSwamp).getBoolean();
+        disableHeath = cfg.get(CATEGORY_BIOMES_WARM, "disableHeath", disableHeath).getBoolean();
         disableHighland = cfg.get(CATEGORY_BIOMES_WARM, "disableHighland", disableHighland).getBoolean();
         disableHills = cfg.get(CATEGORY_BIOMES_WARM, "disableHills", disableHills).getBoolean();
         disableHotSpring = cfg.get(CATEGORY_BIOMES_WARM, "disableHotSpring", disableHotSpring).getBoolean();
@@ -227,6 +234,7 @@ public class Config {
         disableShrubland = cfg.get(CATEGORY_BIOMES_WARM, "disableShrubland", disableShrubland).getBoolean();
         disableTallOakForest = cfg.get(CATEGORY_BIOMES_WARM, "disableTallOakForest", disableTallOakForest).getBoolean();
         disableTallOakForestHills = cfg.get(CATEGORY_BIOMES_WARM, "disableTallOakForestHills", disableTallOakForestHills).getBoolean();
+        disableTropicalSwamp = cfg.get(CATEGORY_BIOMES_WARM, "disableTropicalSwamp", disableTropicalSwamp).getBoolean();
         
     }
  

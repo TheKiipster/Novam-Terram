@@ -54,9 +54,16 @@ public class BlockInit {
 	public static final Block SHRUBSAPLINGOAK = new BlockSaplingShrubOak("shrub_sapling_oak", Material.LEAVES);
 	public static final Block SHRUBSAPLINGREDOAK = new BlockSaplingShrubRedOak("shrub_sapling_redoak", Material.LEAVES);
 	public static final Block SHRUBSAPLINGREDSPRUCE = new BlockSaplingShrubRedSpruce("shrub_sapling_redspruce", Material.LEAVES);
-	public static final Block SHRUBSAPLINGSHRUBSPRUCE = new BlockSaplingShrubSpruce("shrub_sapling_spruce", Material.LEAVES);
+	public static final Block SHRUBSAPLINGSPRUCE = new BlockSaplingShrubSpruce("shrub_sapling_spruce", Material.LEAVES);
 	public static final Block SAPLINGPINE = new BlockSaplingPine("sapling_pine", Material.LEAVES);
 	public static final Block SAPLINGPOPlAR = new BlockSaplingPoplar("sapling_poplar", Material.LEAVES);
 	public static final Block SAPLINGTALLSPRUCE = new BlockSaplingTallSpruce("sapling_tallspruce", Material.LEAVES);
 
+	//SANDS
+	public static final Block WHITESAND = new BlockSands("white_sand", Material.SAND);
+	public static final Block WHITESANDSTONE = new BlockSandstone("white_sandstone", Material.ROCK);
+	public static final Block WHITESANDSTONESMOOTH = new BlockSandstoneSmooth("white_sandstone_smooth", Material.ROCK);
+	public static final Block WHITESANDSTONECARVED = new BlockSandstoneCarved("white_sandstone_carved", Material.ROCK);
+	public static final Block WHITESANDSTONEFACE = new BlockSandstoneFace("white_sandstone_face", Material.ROCK);
+	public static final Block WHITESANDSTONEGLYPH = new BlockSandstoneGlyph("white_sandstone_glyph", Material.ROCK);
 }

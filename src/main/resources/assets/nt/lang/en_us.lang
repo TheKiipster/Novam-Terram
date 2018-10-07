@@ -1,5 +1,6 @@
 itemGroup.novamterramtab=Novam Terram
 
+//Leaves
 tile.conifer_leaves_yellow.name=Yellow Conifer Leaves
 tile.conifer_leaves_orange.name=Orange Conifer Leaves
 tile.cherry_leaves_purple.name=Cherry Leaves
@@ -11,6 +12,7 @@ tile.spruce_leaves_blue.name=Blue Spruce Leaves
 tile.jacaranda_leaves.name=Jacaranda Leaves
 tile.oak_leaves_red.name=Red Oak Leaves
 
+//Saplings
 tile.conifer_sapling_yellow.name=Yellow Conifer Sapling
 tile.conifer_sapling_orange.name=Orange Conifer Sapling
 tile.cherry_sapling_purple.name=Cherry Sapling
@@ -40,3 +42,11 @@ tile.shrub_sapling_spruce.name=Spruce Shrub Sapling
 tile.sapling_pine.name=Pine Sapling
 tile.sapling_poplar.name=Poplar Sapling
 tile.sapling_tallspruce.name=Taller Spruce Sapling
+
+//Sands
+tile.white_sand.name=White Sand
+tile.white_sandstone.name=White Sandstone
+tile.white_sandstone_smooth.name=White Smooth Sandstone
+tile.white_sandstone_carved.name=White Carved Sandstone
+tile.white_sandstone_face.name=White Face Sandstone
+tile.white_sandstone_glyph.name=White Glyph Sandstone

@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "nt:blocks/white_sandstone_face",
+        "top": "nt:blocks/white_sandstone_face",
+        "side": "nt:blocks/white_sandstone_face"
+    }
+}
