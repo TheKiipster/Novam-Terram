@@ -2,11 +2,11 @@ package kipster.nt.biomes.warm;
 
 import java.util.Random;
 
-import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.world.gen.trees.WorldGenTreeOak;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
+import kipster.nt.config.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -70,7 +70,7 @@ public class BiomeAegeanArchipelago extends Biome
 	    {
 	        super.decorate(worldIn, rand, pos);
 	        
-	        if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	        if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 	            int genChance = rand.nextInt(3);
 	            if (genChance == 0) {
 	                int k6 = rand.nextInt(16) + 8;

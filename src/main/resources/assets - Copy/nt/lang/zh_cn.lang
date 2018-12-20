@@ -1,0 +1,17 @@
+itemGroup.novamterramtab=Novam Terram
+
+tile.conifer_leaves_yellow.name=黄色针叶树树叶
+tile.conifer_leaves_orange.name=橘色针叶树树叶
+tile.cherry_leaves_purple.name=樱树树叶
+tile.cherry_leaves_pink.name=樱树树叶
+tile.cherry_leaves_white.name=樱树树叶
+tile.maple_leaves.name=枫树树叶
+tile.spruce_leaves_red.name=红杉树叶
+
+tile.conifer_sapling_yellow.name=黄色针叶树树苗
+tile.conifer_sapling_orange.name=橘色针叶树树苗
+tile.cherry_sapling_purple.name=樱树树苗
+tile.cherry_sapling_pink.name=樱树树苗
+tile.cherry_sapling_white.name=樱树树苗
+tile.maple_sapling.name=枫树树苗
+tile.spruce_sapling_red.name=红杉树苗

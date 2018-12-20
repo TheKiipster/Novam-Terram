@@ -24,6 +24,13 @@ public class BlockInit {
 	public static final Block SPRUCELEAVESRED = new BlockLeavesRedSpruce("spruce_leaves_red", Material.LEAVES);
 	public static final Block SPRUCELEAVESBLUE = new BlockLeavesBlueSpruce("spruce_leaves_blue", Material.LEAVES);
 	public static final Block OAKLEAVESRED = new BlockLeavesRedOak("oak_leaves_red", Material.LEAVES);
+	public static final Block AUTUMNLEAVESBROWN = new BlockLeavesBrownAutumn("brownautumn_leaves", Material.LEAVES);
+	public static final Block AUTUMNLEAVESORANGE = new BlockLeavesOrangeAutumn("orangeautumn_leaves", Material.LEAVES);
+	public static final Block AUTUMNLEAVESRED = new BlockLeavesRedAutumn("redautumn_leaves", Material.LEAVES);
+	public static final Block AUTUMNLEAVESYELLOW = new BlockLeavesYellowAutumn("yellowautumn_leaves", Material.LEAVES);
+	public static final Block PAULOWNIALEAVES = new BlockLeavesPaulownia("paulownia_leaves", Material.LEAVES);
+	public static final Block ORCHARDLEAVES = new BlockLeavesOrchard("orchard_leaves", Material.LEAVES);
+	public static final Block WHITEMYRTLELEAVES = new BlockLeavesWhiteMyrtle("whitemyrtle_leaves", Material.LEAVES);
 	
 	
 	//SAPLING
@@ -37,6 +44,14 @@ public class BlockInit {
 	public static final Block SPRUCESAPLINGRED = new BlockSaplingRedSpruce("spruce_sapling_red", Material.LEAVES);
 	public static final Block SPRUCESAPLINGBLUE = new BlockSaplingBlueSpruce("spruce_sapling_blue", Material.LEAVES);
 	public static final Block OAKSAPLINGRED = new BlockSaplingRedOak("oak_sapling_red", Material.LEAVES);
+	public static final Block AUTUMNSAPLINGBROWN = new BlockSaplingBrownAutumn("brownautumn_sapling", Material.LEAVES);
+	public static final Block AUTUMNSAPLINGORANGE = new BlockSaplingOrangeAutumn("orangeautumn_sapling", Material.LEAVES);
+	public static final Block AUTUMNSAPLINGRED = new BlockSaplingRedAutumn("redautumn_sapling", Material.LEAVES);
+	public static final Block AUTUMNSAPLINGYELLOW = new BlockSaplingYellowAutumn("yellowautumn_sapling", Material.LEAVES);
+	public static final Block PAULOWNIASAPLING = new BlockSaplingPaulownia("paulownia_sapling", Material.LEAVES);
+	public static final Block ORCHARDSAPLING = new BlockSaplingOrchard("orchard_sapling", Material.LEAVES);
+	public static final Block WHITEMYRTLESAPLING = new BlockSaplingWhiteMyrtle("whitemyrtle_sapling", Material.LEAVES);
+	
 	
 	//CREATIVEONLYSAPLING
 	public static final Block SHRUBSAPLINGACACIA = new BlockSaplingShrubAcacia("shrub_sapling_acacia", Material.LEAVES);
@@ -66,4 +81,17 @@ public class BlockInit {
 	public static final Block WHITESANDSTONECARVED = new BlockSandstoneCarved("white_sandstone_carved", Material.ROCK);
 	public static final Block WHITESANDSTONEFACE = new BlockSandstoneFace("white_sandstone_face", Material.ROCK);
 	public static final Block WHITESANDSTONEGLYPH = new BlockSandstoneGlyph("white_sandstone_glyph", Material.ROCK);
+	public static final Block COLDSAND = new BlockSands("cold_sand", Material.SAND);
+	public static final Block COLDSANDSTONE = new BlockSandstone("cold_sandstone", Material.ROCK);
+	public static final Block COLDSANDSTONESMOOTH = new BlockSandstoneSmooth("cold_sandstone_smooth", Material.ROCK);
+	public static final Block COLDSANDSTONECARVED = new BlockSandstoneCarved("cold_sandstone_carved", Material.ROCK);
+	public static final Block COLDSANDSTONEFACE = new BlockSandstoneFace("cold_sandstone_face", Material.ROCK);
+	public static final Block COLDSANDSTONEGLYPH = new BlockSandstoneGlyph("cold_sandstone_glyph", Material.ROCK);
+	public static final Block HOTSAND = new BlockSands("hot_sand", Material.SAND);
+	public static final Block HOTSANDSTONE= new BlockSandstone("hot_sandstone", Material.ROCK);
+	public static final Block HOTSANDSTONESMOOTH = new BlockSandstoneSmooth("hot_sandstone_smooth", Material.ROCK);
+	public static final Block HOTSANDSTONECARVED = new BlockSandstoneCarved("hot_sandstone_carved", Material.ROCK);
+	public static final Block HOTSANDSTONEFACE = new BlockSandstoneFace("hot_sandstone_face", Material.ROCK);
+	public static final Block HOTSANDSTONEGLYPH = new BlockSandstoneGlyph("hot_sandstone_glyph", Material.ROCK);
+
 }

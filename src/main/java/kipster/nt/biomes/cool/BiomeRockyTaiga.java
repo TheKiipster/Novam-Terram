@@ -2,9 +2,9 @@ package kipster.nt.biomes.cool;
 
 import java.util.Random;
 
-import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.cool.BiomeRockyTaiga.DiamondGenerator;
+import kipster.nt.config.*;
 import kipster.nt.world.gen.WorldGenLine;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeBlueSpruce1;
@@ -99,7 +99,7 @@ public class BiomeRockyTaiga extends Biome
          
            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
        }
-       if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+       if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 	            int genChance = rand.nextInt(3);
 	            if (genChance == 0) {
 	                int k6 = rand.nextInt(16) + 8;

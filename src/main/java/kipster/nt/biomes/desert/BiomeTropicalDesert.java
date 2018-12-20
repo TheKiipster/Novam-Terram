@@ -3,11 +3,11 @@ package kipster.nt.biomes.desert;
 import java.util.Iterator;
 import java.util.Random;
 
-import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.cool.BiomeRockyTaiga.DiamondGenerator;
 import kipster.nt.biomes.desert.BiomeTropicalDesert.GoldGenerator;
 import kipster.nt.blocks.BlockInit;
+import kipster.nt.config.*;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubAcacia;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubJungle;

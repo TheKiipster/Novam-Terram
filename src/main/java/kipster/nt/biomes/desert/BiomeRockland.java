@@ -3,9 +3,9 @@ package kipster.nt.biomes.desert;
 import java.util.Iterator;
 import java.util.Random;
 
-import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.desert.BiomeRockland.GoldGenerator;
+import kipster.nt.config.*;
 import kipster.nt.world.gen.WorldGenLine;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubOak;
 import net.minecraft.entity.monster.EntityHusk;
@@ -128,7 +128,7 @@ public class BiomeRockland extends Biome
      	           }
 	            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	        }
-	            if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	            if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance = rand.nextInt(3);
 		            if (genChance == 0) {
 		                int k6 = rand.nextInt(16) + 8;
@@ -136,7 +136,7 @@ public class BiomeRockland extends Biome
 		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 		                STONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 		            }
-		            if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+		            if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 			            int genChance1 = rand.nextInt(3);
 			            if (genChance1 == 0) {
 			                int k6 = rand.nextInt(16) + 8;

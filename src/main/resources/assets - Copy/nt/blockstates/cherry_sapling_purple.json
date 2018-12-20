@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+     "defaults": {
+        "model": "nt:cherry_sapling_purple",
+        "uvlock": true
+    },
+    "variants": {
+        "normal": [{ }],
+        "inventory": [{ }],
+        "stage=0":[{ "model": "nt:cherry_sapling_purple"}],
+        "stage=1":[{"model": "nt:cherry_sapling_purple" }]
+    }
+}

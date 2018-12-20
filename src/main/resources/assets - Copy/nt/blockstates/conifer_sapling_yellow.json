@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+     "defaults": {
+        "model": "nt:conifer_sapling_yellow",
+        "uvlock": true
+    },
+    "variants": {
+        "normal": [{ }],
+        "inventory": [{ }],
+        "stage=0":[{ "model": "nt:conifer_sapling_yellow"}],
+        "stage=1":[{"model": "nt:conifer_sapling_yellow" }]
+    }
+}

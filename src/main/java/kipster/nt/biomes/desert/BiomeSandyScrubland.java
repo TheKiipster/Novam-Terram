@@ -3,9 +3,9 @@ package kipster.nt.biomes.desert;
 import java.util.Iterator;
 import java.util.Random;
 
-import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.desert.BiomeSandyScrubland.GoldGenerator;
+import kipster.nt.config.*;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubAcacia;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
@@ -106,7 +106,7 @@ public class BiomeSandyScrubland extends Biome
 					BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 					GRASS_PATCHES.generate(worldIn, rand, blockpos);
 				}
-				 if (!Config.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+				 if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance = rand.nextInt(3);
 		            if (genChance == 0) {
 		                int k6 = rand.nextInt(16) + 8;

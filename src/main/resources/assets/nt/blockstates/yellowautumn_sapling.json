@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+     "defaults": {
+        "model": "nt:yellowautumn_sapling",
+        "uvlock": true
+    },
+    "variants": {
+        "normal": [{ }],
+        "inventory": [{ }],
+        "stage=0":[{ "model": "nt:yellowautumn_sapling"}],
+        "stage=1":[{"model": "nt:yellowautumn_sapling" }]
+    }
+}

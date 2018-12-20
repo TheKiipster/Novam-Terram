@@ -6,7 +6,7 @@ import kipster.nt.NovamTerram;
 import kipster.nt.blocks.BlockInit;
 import kipster.nt.items.ItemInit;
 import kipster.nt.util.interfaces.IHasModel;
-import kipster.nt.world.gen.trees.WorldGenTreeAutumnTaigaOrange;
+import kipster.nt.world.gen.trees.*;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;

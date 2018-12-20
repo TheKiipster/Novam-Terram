@@ -19,6 +19,7 @@ import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenMegaPineTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockTallGrass;
@@ -33,8 +34,10 @@ public class BiomePineForest extends Biome
 {	
 	
 	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-   private final WorldGenTreePine pineGenerator = new WorldGenTreePine(true);
-	 
+	 private final WorldGenTreePine pineGenerator = new WorldGenTreePine(true);
+	 private final WorldGenMegaPineTree megaspruceGenerator= new WorldGenMegaPineTree(false, true);
+	 private static final WorldGenTreeTallSpruce SPRUCE_GENERATOR = new WorldGenTreeTallSpruce(true);
+	
 	 public BiomePineForest(BiomeProperties properties)
 	  	{	
 	  		super(properties);
@@ -46,16 +49,34 @@ public class BiomePineForest extends Biome
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
        this.decorator.treesPerChunk = 2;
+       this.decorator.extraTreeChance = 0.1F;
+       this.decorator.mushroomsPerChunk = 5;
        this.decorator.flowersPerChunk = 2;
-       this.decorator.grassPerChunk = 5;
+       this.decorator.grassPerChunk = 7;
 
 	}
 
-	@Override
-	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
-	
-	  return (WorldGenAbstractTree)(rand.nextInt(5) == 0 ? this.pineGenerator : this.pineGenerator);
-	}
+	 @Override
+		public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+		if (rand.nextInt(5) > 0)
+		{
+			return this.pineGenerator;
+		}
+		if (rand.nextInt(4) > 0)
+		{
+			return SPRUCE_GENERATOR;
+		}
+		if (rand.nextInt(4) > 0)
+		{
+			return this.megaspruceGenerator;
+		}
+		
+		else
+		{
+			return this.pineGenerator;
+			
+			}
+		}
 
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)
    {

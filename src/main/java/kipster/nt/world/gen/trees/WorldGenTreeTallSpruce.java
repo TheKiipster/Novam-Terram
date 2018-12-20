@@ -26,9 +26,9 @@ public class WorldGenTreeTallSpruce extends WorldGenAbstractTree
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
         int i = rand.nextInt(8) + 8;
-        int j = 1 + rand.nextInt(2);
+        int j = 4 + rand.nextInt(2);
         int k = i - j;
-        int l = 2 + rand.nextInt(2);
+        int l = 4 + rand.nextInt(2);
         boolean flag = true;
 
         if (position.getY() >= 1 && position.getY() + i + 1 <= worldIn.getHeight())

@@ -29,6 +29,7 @@ public class NovamTerram {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println(name + " is doing a thing uWu");
+		//proxy.registerRenderers();
 		RegistryHandler.preInitRegistries(event);
 	}
 	

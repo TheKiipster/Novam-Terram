@@ -1,0 +1,7 @@
+
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "nt:blocks/sapling_pinkcherry"
+    }
+}

@@ -1,5 +1,6 @@
 package kipster.nt.biomes.icy;
 
+import java.util.Iterator;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
@@ -20,11 +21,14 @@ import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenMegaPineTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityStray;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
@@ -34,12 +38,14 @@ public class BiomeSnowyPineForest extends Biome
 {	
 	
 	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-   private final WorldGenTreePine pineGenerator = new WorldGenTreePine(true);
-	 
-   public BiomeSnowyPineForest(BiomeProperties properties)
-	{	
-		super(properties);
+	 private final WorldGenTreePine pineGenerator = new WorldGenTreePine(true);
+	 private final WorldGenMegaPineTree megaspruceGenerator= new WorldGenMegaPineTree(false, true);
+	 private static final WorldGenTreeTallSpruce SPRUCE_GENERATOR = new WorldGenTreeTallSpruce(true);
 	
+	 public BiomeSnowyPineForest(BiomeProperties properties)
+	  	{	
+	  		super(properties);
+	  	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
@@ -47,16 +53,48 @@ public class BiomeSnowyPineForest extends Biome
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
        this.decorator.treesPerChunk = 2;
+       this.decorator.extraTreeChance = 0.1F;
+       this.decorator.mushroomsPerChunk = 5;
        this.decorator.flowersPerChunk = 2;
-       this.decorator.grassPerChunk = 5;
+       this.decorator.grassPerChunk = 7;
+       Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
 
-	}
+       while (iterator.hasNext())
+       {
+           Biome.SpawnListEntry biome$spawnlistentry = iterator.next();
 
-	@Override
-	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+           if (biome$spawnlistentry.entityClass == EntitySkeleton.class)
+           {
+               iterator.remove();
+           }
+       }
+
+       this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySkeleton.class, 20, 4, 4));
+       this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityStray.class, 80, 4, 4));
 	
-	  return (WorldGenAbstractTree)(rand.nextInt(5) == 0 ? this.pineGenerator : this.pineGenerator);
 	}
+
+	 @Override
+		public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+		if (rand.nextInt(5) > 0)
+		{
+			return this.pineGenerator;
+		}
+		if (rand.nextInt(4) > 0)
+		{
+			return SPRUCE_GENERATOR;
+		}
+		if (rand.nextInt(4) > 0)
+		{
+			return this.megaspruceGenerator;
+		}
+		
+		else
+		{
+			return this.pineGenerator;
+			
+			}
+		}
 
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)
    {

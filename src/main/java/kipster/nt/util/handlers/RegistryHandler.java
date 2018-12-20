@@ -2,10 +2,10 @@ package kipster.nt.util.handlers;
 
 import java.io.File;
 
-import kipster.nt.Config;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.blocks.BlockInit;
+import kipster.nt.config.*;
 import kipster.nt.items.ItemInit;
 import kipster.nt.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
@@ -59,8 +59,7 @@ public class RegistryHandler
 	public static void preInitRegistries(FMLPreInitializationEvent e)
 	{
 		 File directory = e.getModConfigurationDirectory();
-	     config = new Configuration(new File(directory.getPath(), "novamterram.cfg"));
-	     Config.readConfig();
+	     config = new Configuration(new File(directory.getPath(), "novamterram.cfg"));  
 		BiomeInit.initBiomes();
 		
 	}
@@ -68,6 +67,7 @@ public class RegistryHandler
 	public static void initRegistries()
 	{
 		OreDictionaryHandler.registerOreDictionary();
+		FurnaceRecipeHandler.registerFurnaceRecipes();
 	}
 	
 	public static void postInitRegistries()

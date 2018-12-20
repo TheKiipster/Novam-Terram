@@ -17,7 +17,14 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("treeLeaves", BlockInit.SPRUCELEAVESRED);
 		OreDictionary.registerOre("treeLeaves", BlockInit.SPRUCELEAVESBLUE);
 		OreDictionary.registerOre("treeLeaves", BlockInit.JACARANDALEAVES);
+		OreDictionary.registerOre("treeLeaves", BlockInit.AUTUMNLEAVESBROWN);
+		OreDictionary.registerOre("treeLeaves", BlockInit.AUTUMNLEAVESORANGE);
+		OreDictionary.registerOre("treeLeaves", BlockInit.AUTUMNLEAVESRED);
+		OreDictionary.registerOre("treeLeaves", BlockInit.AUTUMNLEAVESYELLOW);
 		OreDictionary.registerOre("treeLeaves", BlockInit.OAKLEAVESRED);
+		OreDictionary.registerOre("treeLeaves", BlockInit.ORCHARDLEAVES);
+		OreDictionary.registerOre("treeLeaves", BlockInit.WHITEMYRTLELEAVES);
+		OreDictionary.registerOre("treeLeaves", BlockInit.PAULOWNIALEAVES);
 		
 		//Saplings
 		OreDictionary.registerOre("treeSapling", BlockInit.CONIFERSAPLINGORANGE);
@@ -46,6 +53,13 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("treeSapling", BlockInit.SHRUBSAPLINGREDOAK);
 		OreDictionary.registerOre("treeSapling", BlockInit.SHRUBSAPLINGREDSPRUCE);
 		OreDictionary.registerOre("treeSapling", BlockInit.SHRUBSAPLINGSPRUCE);
+		OreDictionary.registerOre("treeSapling", BlockInit.AUTUMNSAPLINGBROWN);
+		OreDictionary.registerOre("treeSapling", BlockInit.AUTUMNSAPLINGORANGE);
+		OreDictionary.registerOre("treeSapling", BlockInit.AUTUMNSAPLINGRED);
+		OreDictionary.registerOre("treeSapling", BlockInit.AUTUMNSAPLINGYELLOW);
+		OreDictionary.registerOre("treeSapling", BlockInit.WHITEMYRTLESAPLING);
+		OreDictionary.registerOre("treeSapling", BlockInit.PAULOWNIASAPLING);
+		OreDictionary.registerOre("treeSapling", BlockInit.ORCHARDSAPLING);
 		
 		//Sands
 		OreDictionary.registerOre("sand", BlockInit.WHITESAND);
@@ -54,5 +68,17 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("sandstone", BlockInit.WHITESANDSTONEFACE);
 		OreDictionary.registerOre("sandstone", BlockInit.WHITESANDSTONEGLYPH);
 		OreDictionary.registerOre("sandstone", BlockInit.WHITESANDSTONESMOOTH);
+		OreDictionary.registerOre("sand", BlockInit.COLDSAND);
+		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONE);
+		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONECARVED);
+		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONEFACE);
+		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONEGLYPH);
+		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONESMOOTH);
+		OreDictionary.registerOre("sand", BlockInit.HOTSAND);
+		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONE);
+		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONECARVED);
+		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONEFACE);
+		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONEGLYPH);
+		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONESMOOTH);
 	}
 }
