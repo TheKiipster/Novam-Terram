@@ -164,7 +164,7 @@ public class BiomeInit
 			registerBiome(hills, "hills", BiomeWeightConfig.highlandWeight, true, BiomeType.WARM, Type.HILLS);
 			registerBiome(hotspring, "hotspring", BiomeWeightConfig.hotspringWeight, false, BiomeType.WARM, Type.WET);
 			registerBiome(lake, "lake", BiomeWeightConfig.lakeWeight, false, BiomeType.WARM, Type.WATER, Type.CONIFEROUS);
-			registerBiome(lowland, "lowland", BiomeWeightConfig.lowlandWeight, true, BiomeType.WARM, Type.CONIFEROUS ,Type.WET);
+			registerBiome(lowland, "lowland", BiomeWeightConfig.lowlandWeight, false, BiomeType.WARM, Type.CONIFEROUS ,Type.WET);
 			registerBiome(meadow, "meadow", BiomeWeightConfig.meadowWeight, true, BiomeType.WARM, Type.PLAINS);
 			registerBiome(mixedforest, "mixed_forest", BiomeWeightConfig.mixedforestWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(mixedforesthills, "mixed_forest_hills", BiomeWeightConfig.mixedforesthillsWeight, false, BiomeType.WARM, Type.FOREST);
@@ -203,7 +203,7 @@ public class BiomeInit
 			registerBiome(pineforest, "pine_forest", BiomeWeightConfig.pineforestWeight, false, BiomeType.COOL, Type.CONIFEROUS);
 			registerBiome(pineland, "pineland", BiomeWeightConfig.pinelandWeight, true, BiomeType.COOL, Type.HILLS, Type.CONIFEROUS);
 			registerBiome(rockytaiga, "rocky_taiga", BiomeWeightConfig.rockytaigaWeight, true, BiomeType.COOL, Type.FOREST);
-			registerBiome(stonemountains, "stone_mountains", BiomeWeightConfig.stonemountainsWeight, true, BiomeType.COOL, Type.MOUNTAIN);
+			registerBiome(stonemountains, "stone_mountains", BiomeWeightConfig.stonemountainsWeight, false, BiomeType.COOL, Type.MOUNTAIN);
 			
 			//DESERT
 			registerBiome(clayland, "clayland", BiomeWeightConfig.claylandWeight, true, BiomeType.DESERT, Type.SAVANNA);
@@ -247,6 +247,10 @@ public class BiomeInit
 			registerBiome(snowypineforest, "snowy_pine_forest", BiomeWeightConfig.snowypineforestWeight, false, BiomeType.ICY, Type.CONIFEROUS ,Type.SNOWY);
 			registerBiome(tundra, "tundra", BiomeWeightConfig.tundraWeight, true, BiomeType.ICY, Type.COLD);
 			
+			BiomeManager.addVillageBiome(Biomes.JUNGLE, true);
+			BiomeManager.addVillageBiome(Biomes.FOREST, true);
+			BiomeManager.addVillageBiome(Biomes.BIRCH_FOREST, true);
+			BiomeManager.addVillageBiome(Biomes.ROOFED_FOREST, true);
 			BiomeManager.addVillageBiome(Biomes.JUNGLE_EDGE, true);
 			BiomeManager.addVillageBiome(Biomes.MESA, true);
 			BiomeManager.addVillageBiome(Biomes.EXTREME_HILLS, true);
@@ -257,6 +261,8 @@ public class BiomeInit
 		
 		public static void registerBiome(Biome biome, String name, int weight, boolean hasVillages, BiomeType biomeType, Type... types)
 		{
+			if(weight > 0)
+			{
 			biome.setRegistryName(name);
 			System.out.println("Biome Registered");
 			ForgeRegistries.BIOMES.register(biome);
@@ -268,4 +274,5 @@ public class BiomeInit
 				BiomeManager.addVillageBiome(biome, true);
 			System.out.println("Biome Added");
 		}
+	}
 	}
