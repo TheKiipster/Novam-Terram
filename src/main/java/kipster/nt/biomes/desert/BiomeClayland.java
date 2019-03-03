@@ -149,13 +149,18 @@ public class BiomeClayland extends Biome
 	          }
 	        
 	        @Override
-			public int getModdedBiomeGrassColor(int original) {
-			    return super.getModdedBiomeGrassColor(0xCCB675);
-			}
-			@Override
-			public int getModdedBiomeFoliageColor(int original) {
-			    return super.getModdedBiomeFoliageColor(0xCCB675);
-	}
+	  			public int getModdedBiomeGrassColor(int original) {
+	  			    return super.getModdedBiomeGrassColor(0xCCC566);
+	  			}
+	  			@Override
+	  			public int getModdedBiomeFoliageColor(int original) {
+	  			    return super.getModdedBiomeFoliageColor(0xB9CC66);
+	  	}
+	  			@Override
+	  			public int getSkyColorByTemp(float currentTemperature) {
+	  				
+	  					return 0x83BFBD;
+	  			}
 	        
 		   	 public static class GoldGenerator extends WorldGenerator
 		   	    {

@@ -91,6 +91,17 @@ public class BiomeBirchHills extends Biome
 			 }
 	
 
+	 @Override
+	 public int getModdedBiomeGrassColor(int original) {
+		    return super.getModdedBiomeGrassColor(0x85C15B);
+		}
+	 
+	 @Override
+	 public int getModdedBiomeFoliageColor(int original) {
+		    return super.getModdedBiomeFoliageColor(0x83BF4F);
+		    
+	}
+	
 	 public static class EmeraldGenerator extends WorldGenerator
 	    {
 	        @Override

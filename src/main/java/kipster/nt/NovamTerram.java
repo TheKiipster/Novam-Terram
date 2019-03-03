@@ -1,9 +1,10 @@
 package kipster.nt;
 
 import kipster.nt.util.handlers.RegistryHandler;
-
+import kipster.nt.world.type.WorldTypeTerram;
 import kipster.nt.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.world.WorldType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -43,5 +44,6 @@ public class NovamTerram {
 	public void postInit(FMLPostInitializationEvent event) {
 		System.out.println("uWu");
 		RegistryHandler.postInitRegistries();
+		WorldType TERRAM = new WorldTypeTerram("Terram");
 	}
 }

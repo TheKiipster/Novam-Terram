@@ -3,8 +3,6 @@ package kipster.nt.world.gen.trees;
 import java.util.Random;
 
 import kipster.nt.blocks.BlockInit;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
@@ -14,13 +12,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class WorldGenTreeCherryPurple extends WorldGenAbstractTree
+public class WorldGenTreePaulownia2 extends WorldGenAbstractTree 
 {
-    private static final IBlockState LOG = Blocks.LOG.getDefaultState();
-    private static final IBlockState LEAF = BlockInit.CHERRYLEAVESPURPLE.getDefaultState();
+    private static final IBlockState LOG = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.OAK);
+    private static final IBlockState LEAF = BlockInit.PAULOWNIALEAVES.getDefaultState();
     private final boolean useExtraRandomHeight;
 
-    public WorldGenTreeCherryPurple(boolean notify, boolean useExtraRandomHeightIn)
+    public WorldGenTreePaulownia2(boolean notify, boolean useExtraRandomHeightIn)
     {
         super(notify);
         this.useExtraRandomHeight = useExtraRandomHeightIn;
@@ -28,7 +26,7 @@ public class WorldGenTreeCherryPurple extends WorldGenAbstractTree
 
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
-        int i = rand.nextInt(3) + 5;
+        int i = rand.nextInt(4) + 7;
 
         if (this.useExtraRandomHeight)
         {
@@ -88,7 +86,7 @@ public class WorldGenTreeCherryPurple extends WorldGenAbstractTree
                 {
                     state.getBlock().onPlantGrow(state, worldIn, down, position);
 
-                    for (int i2 = position.getY() - 3 + i; i2 <= position.getY() + i; ++i2)
+                    for (int i2 = position.getY() - 5 + i; i2 <= position.getY() + i; ++i2)
                     {
                         int k2 = i2 - (position.getY() + i);
                         int l2 = 1 - k2 / 2;

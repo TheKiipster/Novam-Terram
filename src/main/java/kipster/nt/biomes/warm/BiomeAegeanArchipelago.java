@@ -98,7 +98,11 @@ public class BiomeAegeanArchipelago extends Biome
 	    	public int getModdedBiomeFoliageColor(int original) {
 	    	    return super.getModdedBiomeFoliageColor(0x96db1c);
 	    }
-
+	    	@Override
+	    	public Biome.TempCategory getTempCategory()
+	        {
+	            return Biome.TempCategory.OCEAN;
+	        }
 	    
 	    public static class EmeraldGenerator extends WorldGenerator
 	    {

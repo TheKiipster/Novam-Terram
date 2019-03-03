@@ -4,9 +4,7 @@ import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.world.gen.WorldGenPatches;
-import kipster.nt.world.gen.trees.WorldGenTreeSandSwamp;
-import kipster.nt.world.gen.trees.WorldGenTreeJacaranda;
-import kipster.nt.world.gen.trees.WorldGenTreeOak;
+import kipster.nt.world.gen.trees.*;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -15,21 +13,13 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import kipster.nt.biomes.warm.BiomeMoorland.EmeraldGenerator;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenFossils;
-import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenMelon;
-import net.minecraft.world.gen.feature.WorldGenSavannaTree;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenVines;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.passive.EntityCow;
-import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.entity.passive.*;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -50,13 +40,14 @@ public class BiomeMoorland extends Biome
 		
 		    this.decorator.extraTreeChance = 0.0002F;
 	        this.decorator.flowersPerChunk = 45;
-	        this.decorator.reedsPerChunk = 10;
-	        this.decorator.clayPerChunk = 3;
-	        this.decorator.waterlilyPerChunk = 2;
+	        this.decorator.reedsPerChunk = 13;
+	        this.decorator.clayPerChunk = 5;
+	        this.decorator.waterlilyPerChunk = 3;
 	        this.decorator.grassPerChunk = 50;
 	        this.decorator.generateFalls = true;
+	        this.spawnableCreatureList.clear();
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 1, 1, 1));
-	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCow.class, 8, 4, 4));
+	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 8, 4, 4));
 	        
 	}
 	    
@@ -95,7 +86,7 @@ public class BiomeMoorland extends Biome
 	    public int getGrassColorAtPos(BlockPos pos)
 	    {
 	        double d0 = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
-	        return d0 < -0.1D ? super.getModdedBiomeGrassColor(0x9C8B45) : super.getModdedBiomeGrassColor(0xB3BC49);
+	        return d0 < -0.1D ? super.getModdedBiomeGrassColor(0xA19C5B) : super.getModdedBiomeGrassColor(0x95B652);
 	    }
 
 	   	@Override

@@ -35,6 +35,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeRockyTaiga extends Biome 
 {	
+	protected static final WorldGenPatches STONE_PATCHES = new WorldGenPatches(Blocks.STONE.getDefaultState(), 7);
 	protected static final WorldGenBlockBlob STONE_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.STONE, 1);
 	protected static final WorldGenLine STONE = new WorldGenLine(Blocks.STONE, 1);
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
@@ -88,6 +89,14 @@ public class BiomeRockyTaiga extends Biome
        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
     	   diamonds.generate(worldIn, rand, pos);
        
+       int stonepatchChance = rand.nextInt(4);
+		if (stonepatchChance == 0) {
+			int k6 = rand.nextInt(16) + 8;
+			int l = rand.nextInt(16) + 8;
+			BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+			STONE_PATCHES.generate(worldIn, rand, blockpos);
+		}
+       
        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
            int boulderChance = rand.nextInt(4);
            if (boulderChance == 0) {
@@ -123,12 +132,12 @@ public class BiomeRockyTaiga extends Biome
    
    @Override
   	public int getModdedBiomeGrassColor(int original) {
-  	    return super.getModdedBiomeGrassColor(0x73AC42);
+  	    return super.getModdedBiomeGrassColor(0x6EA93C);
   	}
 
   	@Override
   	public int getModdedBiomeFoliageColor(int original) {
-  	    return super.getModdedBiomeFoliageColor(0x73AC42);
+  	    return super.getModdedBiomeFoliageColor(0x639F2F);
   	}
   	
 	 public static class DiamondGenerator extends WorldGenerator

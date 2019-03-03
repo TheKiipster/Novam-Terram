@@ -100,7 +100,7 @@ public class BiomeHighland extends Biome
 	 
 	 @Override
 	 public int getModdedBiomeFoliageColor(int original) {
-		    return super.getModdedBiomeFoliageColor(0x8AB467);
+		    return super.getModdedBiomeFoliageColor(0x789F58);
 		    
 	}
 }

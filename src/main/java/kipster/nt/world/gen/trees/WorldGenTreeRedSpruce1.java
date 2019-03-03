@@ -27,7 +27,7 @@ public class WorldGenTreeRedSpruce1 extends WorldGenAbstractTree
 
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
-        int i = rand.nextInt(5) + 7;
+        int i = rand.nextInt(5) + 11;
         int j = i - rand.nextInt(2) - 3;
         int k = i - j;
         int l = 1 + rand.nextInt(k + 1);

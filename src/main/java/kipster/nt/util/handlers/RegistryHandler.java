@@ -8,8 +8,10 @@ import kipster.nt.blocks.BlockInit;
 import kipster.nt.config.*;
 import kipster.nt.items.ItemInit;
 import kipster.nt.util.interfaces.IHasModel;
+import kipster.nt.world.type.WorldTypeTerram;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
@@ -61,7 +63,7 @@ public class RegistryHandler
 		 File directory = e.getModConfigurationDirectory();
 	     config = new Configuration(new File(directory.getPath(), "novamterram.cfg"));  
 		BiomeInit.initBiomes();
-		
+	
 	}
 	
 	public static void initRegistries()
@@ -74,6 +76,7 @@ public class RegistryHandler
 	{
 		if (config.hasChanged()) {
 			config.save();
-	}
+		}
+	
 }
 }

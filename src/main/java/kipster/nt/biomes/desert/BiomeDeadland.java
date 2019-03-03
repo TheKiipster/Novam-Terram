@@ -4,19 +4,20 @@ import java.util.Iterator;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.desert.BiomeSandyScrubland.GoldGenerator;
-import kipster.nt.config.*;
+import kipster.nt.biomes.desert.BiomeDeadland.GoldGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
+import kipster.nt.world.gen.trees.WorldGenTreeDead;
+import kipster.nt.world.gen.trees.WorldGenTreeOak;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubAcacia;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
-import net.minecraft.block.BlockSand;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.entity.monster.EntityHusk;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityStray;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.entity.passive.EntityDonkey;
-import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -25,7 +26,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -33,33 +33,35 @@ import net.minecraft.world.gen.feature.WorldGenSavannaTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeSandyScrubland extends Biome 
+
+
+public class BiomeDeadland extends Biome 
 {
-	protected static final WorldGenPatches GRASS_PATCHES = new WorldGenPatches(Blocks.GRASS.getDefaultState(), 7);
-	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
-	protected static final WorldGenBlockBlob SAND_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.SANDSTONE, 1);
+
+	protected static final WorldGenPatches COARSE_PATCHES = new WorldGenPatches(Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT), 9);
 	protected static final WorldGenLakes LAVA_LAKE_FEATURE = new WorldGenLakes(Blocks.LAVA);
-	public BiomeSandyScrubland(BiomeProperties properties)
+	protected static final WorldGenTreeOak OAK_TREE = new WorldGenTreeOak(false, false);
+	protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false);
+	
+	
+	public BiomeDeadland(BiomeProperties properties)
 	{	
 		super(properties);
 	
-			this.decorator.treesPerChunk = 4;
-			this.decorator.flowersPerChunk = 2;
-			this.decorator.grassPerChunk = 10;
-	        this.decorator.deadBushPerChunk = 18;
-	        this.decorator.reedsPerChunk = 25;
-	        this.decorator.cactiPerChunk = 20;
+			this.decorator.extraTreeChance = .7F;
+			this.decorator.flowersPerChunk = -10;
+			this.decorator.grassPerChunk = 1;
+	        this.decorator.deadBushPerChunk = 4;
+	        this.decorator.reedsPerChunk = -10;
+	        this.decorator.cactiPerChunk = -10;
 	        this.spawnableCreatureList.clear();
-	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
-	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 5, 2, 6));
-	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 3));
 	        Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
 
 	        while (iterator.hasNext())
 	        {
 	            Biome.SpawnListEntry biome$spawnlistentry = iterator.next();
 
-	            if (biome$spawnlistentry.entityClass == EntityZombie.class || biome$spawnlistentry.entityClass == EntityZombieVillager.class)
+	            if (biome$spawnlistentry.entityClass == EntityZombie.class || biome$spawnlistentry.entityClass == EntityZombieVillager.class || biome$spawnlistentry.entityClass == EntitySkeleton.class)
 	            {
 	                iterator.remove();
 	            }
@@ -68,23 +70,25 @@ public class BiomeSandyScrubland extends Biome
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombie.class, 19, 4, 4));
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombieVillager.class, 1, 1, 1));
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityHusk.class, 80, 4, 4));
+	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySkeleton.class, 20, 4, 4));
+	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityStray.class, 80, 4, 4));
 	}
 	
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-        return (WorldGenAbstractTree)(rand.nextInt(4) > 0 ? SHRUB_ACACIA : SHRUB_ACACIA);
+        return (WorldGenAbstractTree)(rand.nextInt(4) > 0 ? DEAD : DEAD);
 }
 	
 	@Override
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
-        if (noiseVal > 1.9D) {
-            this.topBlock = Blocks.GRASS.getDefaultState();
-            this.fillerBlock = Blocks.DIRT.getDefaultState(); }
+        if (noiseVal > 1.57D) {
+            this.topBlock = Blocks.DIRT.getDefaultState();
+            this.fillerBlock = Blocks.GRAVEL.getDefaultState(); }
         
         else {
         	
-         this.topBlock = Blocks.SAND.getDefaultState();
-            this.fillerBlock = Blocks.SAND.getDefaultState();
+         this.topBlock = Blocks.GRAVEL.getDefaultState();
+            this.fillerBlock = Blocks.GRAVEL.getDefaultState();
         }
 
         this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
@@ -105,9 +109,10 @@ public class BiomeSandyScrubland extends Biome
 					int k6 = rand.nextInt(16) + 8;
 					int l = rand.nextInt(16) + 8;
 					BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-					GRASS_PATCHES.generate(worldIn, rand, blockpos);
+					COARSE_PATCHES.generate(worldIn, rand, blockpos);
 				}
-				   if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_LAVA)) {
+				
+				 if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_LAVA)) {
 	    	           int boulderChance = rand.nextInt(12);
 	    	           if (boulderChance == 0) {
 	    	            int k6 = rand.nextInt(16) + 8;
@@ -115,15 +120,6 @@ public class BiomeSandyScrubland extends Biome
 	    	             BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	    	             LAVA_LAKE_FEATURE.generate(worldIn, rand, blockpos);
 	    	           }
-				
-				 if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
-		            int genChance = rand.nextInt(3);
-		            if (genChance == 0) {
-		                int k6 = rand.nextInt(16) + 8;
-		                int l = rand.nextInt(16) + 8;
-		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-		                SAND_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
-		            }
 				
 	            if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.DESERT_WELL))
 	            if (rand.nextInt(1000) == 0)
@@ -140,18 +136,7 @@ public class BiomeSandyScrubland extends Biome
 	                (new WorldGenFossils()).generate(worldIn, rand, pos);
 	            }
 	            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-				 }
-				   }
 	        }
-				@Override
-			   	public int getModdedBiomeGrassColor(int original) {
-			   	    return super.getModdedBiomeGrassColor(9470285);
-			   	}
-
-			   	@Override
-			   	public int getModdedBiomeFoliageColor(int original) {
-			   	    return super.getModdedBiomeFoliageColor(9470285);
-		    
 	        }
 
 		   	 public static class GoldGenerator extends WorldGenerator
@@ -174,5 +159,14 @@ public class BiomeSandyScrubland extends Biome
 		   	            return true;
 		   	        }
 		   	    }
-		   
+		   	 
+		   	@Override
+		   	public int getModdedBiomeGrassColor(int original) {
+		   	    return super.getModdedBiomeGrassColor(0x92B25C);
+		   	}
+
+		   	@Override
+		   	public int getModdedBiomeFoliageColor(int original) {
+		   	    return super.getModdedBiomeFoliageColor(0x92B25C);
+		   	}
 	    }

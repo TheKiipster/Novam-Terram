@@ -19,15 +19,17 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenSavannaTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeScrubland extends Biome 
 {
 	private static final WorldGenAbstractTree SAVANNA_TREE = new WorldGenSavannaTree(false);
 	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
 	protected static final WorldGenPatches SAND_PATCHES = new WorldGenPatches(Blocks.SAND.getDefaultState(), 5);
-	
+	protected static final WorldGenLakes LAVA_LAKE_FEATURE = new WorldGenLakes(Blocks.LAVA);
 	public BiomeScrubland(BiomeProperties properties)
 	{	
 		super(properties);
@@ -75,6 +77,15 @@ public class BiomeScrubland extends Biome
 	             int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 	             DOUBLE_PLANT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 	         }
+	         if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_LAVA)) {
+  	           int boulderChance = rand.nextInt(12);
+  	           if (boulderChance == 0) {
+  	            int k6 = rand.nextInt(16) + 8;
+  	            int l = rand.nextInt(16) + 8;
+  	             BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+  	             LAVA_LAKE_FEATURE.generate(worldIn, rand, blockpos);
+  	           }
+	         
 	      	int sandpatchChance = rand.nextInt(4);
 			if (sandpatchChance == 0) {
 				int k6 = rand.nextInt(16) + 8;
@@ -88,6 +99,7 @@ public class BiomeScrubland extends Biome
 	 	    	   gold.generate(worldIn, rand, pos);
 
 	         super.decorate(worldIn, rand, pos);
+	     }
 	     }
 	     
 	     public static class GoldGenerator extends WorldGenerator

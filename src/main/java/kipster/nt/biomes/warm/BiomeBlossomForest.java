@@ -4,25 +4,21 @@ import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.warm.BiomeBlossomForest.EmeraldGenerator;
-import kipster.nt.world.gen.trees.WorldGenTreeAutumnTaigaOrange;
-import kipster.nt.world.gen.trees.WorldGenTreeAutumnTaigaYellow;
-import kipster.nt.world.gen.trees.WorldGenTreeCherryPink;
-import kipster.nt.world.gen.trees.WorldGenTreeCherryPurple;
-import kipster.nt.world.gen.trees.WorldGenTreeCherryWhite;
-import kipster.nt.world.gen.trees.WorldGenTreeOak;
-import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
+import kipster.nt.world.gen.trees.*;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeForest;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
@@ -31,10 +27,10 @@ public class BiomeBlossomForest extends Biome
 {
 	
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree PURPLE_TREE = new WorldGenTreeCherryPurple(false, false);
+	protected static final WorldGenAbstractTree WHITE_TREE = new WorldGenTreeCherryWhite(false, false);
 	protected static final WorldGenAbstractTree PINK_TREE = new WorldGenTreeCherryPink(false, false);
-	private final WorldGenTreeCherryWhite whiteCherryGenerator = new WorldGenTreeCherryWhite(false, false);
-	
+	private final WorldGenTreeBigPurpleCherry purpleCherryGenerator = new WorldGenTreeBigPurpleCherry(false);
+	 
 	public BiomeBlossomForest(BiomeProperties properties)
 	{	
 		super(properties);
@@ -43,12 +39,13 @@ public class BiomeBlossomForest extends Biome
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
 		this.decorator.treesPerChunk = 8;
-		this.decorator.flowersPerChunk = 10;
-	    this.decorator.grassPerChunk = 3;
+		this.decorator.flowersPerChunk = 100;
+        this.decorator.grassPerChunk = 1;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
-	    this.flowers.clear();
+        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
+        this.flowers.clear();
         for (BlockFlower.EnumFlowerType type : BlockFlower.EnumFlowerType.values())
         {
             if (type.getBlockType() == BlockFlower.EnumFlowerColor.YELLOW) continue;
@@ -56,22 +53,21 @@ public class BiomeBlossomForest extends Biome
             addFlower(net.minecraft.init.Blocks.RED_FLOWER.getDefaultState().withProperty(net.minecraft.init.Blocks.RED_FLOWER.getTypeProperty(), type), 10);
         }
 	}
-	public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
-	{
-            double d0 = MathHelper.clamp((1.0D + GRASS_COLOR_NOISE.getValue((double)pos.getX() / 48.0D, (double)pos.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
-            BlockFlower.EnumFlowerType blockflower$enumflowertype = BlockFlower.EnumFlowerType.values()[(int)(d0 * (double)BlockFlower.EnumFlowerType.values().length)];
-            return blockflower$enumflowertype == BlockFlower.EnumFlowerType.BLUE_ORCHID ? BlockFlower.EnumFlowerType.POPPY : blockflower$enumflowertype;
-	}
-	
+	  public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
+	    {
+	            double d0 = MathHelper.clamp((1.0D + GRASS_COLOR_NOISE.getValue((double)pos.getX() / 48.0D, (double)pos.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
+	            BlockFlower.EnumFlowerType blockflower$enumflowertype = BlockFlower.EnumFlowerType.values()[(int)(d0 * (double)BlockFlower.EnumFlowerType.values().length)];
+	            return blockflower$enumflowertype == BlockFlower.EnumFlowerType.BLUE_ORCHID ? BlockFlower.EnumFlowerType.POPPY : blockflower$enumflowertype;
+	    }
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 	if (rand.nextInt(2) > 0)
 	{
-		  return PURPLE_TREE;
+		  return WHITE_TREE;
 	}
 	else
 	{
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.whiteCherryGenerator : PINK_TREE);
+	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.purpleCherryGenerator : PINK_TREE);
 	}
 }
 	
@@ -147,6 +143,22 @@ public class BiomeBlossomForest extends Biome
 	    super.decorate(worldIn, rand, pos);
 	        }
 	
+	@Override
+   	public int getModdedBiomeGrassColor(int original) {
+   	    return 0x6AD04A;
+   	}
+
+   	@Override
+   	public int getModdedBiomeFoliageColor(int original) {
+   	    return 0x629D30;
+   	}
+
+   	@Override
+	public int getSkyColorByTemp(float currentTemperature) {
+		
+			return 0x49A4EC;
+	}
+
 	
 	public static class EmeraldGenerator extends WorldGenerator
     {

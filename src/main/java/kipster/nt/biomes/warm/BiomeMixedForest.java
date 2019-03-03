@@ -41,6 +41,7 @@ public class BiomeMixedForest extends Biome
 		this.decorator.treesPerChunk = 8;
 		this.decorator.flowersPerChunk = 1;
 	    this.decorator.grassPerChunk = 3;
+	    this.decorator.mushroomsPerChunk = 4;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
@@ -94,7 +95,7 @@ public class BiomeMixedForest extends Biome
 	}
 	@Override
 	public int getModdedBiomeFoliageColor(int original) {
-	    return super.getModdedBiomeFoliageColor(0x8DA54F);
+	    return super.getModdedBiomeFoliageColor(0xA6B04B);
 	}
 	
 	public static class EmeraldGenerator extends WorldGenerator

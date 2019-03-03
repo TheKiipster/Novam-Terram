@@ -6,6 +6,7 @@ import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.warm.BiomeMeadow.EmeraldGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreePoplar;
+import kipster.nt.world.gen.trees.WorldGenTreeShrubBirch;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubOak;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
@@ -36,6 +37,7 @@ public class BiomeMeadow extends Biome
 {
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
 	protected static final WorldGenAbstractTree POPLAR_TREE = new WorldGenTreePoplar(false, false);
+	protected static final WorldGenAbstractTree SHRUB_BIRCH = new WorldGenTreeShrubBirch();
 	
 	public BiomeMeadow(BiomeProperties properties)
 	{	
@@ -44,38 +46,19 @@ public class BiomeMeadow extends Biome
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-		this.decorator.extraTreeChance = 3F;
-        this.decorator.flowersPerChunk = 13;
-        this.decorator.grassPerChunk = 18;
+		this.decorator.extraTreeChance = 8.3F;
+        this.decorator.flowersPerChunk = 2;
+        this.decorator.grassPerChunk = 1;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
-	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 5, 2, 6));
-	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityPig.class, 5, 2, 6));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityChicken.class, 10, 4, 4));
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCow.class, 8, 4, 4));
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 5, 2, 6));
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 3));
-	    this.flowers.clear();
-        for (BlockFlower.EnumFlowerType type : BlockFlower.EnumFlowerType.values())
-        {
-            if (type.getBlockType() == BlockFlower.EnumFlowerColor.YELLOW) continue;
-            if (type == BlockFlower.EnumFlowerType.BLUE_ORCHID) type = BlockFlower.EnumFlowerType.POPPY;
-            addFlower(net.minecraft.init.Blocks.RED_FLOWER.getDefaultState().withProperty(net.minecraft.init.Blocks.RED_FLOWER.getTypeProperty(), type), 10);
-        }
 	}
-	public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
-	{
-            double d0 = MathHelper.clamp((1.0D + GRASS_COLOR_NOISE.getValue((double)pos.getX() / 48.0D, (double)pos.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
-            BlockFlower.EnumFlowerType blockflower$enumflowertype = BlockFlower.EnumFlowerType.values()[(int)(d0 * (double)BlockFlower.EnumFlowerType.values().length)];
-            return blockflower$enumflowertype == BlockFlower.EnumFlowerType.BLUE_ORCHID ? BlockFlower.EnumFlowerType.POPPY : blockflower$enumflowertype;
-	}
-	
+	    
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) 
 	{
-		return (WorldGenAbstractTree)(rand.nextInt(1) == 0 ? POPLAR_TREE : POPLAR_TREE);
+		return (WorldGenAbstractTree)(rand.nextInt(2) == 0 ? POPLAR_TREE : SHRUB_BIRCH);
 	}
 	
 	public void addDoublePlants(World p_185378_1_, Random p_185378_2_, BlockPos p_185378_3_, int p_185378_4_)
@@ -150,7 +133,7 @@ public class BiomeMeadow extends Biome
 	
 	@Override
    	public int getModdedBiomeGrassColor(int original) {
-   	    return super.getModdedBiomeGrassColor(0x73AC42);
+   	    return super.getModdedBiomeGrassColor(0x92C951);
    	}
 
    	@Override

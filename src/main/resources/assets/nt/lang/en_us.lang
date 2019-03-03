@@ -1,5 +1,7 @@
 itemGroup.novamterramtab=Novam Terram
 
+generator.Terram=Archipelago
+
 //Leaves
 tile.conifer_leaves_yellow.name=Yellow Conifer Leaves
 tile.conifer_leaves_orange.name=Orange Conifer Leaves

@@ -6,7 +6,6 @@ import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.cool.BiomeConiferousPlains.DiamondGenerator;
 import kipster.nt.config.*;
 import kipster.nt.world.gen.WorldGenLine;
-import kipster.nt.world.gen.trees.WorldGenTreePine;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
 import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
 import net.minecraft.entity.passive.EntityLlama;

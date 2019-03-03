@@ -17,6 +17,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityRabbit;
@@ -29,8 +30,9 @@ public class BiomeLowland extends Biome
 {
 	
 	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
+	private final WorldGenAbstractTree spruceGenerator = new WorldGenTreeTallSpruce(true);
 	protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
+	protected static final WorldGenAbstractTree SHRUB_SPRUCE = new WorldGenTreeShrubSpruce();
 	
 	public BiomeLowland(BiomeProperties properties)
 	{	
@@ -42,6 +44,8 @@ public class BiomeLowland extends Biome
 	    this.decorator.grassPerChunk = 6;
 	    this.decorator.gravelPatchesPerChunk = 1;
 	    this.decorator.waterlilyPerChunk = 2;
+	    this.decorator.reedsPerChunk = 3;
+	    this.decorator.clayPerChunk = 4;
 	    this.decorator.generateFalls = true;
 	    this.spawnableCreatureList.clear();
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
@@ -51,12 +55,20 @@ public class BiomeLowland extends Biome
 	}
 	
 	@Override
-	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand) 
 	{
-	  return (WorldGenAbstractTree)(rand.nextInt(1) == 0 ? this.spruceGenerator : TREE_FEATURE);
+	if (rand.nextInt(3) > 0)
+	{
+		return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? this.spruceGenerator : this.spruceGenerator);
+	}
+	else
+	{
+		return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? SHRUB_SPRUCE : SHRUB_SPRUCE);
+		
+		}
 	}
 	
-	}
+	
 	
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	{
@@ -78,6 +90,11 @@ public class BiomeLowland extends Biome
         this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
         
 		}
+	
+	public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
+    {
+        return BlockFlower.EnumFlowerType.BLUE_ORCHID;
+    }
     
 	public void decorate(World worldIn, Random rand, BlockPos pos)
 	{
@@ -99,6 +116,12 @@ public class BiomeLowland extends Biome
 
 	    super.decorate(worldIn, rand, pos);
 	        }
+	
+	 @Override
+	    public void addDefaultFlowers()
+	    {
+	        addFlower(Blocks.RED_FLOWER.getDefaultState().withProperty(Blocks.RED_FLOWER.getTypeProperty(), BlockFlower.EnumFlowerType.BLUE_ORCHID), 10);
+	    }
 	
 	 public static class EmeraldGenerator extends WorldGenerator
 	    {
@@ -123,12 +146,12 @@ public class BiomeLowland extends Biome
 	
 	 @Override
 	 public int getModdedBiomeGrassColor(int original) {
-		    return super.getModdedBiomeGrassColor(0x91BD78);
+		    return super.getModdedBiomeGrassColor(0x77B061);
 		}
 	 
 	 @Override
 	 public int getModdedBiomeFoliageColor(int original) {
-		    return super.getModdedBiomeFoliageColor(0x91BD78);
+		    return super.getModdedBiomeFoliageColor(0x7CBB58);
 		    
 	}
 }
