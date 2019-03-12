@@ -45,7 +45,7 @@ public class BiomeMoorland extends Biome
 	        this.decorator.waterlilyPerChunk = 3;
 	        this.decorator.grassPerChunk = 50;
 	        this.decorator.generateFalls = true;
-	        this.spawnableCreatureList.clear();
+	        
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 1, 1, 1));
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 8, 4, 4));
 	        

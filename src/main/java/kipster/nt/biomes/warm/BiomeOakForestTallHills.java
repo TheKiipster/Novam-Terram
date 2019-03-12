@@ -37,7 +37,7 @@ public class BiomeOakForestTallHills extends Biome
 		this.decorator.flowersPerChunk = 1;
 	    this.decorator.grassPerChunk = 3;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 		
 	}

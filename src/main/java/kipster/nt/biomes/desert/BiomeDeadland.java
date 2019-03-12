@@ -54,7 +54,7 @@ public class BiomeDeadland extends Biome
 	        this.decorator.deadBushPerChunk = 4;
 	        this.decorator.reedsPerChunk = -10;
 	        this.decorator.cactiPerChunk = -10;
-	        this.spawnableCreatureList.clear();
+	        
 	        Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
 
 	        while (iterator.hasNext())

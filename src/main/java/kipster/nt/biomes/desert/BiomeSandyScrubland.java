@@ -49,7 +49,7 @@ public class BiomeSandyScrubland extends Biome
 	        this.decorator.deadBushPerChunk = 18;
 	        this.decorator.reedsPerChunk = 25;
 	        this.decorator.cactiPerChunk = 20;
-	        this.spawnableCreatureList.clear();
+	        
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 3));

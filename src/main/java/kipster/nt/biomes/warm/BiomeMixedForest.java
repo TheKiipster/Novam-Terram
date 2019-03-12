@@ -43,7 +43,7 @@ public class BiomeMixedForest extends Biome
 	    this.decorator.grassPerChunk = 3;
 	    this.decorator.mushroomsPerChunk = 4;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 		
 	}

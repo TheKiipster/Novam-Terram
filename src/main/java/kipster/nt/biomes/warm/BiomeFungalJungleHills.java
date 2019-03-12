@@ -66,7 +66,7 @@ public class BiomeFungalJungleHills extends Biome
         this.decorator.mushroomsPerChunk = 25;
         this.decorator.bigMushroomsPerChunk = 17;
         
-        this.spawnableCreatureList.clear();
+        
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityParrot.class, 40, 1, 2));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityChicken.class, 10, 4, 4));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityOcelot.class, 2, 1, 1));

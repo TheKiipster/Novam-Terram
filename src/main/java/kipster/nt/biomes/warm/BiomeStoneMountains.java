@@ -53,7 +53,7 @@ public class BiomeStoneMountains extends Biome
         this.decorator.flowersPerChunk = 2;
         this.decorator.grassPerChunk = 3;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityLlama.class, 5, 4, 6));
 	}
 	

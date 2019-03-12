@@ -41,7 +41,7 @@ public class BiomeTundra extends Biome
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 3;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	}
 	

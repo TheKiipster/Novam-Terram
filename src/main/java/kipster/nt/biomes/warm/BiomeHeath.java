@@ -54,7 +54,7 @@ public class BiomeHeath extends Biome
         this.decorator.grassPerChunk = 11;
         this.decorator.deadBushPerChunk = 25;
         this.decorator.sandPatchesPerChunk = 10;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 3));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityPig.class, 5, 2, 6));

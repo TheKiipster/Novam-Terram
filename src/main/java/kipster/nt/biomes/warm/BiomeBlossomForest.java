@@ -42,7 +42,7 @@ public class BiomeBlossomForest extends Biome
 		this.decorator.flowersPerChunk = 100;
         this.decorator.grassPerChunk = 1;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         this.flowers.clear();

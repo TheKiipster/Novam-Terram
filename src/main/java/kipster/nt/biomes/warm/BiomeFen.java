@@ -54,7 +54,7 @@ public class BiomeFen extends Biome
         this.decorator.gravelPatchesPerChunk = 0;
         this.decorator.grassPerChunk = 15;
         
-        this.spawnableCreatureList.clear();
+        
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 2, 2, 2));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityWitch.class, 5, 1, 1));
         

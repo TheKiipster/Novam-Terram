@@ -39,7 +39,7 @@ public class BiomeRoyalForest extends Biome
 		this.decorator.flowersPerChunk = 14;
 	    this.decorator.grassPerChunk = 7;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 	    this.flowers.clear();
         for (BlockFlower.EnumFlowerType type : BlockFlower.EnumFlowerType.values())

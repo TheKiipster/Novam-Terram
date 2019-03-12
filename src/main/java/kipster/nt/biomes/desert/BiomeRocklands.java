@@ -52,7 +52,7 @@ public class BiomeRocklands extends Biome
 		this.decorator.gravelPatchesPerChunk = 10;
 		this.decorator.sandPatchesPerChunk = 10;
 		
-		this.spawnableCreatureList.clear();
+		
 		this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 1, 2, 6));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 1));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));

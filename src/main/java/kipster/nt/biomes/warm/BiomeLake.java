@@ -33,7 +33,7 @@ public class BiomeLake extends Biome
 		this.decorator.sandPatchesPerChunk = 2;
 	    this.decorator.gravelPatchesPerChunk = 4;
 	    this.decorator.grassPerChunk = 3;
-	    this.spawnableCreatureList.clear();
+	    
 	}
 
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
