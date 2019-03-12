@@ -16,7 +16,7 @@ public class NovamTerram {
 	
 	public static final String modId = "nt";
 	public static final String name = "Novam Terram";
-	public static final String version = "1.0";
+	public static final String version = "6.2";
 
 	public static final CreativeTabs NOVAMTERRAMTAB = new NovamTerramTab("novamterramtab");
 	
@@ -29,20 +29,19 @@ public class NovamTerram {
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		System.out.println(name + " is doing a thing uWu");
-		//proxy.registerRenderers();
+		proxy.preInit(event);
 		RegistryHandler.preInitRegistries(event);
 	}
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		System.out.println("uWu");
+		proxy.init(event);
 		RegistryHandler.initRegistries();
 	}
 	
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		System.out.println("uWu");
+		proxy.postInit(event);
 		RegistryHandler.postInitRegistries();
 		WorldType TERRAM = new WorldTypeTerram("Terram");
 	}
