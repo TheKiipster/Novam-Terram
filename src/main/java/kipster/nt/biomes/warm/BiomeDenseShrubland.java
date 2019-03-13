@@ -44,7 +44,7 @@ public class BiomeDenseShrubland extends Biome
         this.decorator.flowersPerChunk = 2;
         this.decorator.grassPerChunk = 5;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 5, 2, 6));

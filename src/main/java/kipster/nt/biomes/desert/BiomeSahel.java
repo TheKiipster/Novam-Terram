@@ -43,7 +43,7 @@ public class BiomeSahel extends Biome
 	        this.decorator.deadBushPerChunk = 5;
 	        this.decorator.reedsPerChunk = 25;
 	        this.decorator.cactiPerChunk = 10;
-	        this.spawnableCreatureList.clear();
+	        
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityChicken.class, 10, 4, 4));
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	        Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();

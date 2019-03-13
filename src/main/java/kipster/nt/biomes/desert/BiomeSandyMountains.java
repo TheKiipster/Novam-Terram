@@ -59,7 +59,7 @@ public class BiomeSandyMountains extends Biome
 		  this.decorator.deadBushPerChunk = 28;
 	        this.decorator.reedsPerChunk = 20;
 	        this.decorator.cactiPerChunk = 20;
-	        this.spawnableCreatureList.clear();
+	        
 	        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	        Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
 

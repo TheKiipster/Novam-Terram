@@ -3,7 +3,7 @@ package kipster.nt.biomes.cool;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.cool.BiomeConiferousPlains.DiamondGenerator;
+import kipster.nt.biomes.cool.BiomeStoneFields.DiamondGenerator;
 import kipster.nt.config.MiscConfig;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.WorldGenStoneSpike;
@@ -26,14 +26,14 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-public class BiomeConiferousPlains extends Biome 
+public class BiomeStoneFields extends Biome 
 {
 	protected static final WorldGenBlockBlob COBBLESTONE_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.COBBLESTONE, 1);
 	private final WorldGenStoneSpike stoneSpike = new WorldGenStoneSpike();
 	protected static final WorldGenPatches STONE_PATCHES = new WorldGenPatches(Blocks.STONE.getDefaultState(), 7);
 	protected static final WorldGenAbstractTree SHRUB_SPRUCE = new WorldGenTreeShrubSpruce();
 	
-	 public BiomeConiferousPlains(BiomeProperties properties)
+	 public BiomeStoneFields(BiomeProperties properties)
 	  	{	
 	  		super(properties);
 	  	
@@ -44,7 +44,7 @@ public class BiomeConiferousPlains extends Biome
         this.decorator.flowersPerChunk = 1;
         this.decorator.grassPerChunk = 5;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	}

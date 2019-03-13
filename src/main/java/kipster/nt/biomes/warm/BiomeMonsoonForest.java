@@ -72,7 +72,7 @@ public class BiomeMonsoonForest extends Biome
         this.decorator.bigMushroomsPerChunk = 1;
 		this.decorator.clayPerChunk = 5;
         
-        this.spawnableCreatureList.clear();
+        
 	    this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 1, 1, 1));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityParrot.class, 40, 1, 2));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityChicken.class, 10, 4, 4));

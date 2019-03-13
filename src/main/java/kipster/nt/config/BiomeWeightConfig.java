@@ -16,7 +16,7 @@ public class BiomeWeightConfig {
 	public static int bluetaigahillsWeight = 2;
 	public static int bluetaigaWeight = 8;
 	public static int cliffsWeight = 6;
-	public static int coniferousplainsWeight = 5;
+	public static int stonefieldsWeight = 5;
 	public static int mapleforesthillsWeight = 2;
 	public static int mapleforestWeight = 8;
 	public static int megaautumntaigahillsWeight = 2;

@@ -46,7 +46,7 @@ public class BiomeSnowDune extends Biome
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 1;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityPolarBear.class, 1, 1, 2));
         Iterator<Biome.SpawnListEntry> iterator = this.spawnableMonsterList.iterator();

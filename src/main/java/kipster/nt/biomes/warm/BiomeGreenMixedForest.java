@@ -43,7 +43,7 @@ public class BiomeGreenMixedForest extends Biome
 		this.decorator.flowersPerChunk = 4;
 	    this.decorator.grassPerChunk = 4;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 		

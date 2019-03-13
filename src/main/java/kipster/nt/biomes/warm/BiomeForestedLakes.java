@@ -45,7 +45,7 @@ public class BiomeForestedLakes extends Biome
 	    this.decorator.grassPerChunk = 6;
 	    this.decorator.waterlilyPerChunk = 2;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 5, 2, 6));
 		

@@ -3,7 +3,7 @@ package kipster.nt.biomes.cool;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.cool.BiomeConiferousPlains.DiamondGenerator;
+import kipster.nt.biomes.cool.BiomeStoneFields.DiamondGenerator;
 import kipster.nt.config.*;
 import kipster.nt.world.gen.WorldGenLine;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
@@ -45,7 +45,7 @@ public class BiomeCliffs extends Biome
         this.decorator.flowersPerChunk = 1;
         this.decorator.grassPerChunk = 1;
         
-        this.spawnableCreatureList.clear();
+        
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityLlama.class, 5, 4, 6));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));

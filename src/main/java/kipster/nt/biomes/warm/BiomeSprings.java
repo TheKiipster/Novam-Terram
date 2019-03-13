@@ -40,7 +40,7 @@ public class BiomeSprings extends Biome
 	    this.decorator.grassPerChunk = 5;
 	    this.decorator.gravelPatchesPerChunk = 4;
 	    this.decorator.generateFalls = true;
-	    this.spawnableCreatureList.clear();
+	    
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 	    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySheep.class, 5, 2, 6));
 		
