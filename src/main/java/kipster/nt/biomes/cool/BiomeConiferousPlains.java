@@ -82,7 +82,7 @@ public class BiomeConiferousPlains extends Biome
                 BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
                 COBBLESTONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
             }
-		for (int i = 0; i < 3; ++i)
+		for (int i = 0; i < 5; ++i)
         {
             int j = rand.nextInt(16) + 8;
             int k = rand.nextInt(16) + 8;

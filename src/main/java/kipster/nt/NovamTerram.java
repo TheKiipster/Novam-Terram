@@ -1,7 +1,7 @@
 package kipster.nt;
 
 import kipster.nt.util.handlers.RegistryHandler;
-import kipster.nt.world.type.WorldTypeTerram;
+import kipster.nt.world.type.WorldTypeIslands;
 import kipster.nt.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.WorldType;
@@ -44,6 +44,6 @@ public class NovamTerram {
 	public void postInit(FMLPostInitializationEvent event) {
 		System.out.println("uWu");
 		RegistryHandler.postInitRegistries();
-		WorldType TERRAM = new WorldTypeTerram("Terram");
-	}
+		WorldType ISLANDS = new WorldTypeIslands("Islands");
+		}
 }

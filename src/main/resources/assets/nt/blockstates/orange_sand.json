@@ -1,0 +1,10 @@
+   {
+    "variants": {
+        "normal": [
+            { "model": "nt:orange_sand" },
+            { "model": "nt:orange_sand", "y": 90 },
+            { "model": "nt:orange_sand", "y": 180 },
+            { "model": "nt:orange_sand", "y": 270 }
+        ]
+    }
+}

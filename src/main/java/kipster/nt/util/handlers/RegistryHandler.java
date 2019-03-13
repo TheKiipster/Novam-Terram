@@ -8,7 +8,7 @@ import kipster.nt.blocks.BlockInit;
 import kipster.nt.config.*;
 import kipster.nt.items.ItemInit;
 import kipster.nt.util.interfaces.IHasModel;
-import kipster.nt.world.type.WorldTypeTerram;
+import kipster.nt.world.type.WorldTypeIslands;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.world.WorldType;
@@ -18,6 +18,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @EventBusSubscriber
 public class RegistryHandler 
@@ -69,6 +70,7 @@ public class RegistryHandler
 	public static void initRegistries()
 	{
 		OreDictionaryHandler.registerOreDictionary();
+		GameRegistry.registerFuelHandler(new FuelHandler());
 		FurnaceRecipeHandler.registerFurnaceRecipes();
 	}
 	

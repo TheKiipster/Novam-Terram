@@ -8,6 +8,7 @@ import kipster.nt.biomes.cool.*;
 import kipster.nt.biomes.desert.*;
 import kipster.nt.biomes.warm.*;
 import kipster.nt.config.BiomeWeightConfig;
+import kipster.nt.config.MiscConfig;
 import net.minecraft.world.biome.BiomeTaiga;
 import net.minecraft.world.biome.BiomeForest;
 import net.minecraft.init.Biomes;
@@ -60,13 +61,20 @@ public class BiomeInit
 		public static Biome oakforest = new BiomeOakForest(new BiomeProperties("Oak Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome oakforesthills = new BiomeOakForest(new BiomeProperties("Oak Forest Hills").setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome poppymeadow = new BiomePoppyMeadow(new BiomeProperties("Poppy Meadow").setBaseHeight(0.11F).setHeightVariation(0.025F).setTemperature(0.8F).setRainfall(0.4F));
-		public static Biome praire = new BiomePraire(new BiomeProperties("Praire").setBaseHeight(0.03F).setHeightVariation(0.05F).setTemperature(1F).setRainfall(0.4F));
 		public static Biome royalforest = new BiomeRoyalForest(new BiomeProperties("Royal Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome royalforesthills = new BiomeRoyalForest(new BiomeProperties("Royal Forest Hills").setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome shrubland = new BiomeShrubland(new BiomeProperties("Shrubland").setBaseHeight(0.11F).setHeightVariation(0.025F).setTemperature(0.8F).setRainfall(0.4F));
 		public static Biome talloakforest = new BiomeOakForestTall(new BiomeProperties("Tall Oak Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome talloakforesthills = new BiomeOakForestTall(new BiomeProperties("Tall Oak Forest Hills").setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()));
 		public static Biome whiteorchard = new BiomeWhiteOrchard(new BiomeProperties("White Orchard").setBaseHeight(0.026F).setHeightVariation(0.03F).setTemperature(1F).setRainfall(0.4F));
+		public static Biome pinkbeach = new BiomePinkBeach(new BiomeProperties("Pink Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome purplebeach = new BiomePurpleBeach(new BiomeProperties("Purple Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome whitebeach = new BiomeWhiteBeach(new BiomeProperties("White Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome orangebeach = new BiomeOrangeBeach(new BiomeProperties("Orange Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome ironbeach = new BiomeIronBeach(new BiomeProperties("Iron Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome olivinebeach = new BiomeOlivineBeach(new BiomeProperties("Olivine Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome blackbeach = new BiomeBlackBeach(new BiomeProperties("Black Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
+		public static Biome brownbeach = new BiomeBrownBeach(new BiomeProperties("Brown Beach").setBaseHeight(-0.4F).setHeightVariation(0.050F).setTemperature(0.8F).setRainfall(0.4F));
 
 		//COOL
 		public static Biome autumnforest = new BiomeAutumnForest(new BiomeProperties("Autumn Forest").setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setTemperature(Biomes.FOREST.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()));
@@ -98,12 +106,10 @@ public class BiomeInit
 		public static Biome redsanddune = new BiomeRedSandDune(new BiomeProperties("Red Sand Dune").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
 		public static Biome rockland = new BiomeRockland(new BiomeProperties("Rockland").setBaseHeight(0.87F).setHeightVariation(0.51F).setTemperature(0.9F).setRainfall(0.3F));
 		public static Biome sahel = new BiomeSahel(new BiomeProperties("Sahel").setBaseHeight(0.125F).setHeightVariation(0.046F).setTemperature(0.9F).setRainfall(1F));
-		public static Biome deadland = new BiomeDeadland(new BiomeProperties("Deadland").setBaseHeight(0.125F).setHeightVariation(0.046F).setTemperature(1.5F).setRainfall(1F).setWaterColor(0x379A3E));
 		public static Biome sanddune = new BiomeSandDune(new BiomeProperties("Sand Dune").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
 		public static Biome sandymountains = new BiomeSandyMountains(new BiomeProperties("Sandy Mountains").setBaseHeight(1.74F).setHeightVariation(0.78F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
 		public static Biome sandyscrubland = new BiomeSandyScrubland(new BiomeProperties("Sandy Scrubland").setBaseHeight(0.123F).setHeightVariation(0.044F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(0.9F));
 		public static Biome scrubland = new BiomeScrubland(new BiomeProperties("Scrubland").setBaseHeight(Biomes.SAVANNA.getBaseHeight()).setHeightVariation(Biomes.SAVANNA.getHeightVariation()).setTemperature(Biomes.SAVANNA.getDefaultTemperature()).setRainfall(Biomes.SAVANNA.getRainfall()));
-		public static Biome serengeti = new BiomeSerengeti(new BiomeProperties("Serengeti").setBaseHeight(Biomes.SAVANNA.getBaseHeight()).setHeightVariation(Biomes.SAVANNA.getHeightVariation()).setTemperature(Biomes.SAVANNA.getDefaultTemperature()).setRainfall(Biomes.SAVANNA.getRainfall()));
 		public static Biome tropicaldesert = new BiomeTropicalDesert(new BiomeProperties("Tropical Desert").setBaseHeight(0.1F).setHeightVariation(0.038F).setTemperature(Biomes.JUNGLE.getDefaultTemperature()).setRainfall(1F).setWaterColor(0x00CDF9));
 		
 		//ICY
@@ -166,13 +172,20 @@ public class BiomeInit
 			registerBiome(oakforest, "oak_forest", BiomeWeightConfig.oakforestWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(oakforesthills, "oak_forest_hills", BiomeWeightConfig.oakforesthillsWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(poppymeadow, "poppy_meadow", BiomeWeightConfig.poppymeadowWeight, true, BiomeType.WARM, Type.PLAINS, Type.MAGICAL, Type.RARE);
-			registerBiome(praire, "praire", BiomeWeightConfig.praireWeight, true, BiomeType.WARM, Type.PLAINS);
 			registerBiome(royalforest, "royal_forest", BiomeWeightConfig.royalforestWeight, true, BiomeType.WARM, Type.FOREST, Type.MAGICAL);
 			registerBiome(royalforesthills, "royal_forest_hills", BiomeWeightConfig.royalforesthillsWeight, false, BiomeType.WARM, Type.FOREST, Type.MAGICAL);
 			registerBiome(shrubland, "shrubland", BiomeWeightConfig.shrublandWeight, true, BiomeType.WARM, Type.PLAINS);
 			registerBiome(talloakforest, "tall_oak_forest", BiomeWeightConfig.talloakforestWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(talloakforesthills, "tall_oak_forest_hills", BiomeWeightConfig.talloakforesthillsWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(whiteorchard, "white_orchard", BiomeWeightConfig.whiteorchardWeight, true, BiomeType.WARM, Type.PLAINS);
+			registerBiome(pinkbeach, "pink_beach", BiomeWeightConfig.pinkbeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
+			registerBiome(purplebeach, "purple_beach", BiomeWeightConfig.purplebeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
+			registerBiome(orangebeach, "orange_beach", BiomeWeightConfig.orangebeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
+			registerBiome(whitebeach, "white_beach", BiomeWeightConfig.whitebeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
+			registerBiome(blackbeach, "black_beach", BiomeWeightConfig.blackbeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
+			registerBiome(ironbeach, "iron_beach", BiomeWeightConfig.ironbeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
+			registerBiome(olivinebeach, "olivine_beach", BiomeWeightConfig.olivinebeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
+			registerBiome(brownbeach, "brown_beach", BiomeWeightConfig.brownbeachWeight, false, BiomeType.WARM, Type.BEACH, Type.OCEAN);
 			
 			//COOL
 			registerBiome(autumnforest, "autumn_forest", BiomeWeightConfig.autumnforestWeight, true, BiomeType.COOL, Type.FOREST);
@@ -204,12 +217,10 @@ public class BiomeInit
 			registerBiome(redsanddune, "red_sand_dune", BiomeWeightConfig.redsandduneWeight, false, BiomeType.DESERT, Type.SANDY);
 			registerBiome(rockland, "rockland", BiomeWeightConfig.rocklandWeight, true, BiomeType.DESERT, Type.SAVANNA);
 			registerBiome(sahel, "sahel", BiomeWeightConfig.sahelWeight, true, BiomeType.DESERT, Type.SANDY);
-			registerBiome(deadland, "deadland", BiomeWeightConfig.sahelWeight, true, BiomeType.DESERT, Type.DEAD, Type.WASTELAND);
 			registerBiome(sanddune, "sand_dune", BiomeWeightConfig.sandduneWeight, false, BiomeType.DESERT, Type.SANDY);
 			registerBiome(sandymountains, "sandy_mountains", BiomeWeightConfig.sandymountainsWeight, false, BiomeType.DESERT, Type.SANDY, Type.MOUNTAIN);
 			registerBiome(sandyscrubland, "sandy_scrubland", BiomeWeightConfig.sandyscrublandWeight, true, BiomeType.DESERT, Type.SANDY);
 			registerBiome(scrubland, "scrubland", BiomeWeightConfig.scrublandWeight, true, BiomeType.DESERT, Type.SAVANNA);
-			registerBiome(serengeti, "serengeti", BiomeWeightConfig.serengetiWeight, true, BiomeType.DESERT, Type.SAVANNA);
 			registerBiome(tropicaldesert, "tropical_desert", BiomeWeightConfig.tropicaldesertWeight, true, BiomeType.DESERT, Type.SAVANNA, Type.LUSH, Type.JUNGLE);
 		
 			//ICY
@@ -236,14 +247,14 @@ public class BiomeInit
 			registerBiome(snowdune, "snowdune", BiomeWeightConfig.snowduneWeight, false, BiomeType.ICY, Type.COLD, Type.SNOWY);
 			registerBiome(tundra, "tundra", BiomeWeightConfig.tundraWeight, true, BiomeType.ICY, Type.COLD);
 			
-			BiomeManager.addVillageBiome(Biomes.JUNGLE, true);
-			BiomeManager.addVillageBiome(Biomes.FOREST, true);
-			BiomeManager.addVillageBiome(Biomes.BIRCH_FOREST, true);
-			BiomeManager.addVillageBiome(Biomes.ROOFED_FOREST, true);
-			BiomeManager.addVillageBiome(Biomes.JUNGLE_EDGE, true);
-			BiomeManager.addVillageBiome(Biomes.MESA, true);
-			BiomeManager.addVillageBiome(Biomes.EXTREME_HILLS, true);
-			BiomeManager.addVillageBiome(Biomes.ICE_PLAINS, true);
+			BiomeManager.addVillageBiome(Biomes.JUNGLE, MiscConfig.enableVillageInVanillaBiome);
+			BiomeManager.addVillageBiome(Biomes.FOREST, MiscConfig.enableVillageInVanillaBiome);
+			BiomeManager.addVillageBiome(Biomes.BIRCH_FOREST, MiscConfig.enableVillageInVanillaBiome);
+			BiomeManager.addVillageBiome(Biomes.ROOFED_FOREST, MiscConfig.enableVillageInVanillaBiome);
+			BiomeManager.addVillageBiome(Biomes.JUNGLE_EDGE, MiscConfig.enableVillageInVanillaBiome);
+			BiomeManager.addVillageBiome(Biomes.MESA, MiscConfig.enableVillageInVanillaBiome);
+			BiomeManager.addVillageBiome(Biomes.EXTREME_HILLS, MiscConfig.enableVillageInVanillaBiome);
+			BiomeManager.addVillageBiome(Biomes.ICE_PLAINS, MiscConfig.enableVillageInVanillaBiome);
 			
 			
 		}

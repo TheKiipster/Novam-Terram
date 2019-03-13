@@ -10,4 +10,5 @@ public class MiscConfig {
 
 
 	   public static boolean disableBoulders = false;
+	   public static boolean enableVillageInVanillaBiome = true;
     }

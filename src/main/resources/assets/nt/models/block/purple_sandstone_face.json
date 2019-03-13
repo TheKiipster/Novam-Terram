@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "nt:blocks/purple_sandstone_face",
+        "top": "nt:blocks/purple_sandstone_face",
+        "side": "nt:blocks/purple_sandstone_face"
+    }
+}

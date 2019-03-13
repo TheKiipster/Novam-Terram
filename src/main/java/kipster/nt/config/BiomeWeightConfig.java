@@ -25,7 +25,6 @@ public class BiomeWeightConfig {
 	public static int megabluetaigaWeight = 4;
 	public static int megamapleforesthillsWeight = 2;
 	public static int megamapleforestWeight = 4;
-	public static int pineforestWeight = 5;
 	public static int pinelandWeight = 6;
 	public static int rockytaigaWeight = 8;
 	public static int stonemountainsWeight = 3;
@@ -44,7 +43,6 @@ public class BiomeWeightConfig {
 	public static int sandymountainsWeight = 2;
 	public static int sandyscrublandWeight = 3;
 	public static int scrublandWeight = 5;
-	public static int serengetiWeight = 5;
 	public static int tropicaldesertWeight = 3;
         
 	//ICY
@@ -69,7 +67,6 @@ public class BiomeWeightConfig {
 	public static int glacierWeight = 2;
 	public static int icytundraWeight = 5;
 	public static int snowduneWeight = 2;
-	public static int snowypineforestWeight = 6;
 	public static int tundraWeight = 6;
         
 	//WARM
@@ -80,11 +77,8 @@ public class BiomeWeightConfig {
 	public static int blossomforestWeight = 8;
 	public static int bogWeight = 4;
 	public static int denseshrublandWeight = 3;
-	public static int dryforesthillsWeight = 2;
-	public static int dryforestWeight = 3;
 	public static int estuaryWeight = 4;
 	public static int fenWeight = 5;
-	public static int floralmeadowWeight = 2;
 	public static int forestedextremehillsWeight = 4;
 	public static int forestedlakesWeight = 3;
 	public static int fungaljunglehillsWeight = 1;
@@ -108,12 +102,18 @@ public class BiomeWeightConfig {
 	public static int oakforesthillsWeight = 2;
 	public static int oakforestWeight = 8;
 	public static int poppymeadowWeight = 2;
-	public static int praireWeight = 8;
 	public static int royalforesthillsWeight = 2;
 	public static int royalforestWeight = 8;
 	public static int shrublandWeight = 7;
 	public static int talloakforesthillsWeight = 2;
 	public static int talloakforestWeight = 4;
-	public static int tropicalswampWeight = 4;
 	public static int whiteorchardWeight = 3;
-    }
+	public static int whitebeachWeight = 1;
+	public static int blackbeachWeight = 1;
+	public static int brownbeachWeight = 1;
+	public static int pinkbeachWeight = 1;
+	public static int purplebeachWeight = 1;
+	public static int olivinebeachWeight = 1;
+	public static int orangebeachWeight = 1;
+	public static int ironbeachWeight = 1;
+	   }

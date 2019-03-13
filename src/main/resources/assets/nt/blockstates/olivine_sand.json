@@ -1,0 +1,10 @@
+   {
+    "variants": {
+        "normal": [
+            { "model": "nt:olivine_sand" },
+            { "model": "nt:olivine_sand", "y": 90 },
+            { "model": "nt:olivine_sand", "y": 180 },
+            { "model": "nt:olivine_sand", "y": 270 }
+        ]
+    }
+}

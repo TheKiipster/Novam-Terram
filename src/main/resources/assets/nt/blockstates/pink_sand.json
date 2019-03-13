@@ -1,0 +1,10 @@
+   {
+    "variants": {
+        "normal": [
+            { "model": "nt:pink_sand" },
+            { "model": "nt:pink_sand", "y": 90 },
+            { "model": "nt:pink_sand", "y": 180 },
+            { "model": "nt:pink_sand", "y": 270 }
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "nt:blocks/continental_sandstone_bottom",
+        "top": "nt:blocks/continental_sandstone_top",
+        "side": "nt:blocks/continental_sandstone_carved"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "nt:blocks/olivine_sandstone_glyph",
+        "top": "nt:blocks/olivine_sandstone_glyph",
+        "side": "nt:blocks/olivine_sandstone_glyph"
+    }
+}

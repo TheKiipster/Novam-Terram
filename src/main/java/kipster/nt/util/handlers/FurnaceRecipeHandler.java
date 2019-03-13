@@ -13,6 +13,13 @@ public static void registerFurnaceRecipes() {
 	GameRegistry.addSmelting(BlockInit.WHITESAND, new ItemStack(Blocks.GLASS), 1.0F);
 	GameRegistry.addSmelting(BlockInit.HOTSAND, new ItemStack(Blocks.GLASS), 1.0F);
 	GameRegistry.addSmelting(BlockInit.COLDSAND, new ItemStack(Blocks.GLASS), 1.0F);
+	GameRegistry.addSmelting(BlockInit.BLACKSAND, new ItemStack(Blocks.GLASS), 1.0F);
+	GameRegistry.addSmelting(BlockInit.CONTINENTALSAND, new ItemStack(Blocks.GLASS), 1.0F);
+	GameRegistry.addSmelting(BlockInit.IRONSAND, new ItemStack(Blocks.GLASS), 1.0F);
+	GameRegistry.addSmelting(BlockInit.OLIVINESAND, new ItemStack(Blocks.GLASS), 1.0F);
+	GameRegistry.addSmelting(BlockInit.ORANGESAND, new ItemStack(Blocks.GLASS), 1.0F);
+	GameRegistry.addSmelting(BlockInit.PINKSAND, new ItemStack(Blocks.GLASS), 1.0F);
+	GameRegistry.addSmelting(BlockInit.PURPLESAND, new ItemStack(Blocks.GLASS), 1.0F);
 
 	System.out.println("Furnace Recipes Registered");
 }

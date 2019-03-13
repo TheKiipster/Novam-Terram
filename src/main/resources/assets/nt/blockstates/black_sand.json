@@ -1,0 +1,10 @@
+   {
+    "variants": {
+        "normal": [
+            { "model": "nt:black_sand" },
+            { "model": "nt:black_sand", "y": 90 },
+            { "model": "nt:black_sand", "y": 180 },
+            { "model": "nt:black_sand", "y": 270 }
+        ]
+    }
+}
