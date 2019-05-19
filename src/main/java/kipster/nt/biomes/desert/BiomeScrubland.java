@@ -18,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenSavannaTree;
@@ -28,7 +29,6 @@ public class BiomeScrubland extends Biome
 {
 	private static final WorldGenAbstractTree SAVANNA_TREE = new WorldGenSavannaTree(false);
 	protected static final WorldGenAbstractTree SHRUB_ACACIA = new WorldGenTreeShrubAcacia();
-	protected static final WorldGenPatches SAND_PATCHES = new WorldGenPatches(Blocks.SAND.getDefaultState(), 5);
 	protected static final WorldGenLakes LAVA_LAKE_FEATURE = new WorldGenLakes(Blocks.LAVA);
 	public BiomeScrubland(BiomeProperties properties)
 	{	
@@ -65,6 +65,20 @@ public class BiomeScrubland extends Biome
 	         return (WorldGenAbstractTree)(rand.nextInt(5) > 0 ? SHRUB_ACACIA : SAVANNA_TREE);
 	     }
 	     
+	     @Override
+		   public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+		       if (noiseVal > 2.50D) {
+		           this.topBlock = Blocks.SAND.getDefaultState();
+		           this.fillerBlock = Blocks.SAND.getDefaultState();  } 
+		       else {
+		        this.topBlock = Blocks.GRASS.getDefaultState();
+		           this.fillerBlock = Blocks.DIRT.getDefaultState();
+		       }
+
+		       this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+		}
+		
+	     
 	     public void decorate(World worldIn, Random rand, BlockPos pos)
 	     {
 	         DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.GRASS);
@@ -86,13 +100,7 @@ public class BiomeScrubland extends Biome
   	             LAVA_LAKE_FEATURE.generate(worldIn, rand, blockpos);
   	           }
 	         
-	      	int sandpatchChance = rand.nextInt(4);
-			if (sandpatchChance == 0) {
-				int k6 = rand.nextInt(16) + 8;
-				int l = rand.nextInt(16) + 8;
-				BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-				SAND_PATCHES.generate(worldIn, rand, blockpos);
-			}
+	      
 	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
 	 	       WorldGenerator gold = new GoldGenerator();
 	 	       if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, gold, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.GOLD))

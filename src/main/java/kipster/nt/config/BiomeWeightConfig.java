@@ -38,7 +38,6 @@ public class BiomeWeightConfig {
 	public static int sahelWeight = 6;
 	public static int sandduneWeight = 5;
 	public static int sandymountainsWeight = 2;
-	public static int sandyscrublandWeight = 3;
 	public static int scrublandWeight = 5;
 	public static int tropicaldesertWeight = 3;
         

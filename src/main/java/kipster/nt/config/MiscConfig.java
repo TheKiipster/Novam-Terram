@@ -101,7 +101,6 @@ public class MiscConfig {
 	   public static boolean enableVillageInSahel = true;
 	   public static boolean enableVillageInSandDune = true;
 	   public static boolean enableVillageInSandyMountains = false;
-	   public static boolean enableVillageInSandyScrubland = true;
 	   public static boolean enableVillageInScrubland = true;
 	   public static boolean enableVillageInTropicalDesert = true;
 	  

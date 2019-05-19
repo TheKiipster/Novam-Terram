@@ -16,7 +16,7 @@ public class NovamTerram {
 	
 	public static final String modId = "nt";
 	public static final String name = "Novam Terram";
-	public static final String version = "6.2";
+	public static final String version = "7.0";
 
 	public static final CreativeTabs NOVAMTERRAMTAB = new NovamTerramTab("novamterramtab");
 	
@@ -41,6 +41,7 @@ public class NovamTerram {
 	
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+		System.out.println("Stream ARTPOP");
 		proxy.postInit(event);
 		RegistryHandler.postInitRegistries();
 		WorldType ISLANDS = new WorldTypeIslands("Islands");

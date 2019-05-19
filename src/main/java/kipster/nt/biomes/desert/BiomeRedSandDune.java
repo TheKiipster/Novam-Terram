@@ -25,8 +25,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeRedSandDune extends Biome 
 {
-	private final WorldGenRedSandSpike redsandSpike = new WorldGenRedSandSpike();
-	
+
 	public BiomeRedSandDune(BiomeProperties properties)
 	{	
 		super(properties);
@@ -74,12 +73,7 @@ public class BiomeRedSandDune extends Biome
 	                (new WorldGenDesertWells()).generate(worldIn, rand, blockpos);
 	            }
 	            
-	            for (int i = 0; i < 5; ++i)
-	            {
-	                int j = rand.nextInt(16) + 8;
-	                int k = rand.nextInt(16) + 8;
-	                this.redsandSpike.generate(worldIn, rand, worldIn.getHeight(pos.add(j, 0, k)));
-	            }
+	           
 
 	            if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
 	            if (rand.nextInt(64) == 0)

@@ -1,0 +1,17 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "nt:orange_sand"
+    }
+  },
+  "result": {
+    "item": "nt:orange_sandstone",
+   "count": 4
+  }
+}

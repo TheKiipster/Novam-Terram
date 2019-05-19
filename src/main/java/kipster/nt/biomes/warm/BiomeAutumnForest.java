@@ -3,7 +3,7 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.warm.BiomeAutumnForest.DiamondGenerator;
+import kipster.nt.biomes.warm.BiomeAutumnForest.EmeraldGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.*;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
@@ -108,9 +108,9 @@ public class BiomeAutumnForest extends Biome
        }
        
        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
-       WorldGenerator diamonds = new DiamondGenerator();
-       if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
-    	   diamonds.generate(worldIn, rand, pos);
+       WorldGenerator emeralds = new EmeraldGenerator();
+       if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, emeralds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.EMERALD))
+           emeralds.generate(worldIn, rand, pos);
        
        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
            int boulderChance = rand.nextInt(12);
@@ -137,7 +137,7 @@ public class BiomeAutumnForest extends Biome
 		//return super.getModdedBiomeFoliageColor(0x9DC558);
 		}
 	
-	 public static class DiamondGenerator extends WorldGenerator
+	 public static class EmeraldGenerator extends WorldGenerator
 	    {
 	        @Override
 	        public boolean generate(World worldIn, Random rand, BlockPos pos)
@@ -151,8 +151,9 @@ public class BiomeAutumnForest extends Biome
 	                net.minecraft.block.state.IBlockState state = worldIn.getBlockState(blockpos);
 	                if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, net.minecraft.block.state.pattern.BlockMatcher.forBlock(Blocks.STONE)))
 	                {
-	                    worldIn.setBlockState(blockpos, Blocks.DIAMOND_ORE.getDefaultState(), 16 | 2);
+	                    worldIn.setBlockState(blockpos, Blocks.EMERALD_ORE.getDefaultState(), 16 | 2);
 	                }
+	                net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	            }
 	            return true;
 	        }

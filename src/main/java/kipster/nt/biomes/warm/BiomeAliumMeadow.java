@@ -79,14 +79,7 @@ public class BiomeAliumMeadow extends Biome
 	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, emeralds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.EMERALD))
 	            emeralds.generate(worldIn, rand, pos);
 	        
-	        WorldGenerator lapis = new LapisGenerator();
-	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, lapis, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.LAPIS))
-	            emeralds.generate(worldIn, rand, pos);
-	        
-	        WorldGenerator diamonds = new DiamondGenerator();
-	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
-	            emeralds.generate(worldIn, rand, pos);
-
+	       
 			 if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
 		         int boulderChance = rand.nextInt(12);
 		         if (boulderChance == 0) {
@@ -135,48 +128,6 @@ public class BiomeAliumMeadow extends Biome
 	            }
 	            return true;
 	        }
-	    }
-	 public static class LapisGenerator extends WorldGenerator
-	    {
-	        @Override
-	        public boolean generate(World worldIn, Random rand, BlockPos pos)
-	        {
-	            int count = 5 + rand.nextInt(6);
-	            for (int i = 0; i < count; i++)
-	            {
-	                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332
-	                BlockPos blockpos = pos.add(rand.nextInt(16) + offset, rand.nextInt(28) + 2, rand.nextInt(16) + offset);
-
-	                net.minecraft.block.state.IBlockState state = worldIn.getBlockState(blockpos);
-	                if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, net.minecraft.block.state.pattern.BlockMatcher.forBlock(Blocks.STONE)))
-	                {
-	                    worldIn.setBlockState(blockpos, Blocks.LAPIS_ORE.getDefaultState(), 16 | 2);
-	                }
-	                net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-	            }
-	            return true;
-	        }
-	    }
-	 
-	 public static class DiamondGenerator extends WorldGenerator
-	    {
-	        @Override
-	        public boolean generate(World worldIn, Random rand, BlockPos pos)
-	        {
-	            int count = 5 + rand.nextInt(6);
-	            for (int i = 0; i < count; i++)
-	            {
-	                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332
-	                BlockPos blockpos = pos.add(rand.nextInt(16) + offset, rand.nextInt(28) + 2, rand.nextInt(16) + offset);
-
-	                net.minecraft.block.state.IBlockState state = worldIn.getBlockState(blockpos);
-	                if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, net.minecraft.block.state.pattern.BlockMatcher.forBlock(Blocks.STONE)))
-	                {
-	                    worldIn.setBlockState(blockpos, Blocks.DIAMOND_ORE.getDefaultState(), 16 | 2);
-	                }
-	                net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-	            }
-	            return true;
-	        }
+	    
 	    }
 }
