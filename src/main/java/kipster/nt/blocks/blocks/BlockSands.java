@@ -46,6 +46,7 @@ public class BlockSands extends BlockFalling implements IHasModel
 		setSoundType(SoundType.SAND);
 		setRegistryName(name);
 		setHardness(0.8F);
+		setHarvestLevel("shovel",0);
 		setCreativeTab(NovamTerram.NOVAMTERRAMTAB);
 		
 		BlockInit.BLOCKS.add(this);

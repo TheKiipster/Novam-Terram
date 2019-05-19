@@ -143,6 +143,13 @@ public class BiomeGreenSwamp extends Biome
 	    	    return super.getModdedBiomeFoliageColor(0x74A34C);
 	    }
 
+	       	@Override
+	    	public int getSkyColorByTemp(float currentTemperature) {
+	    		
+	    			return 0x45D97E;
+	    	}
+
+	    	
 	    @Override
 	    public void addDefaultFlowers()
 	    {

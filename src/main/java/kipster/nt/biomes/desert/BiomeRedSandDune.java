@@ -5,6 +5,8 @@ import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.desert.BiomeRedSandDune.GoldGenerator;
+import kipster.nt.world.gen.WorldGenRedSandSpike;
+import kipster.nt.world.gen.WorldGenStoneSpike;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -23,6 +25,8 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeRedSandDune extends Biome 
 {
+	private final WorldGenRedSandSpike redsandSpike = new WorldGenRedSandSpike();
+	
 	public BiomeRedSandDune(BiomeProperties properties)
 	{	
 		super(properties);
@@ -68,6 +72,13 @@ public class BiomeRedSandDune extends Biome
 	                int j = rand.nextInt(16) + 8;
 	                BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
 	                (new WorldGenDesertWells()).generate(worldIn, rand, blockpos);
+	            }
+	            
+	            for (int i = 0; i < 5; ++i)
+	            {
+	                int j = rand.nextInt(16) + 8;
+	                int k = rand.nextInt(16) + 8;
+	                this.redsandSpike.generate(worldIn, rand, worldIn.getHeight(pos.add(j, 0, k)));
 	            }
 
 	            if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))

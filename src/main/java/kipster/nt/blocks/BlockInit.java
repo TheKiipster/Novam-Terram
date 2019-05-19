@@ -86,12 +86,6 @@ public class BlockInit {
 	public static final Block COLDSANDSTONECARVED = new BlockSandstoneCarved("cold_sandstone_carved", Material.ROCK);
 	public static final Block COLDSANDSTONEFACE = new BlockSandstoneFace("cold_sandstone_face", Material.ROCK);
 	public static final Block COLDSANDSTONEGLYPH = new BlockSandstoneGlyph("cold_sandstone_glyph", Material.ROCK);
-	public static final Block HOTSAND = new BlockSands("hot_sand", Material.SAND);
-	public static final Block HOTSANDSTONE= new BlockSandstone("hot_sandstone", Material.ROCK);
-	public static final Block HOTSANDSTONESMOOTH = new BlockSandstoneSmooth("hot_sandstone_smooth", Material.ROCK);
-	public static final Block HOTSANDSTONECARVED = new BlockSandstoneCarved("hot_sandstone_carved", Material.ROCK);
-	public static final Block HOTSANDSTONEFACE = new BlockSandstoneFace("hot_sandstone_face", Material.ROCK);
-	public static final Block HOTSANDSTONEGLYPH = new BlockSandstoneGlyph("hot_sandstone_glyph", Material.ROCK);
 	public static final Block BLACKSAND = new BlockSands("black_sand", Material.SAND);
 	public static final Block BLACKSANDSTONE= new BlockSandstone("black_sandstone", Material.ROCK);
 	public static final Block BLACKSANDSTONESMOOTH = new BlockSandstoneSmooth("black_sandstone_smooth", Material.ROCK);

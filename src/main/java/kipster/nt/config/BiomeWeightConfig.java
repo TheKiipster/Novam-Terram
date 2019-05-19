@@ -9,8 +9,6 @@ import net.minecraftforge.common.config.Config;
 public class BiomeWeightConfig {
 
 	//COOL
-	public static int autumnforesthillsWeight = 2;
-	public static int autumnforestWeight = 8;
 	public static int autumntaigahillsWeight = 2;
 	public static int autumntaigaWeight = 8;
 	public static int bluetaigahillsWeight = 2;
@@ -33,7 +31,6 @@ public class BiomeWeightConfig {
 	public static int claylandWeight = 5;
 	public static int goldensavannaplateauWeight = 1;
 	public static int goldensavannaWeight = 5;
-	public static int hotdesertWeight = 1;
 	public static int lushdesertWeight = 4;
 	public static int outbackWeight = 5;
 	public static int redsandduneWeight = 3;
@@ -72,6 +69,8 @@ public class BiomeWeightConfig {
 	//WARM
 	public static int aegeanarchipelagoWeight = 1;
 	public static int aliummeadowWeight = 2;
+	public static int autumnforesthillsWeight = 2;
+	public static int autumnforestWeight = 8;
 	public static int birchhillsWeight = 5;
 	public static int blossomforesthillsWeight = 2;
 	public static int blossomforestWeight = 8;

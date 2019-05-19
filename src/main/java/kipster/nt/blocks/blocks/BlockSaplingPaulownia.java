@@ -66,7 +66,7 @@ public class BlockSaplingPaulownia extends BlockBush implements IHasModel, IGrow
   public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
   {
       if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-      WorldGenerator worldgenerator = new WorldGenTreePaulownia();
+      WorldGenerator worldgenerator = new WorldGenTreePaulownia(false);
 
       worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
 

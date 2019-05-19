@@ -129,7 +129,13 @@ public class BiomeBog extends Biome
 	    	public int getModdedBiomeFoliageColor(int original) {
 	    	    return super.getModdedBiomeFoliageColor(0x5C803C);
 	    }
+	    	@Override
+	    	public int getSkyColorByTemp(float currentTemperature) {
+	    		
+	    			return 0x98B034;
+	    	}
 
+	    	
 	    @Override
 	    public void addDefaultFlowers()
 	    {

@@ -1,0 +1,17 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "nt:pink_sandstone"
+    }
+  },
+  "result": {
+    "item": "nt:pink_sandstone_smooth",
+   "count": 4
+  }
+}

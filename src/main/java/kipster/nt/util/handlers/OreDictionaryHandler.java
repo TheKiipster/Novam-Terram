@@ -74,12 +74,6 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONEFACE);
 		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONEGLYPH);
 		OreDictionary.registerOre("sandstone", BlockInit.COLDSANDSTONESMOOTH);
-		OreDictionary.registerOre("sand", BlockInit.HOTSAND);
-		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONE);
-		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONECARVED);
-		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONEFACE);
-		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONEGLYPH);
-		OreDictionary.registerOre("sandstone", BlockInit.HOTSANDSTONESMOOTH);
 		OreDictionary.registerOre("sand", BlockInit.BLACKSAND);
 		OreDictionary.registerOre("sandstone", BlockInit.BLACKSANDSTONE);
 		OreDictionary.registerOre("sandstone", BlockInit.BLACKSANDSTONECARVED);

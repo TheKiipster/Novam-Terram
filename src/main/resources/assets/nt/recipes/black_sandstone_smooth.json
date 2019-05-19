@@ -1,0 +1,17 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "nt:black_sandstone"
+    }
+  },
+  "result": {
+    "item": "nt:black_sandstone_smooth",
+   "count": 4
+  }
+}

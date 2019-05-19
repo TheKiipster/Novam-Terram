@@ -110,12 +110,12 @@ public class BiomePineland extends Biome
 	
 	 @Override
 	 public int getModdedBiomeGrassColor(int original) {
-		    return super.getModdedBiomeGrassColor(0x7EB867);
+		    return super.getModdedBiomeGrassColor(0x7CB660);
 		}
 	 
 	 @Override
 	 public int getModdedBiomeFoliageColor(int original) {
-		    return super.getModdedBiomeFoliageColor(0x7EB867);
+		    return super.getModdedBiomeFoliageColor(0x74BA52);
 		    
 	}
 }

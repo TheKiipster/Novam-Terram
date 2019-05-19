@@ -9,6 +9,7 @@ import kipster.nt.world.gen.trees.WorldGenTreeBlueSpruce1;
 import kipster.nt.world.gen.trees.WorldGenTreeBlueSpruce2;
 import kipster.nt.world.gen.trees.WorldGenTreeMaple;
 import kipster.nt.world.gen.trees.WorldGenTreeRedSpruce2;
+import kipster.nt.world.gen.trees.WorldGenTreeShrubBlueSpruce;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +24,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraftforge.common.BiomeManager;
@@ -31,36 +33,51 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 public class BiomeColdBlueTaiga extends Biome 
 {	
 	
-	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
-	protected static final WorldGenAbstractTree BLUE = new WorldGenTreeBlueSpruce2(false);
+	protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
+	protected static final WorldGenAbstractTree BLUE_SPRUCE = new WorldGenTreeBlueSpruce2(false);
    private final WorldGenTreeBlueSpruce1 spruceGenerator = new WorldGenTreeBlueSpruce1();
-	 
+	protected static final WorldGenAbstractTree SHRUB_SPRUCE = new WorldGenTreeShrubBlueSpruce(); 
+   
    public BiomeColdBlueTaiga(BiomeProperties properties)
   	{	
-  		super(properties);
-  	
+	   super(properties);
+	  	
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();
 		
-       
-       this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
-       this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
-       this.decorator.treesPerChunk = 10;
-       this.decorator.flowersPerChunk = 2;
-       this.decorator.grassPerChunk = 4;
+		 this.decorator.generateFalls = true;
+      
+      this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
+      this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
+      this.decorator.treesPerChunk = 11;
+      this.decorator.flowersPerChunk = 5;
+      this.decorator.grassPerChunk = 4;
 
 	}
-
-	@Override
-	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
-
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.spruceGenerator : BLUE);
+  
+  public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
+  {
+      return BlockFlower.EnumFlowerType.ALLIUM;
+  }
+  
+  @Override
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand) 
+	{
+	if (rand.nextInt(3) > 0)
+	{
+		return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? this.spruceGenerator : this.BLUE_SPRUCE);
 	}
-
+	else
+	{
+		return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? this.spruceGenerator : SHRUB_SPRUCE);
+		
+		}
+	}
+	
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)
-   {
-       return rand.nextInt(5) > 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
-   }
+  {
+      return rand.nextInt(5) > 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
+  }
 
    public void decorate(World worldIn, Random rand, BlockPos pos)
    {
@@ -95,6 +112,22 @@ public class BiomeColdBlueTaiga extends Biome
        }
    }
    
+   
+   @Override
+ 	public int getModdedBiomeGrassColor(int original) {
+ 	    return super.getModdedBiomeGrassColor(0x6BB88C);
+ 	}
+
+ 	@Override
+ 	public int getModdedBiomeFoliageColor(int original) {
+ 	    return super.getModdedBiomeFoliageColor(0x4AAE68);
+ 	}
+ 	
+	 @Override
+	    public void addDefaultFlowers()
+	    {
+	        addFlower(Blocks.RED_FLOWER.getDefaultState().withProperty(Blocks.RED_FLOWER.getTypeProperty(), BlockFlower.EnumFlowerType.ALLIUM), 20);
+	    }
 	
 	 public static class DiamondGenerator extends WorldGenerator
 	    {

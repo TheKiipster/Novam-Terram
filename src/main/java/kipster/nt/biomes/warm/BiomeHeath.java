@@ -15,12 +15,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockTallGrass;
@@ -35,7 +37,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeHeath extends Biome 
 {
-	protected static final WorldGenPatches SAND_PATCHES = new WorldGenPatches(Blocks.SAND.getDefaultState(), 6);
+
 	protected static final WorldGenAbstractTree SHRUB_JACARANDA = new WorldGenTreeShrubJacaranda();
 	protected static final WorldGenAbstractTree SHRUB_DARKOAK = new WorldGenTreeShrubDarkOak();
 	protected static final WorldGenAbstractTree SHRUB_OAK = new WorldGenTreeShrubOak();
@@ -45,9 +47,6 @@ public class BiomeHeath extends Biome
 	{	
 		super(properties);
 	
-		topBlock = Blocks.GRASS.getDefaultState();
-		fillerBlock = Blocks.DIRT.getDefaultState();
-		
 		this.decorator.extraTreeChance = 2F;
 		this.decorator.treesPerChunk = 3;
         this.decorator.flowersPerChunk = 10;
@@ -77,6 +76,7 @@ public class BiomeHeath extends Biome
 		
 		}
 	}
+	
 	
 	public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
     {
@@ -116,15 +116,23 @@ public class BiomeHeath extends Biome
 	    }
 	}
 	
+	
+	@Override
+	   public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+	       if (noiseVal > 2.50D) {
+	           this.topBlock = Blocks.SAND.getDefaultState();
+	           this.fillerBlock = Blocks.SAND.getDefaultState();  } 
+	       else {
+	        this.topBlock = Blocks.GRASS.getDefaultState();
+	           this.fillerBlock = Blocks.DIRT.getDefaultState();
+	       }
+
+	       this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+	}
+	
 	public void decorate(World worldIn, Random rand, BlockPos pos)
 	{
-		int grasspatchChance = rand.nextInt(6);
-		if (grasspatchChance == 0) {
-			int k6 = rand.nextInt(16) + 8;
-			int l = rand.nextInt(16) + 8;
-			BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
-			SAND_PATCHES.generate(worldIn, rand, blockpos);
-			}
+		
 		 if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FLOWERS))
 		 { // no tab for patch
 		 int i = rand.nextInt(5) - 3;

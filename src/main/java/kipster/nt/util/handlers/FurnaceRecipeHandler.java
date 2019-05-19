@@ -11,7 +11,6 @@ public class FurnaceRecipeHandler
 
 public static void registerFurnaceRecipes() {
 	GameRegistry.addSmelting(BlockInit.WHITESAND, new ItemStack(Blocks.GLASS), 1.0F);
-	GameRegistry.addSmelting(BlockInit.HOTSAND, new ItemStack(Blocks.GLASS), 1.0F);
 	GameRegistry.addSmelting(BlockInit.COLDSAND, new ItemStack(Blocks.GLASS), 1.0F);
 	GameRegistry.addSmelting(BlockInit.BLACKSAND, new ItemStack(Blocks.GLASS), 1.0F);
 	GameRegistry.addSmelting(BlockInit.CONTINENTALSAND, new ItemStack(Blocks.GLASS), 1.0F);

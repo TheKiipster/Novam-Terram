@@ -7,6 +7,7 @@ import kipster.nt.biomes.cool.BiomeAutumnTaiga.DiamondGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeAutumnTaigaOrange;
 import kipster.nt.world.gen.trees.WorldGenTreeAutumnTaigaYellow;
+import kipster.nt.world.gen.trees.WorldGenTreeDead;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
 import kipster.nt.world.gen.trees.WorldGenTreeTallSpruce;
 import net.minecraft.init.Biomes;
@@ -15,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -34,7 +36,9 @@ public class BiomeAutumnTaiga extends Biome
 	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
 	protected static final WorldGenAbstractTree YELLOW_TREE = new WorldGenTreeAutumnTaigaYellow(false, false);
 	protected static final WorldGenAbstractTree ORANGE_TREE = new WorldGenTreeAutumnTaigaOrange(false, false);
-   private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
+	protected static final WorldGenTreeDead DEAD_TREE = new WorldGenTreeDead(false);
+	protected static final WorldGenTreeShrubSpruce SHRUB_SPRUCE = new WorldGenTreeShrubSpruce();
+	   private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
 	 
    public BiomeAutumnTaiga(BiomeProperties properties)
 	{	
@@ -50,20 +54,44 @@ public class BiomeAutumnTaiga extends Biome
        this.decorator.treesPerChunk = 7;
        this.decorator.flowersPerChunk = 2;
        this.decorator.grassPerChunk = 4;
+       this.decorator.gravelPatchesPerChunk = 4;
 
 	}
-
-	@Override
+   
+   @Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
-	if (rand.nextInt(2) > 0)
+	if (rand.nextInt(1) > 0)
 	{
-		  return this.spruceGenerator;
+		 return (WorldGenAbstractTree)(rand.nextInt(5) == 0 ? DEAD_TREE : SHRUB_SPRUCE);
+			
 	}
-	else
+	
+	else if (rand.nextInt(3) > 0)
 	{
-	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? YELLOW_TREE : ORANGE_TREE);
+		  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.spruceGenerator : this.spruceGenerator);
 	}
-}
+	
+	else 
+	{
+		  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? YELLOW_TREE : ORANGE_TREE);
+		
+		}
+	}
+
+
+	   @Override
+	   public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+	       if (noiseVal > 2.50D) {
+	           this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+	           this.fillerBlock = Blocks.DIRT.getDefaultState();  } 
+	       else {
+	        this.topBlock = Blocks.GRASS.getDefaultState();
+	           this.fillerBlock = Blocks.DIRT.getDefaultState();
+	       }
+
+	       this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+	}
+
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)
    {
        return rand.nextInt(5) > 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
