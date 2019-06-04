@@ -27,8 +27,6 @@ public class MiscConfig {
 	   public static boolean enableVillageInBirchHills = true;
 	   public static boolean enableVillageInBlosssomForest = true;
 	   public static boolean enableVillageInBlossomForestHills = false;
-	   public static boolean enableVillageInBog = false;
-	   public static boolean enableVillageInDenseShrubland = true;
 	   public static boolean enableVillageInEstuary = false;
 	   public static boolean enableVillageInFen = false;
 	   public static boolean enableVillageInForestedExtremeHills = true;
@@ -56,7 +54,6 @@ public class MiscConfig {
 	   public static boolean enableVillageInPoppyMeadow = true;
 	   public static boolean enableVillageInRoyalForest = true;
 	   public static boolean enableVillageInRoyalForestHils = false;
-	   public static boolean enableVillageInShrubland = true;
 	   public static boolean enableVillageInTallOakForest = true;
 	   public static boolean enableVillageInTallOakForestHills = false;
 	   public static boolean enableVillageInWhiteOrchard = true;
@@ -88,12 +85,11 @@ public class MiscConfig {
 	   public static boolean enableVillageInMegaMapleForestHills = false;
 	   public static boolean enableVillageInPineland = true;
 	   public static boolean enableVillageInRockyTaiga = true;
+	   public static boolean enableVillageInShrubland = true;
 	   public static boolean enableVillageInStoneMountains = false;
 	   
 	   //DESERT NT BIOMES
 	   public static boolean enableVillageInClayland = true;
-	   public static boolean enableVillageInGoldenSavanna = true;
-	   public static boolean enableVillageInGoldenSavannaPlateau = true;
 	   public static boolean enableVillageInHotDesert = true;
 	   public static boolean enableVillageInLushDesert = true;
 	   public static boolean enableVillageInRedSandDune = true;

@@ -25,12 +25,11 @@ public class BiomeWeightConfig {
 	public static int megamapleforestWeight = 4;
 	public static int pinelandWeight = 6;
 	public static int rockytaigaWeight = 8;
+	public static int shrublandWeight = 7;
 	public static int stonemountainsWeight = 3;
 	
 	//DESERT
 	public static int claylandWeight = 5;
-	public static int goldensavannaplateauWeight = 1;
-	public static int goldensavannaWeight = 5;
 	public static int lushdesertWeight = 4;
 	public static int outbackWeight = 5;
 	public static int redsandduneWeight = 3;
@@ -73,8 +72,6 @@ public class BiomeWeightConfig {
 	public static int birchhillsWeight = 5;
 	public static int blossomforesthillsWeight = 2;
 	public static int blossomforestWeight = 8;
-	public static int bogWeight = 4;
-	public static int denseshrublandWeight = 3;
 	public static int estuaryWeight = 4;
 	public static int fenWeight = 5;
 	public static int forestedextremehillsWeight = 4;
@@ -102,7 +99,6 @@ public class BiomeWeightConfig {
 	public static int poppymeadowWeight = 2;
 	public static int royalforesthillsWeight = 2;
 	public static int royalforestWeight = 8;
-	public static int shrublandWeight = 7;
 	public static int talloakforesthillsWeight = 2;
 	public static int talloakforestWeight = 4;
 	public static int whiteorchardWeight = 3;

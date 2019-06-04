@@ -44,9 +44,9 @@ import net.minecraft.block.BlockDoublePlant;
 			super(properties);
 		
 			this.decorator.generateFalls = true;
-			this.decorator.treesPerChunk = 5;
+			this.decorator.treesPerChunk = 6;
 			this.decorator.flowersPerChunk = 1;
-		    this.decorator.grassPerChunk = 2;
+		    this.decorator.grassPerChunk = 4;
 		    this.spawnableCreatureList.clear();
 		    this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
 			this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
@@ -70,7 +70,7 @@ import net.minecraft.block.BlockDoublePlant;
 	    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
 	        if (noiseVal > 0.90D) {
 	            this.topBlock = Blocks.GRASS.getDefaultState();
-	            this.fillerBlock = Blocks.SNOW.getDefaultState();  } 
+	            this.fillerBlock = Blocks.DIRT.getDefaultState();  } 
 	        else {
 	         this.topBlock = Blocks.SNOW.getDefaultState();
 	            this.fillerBlock = Blocks.SNOW.getDefaultState();
@@ -151,12 +151,12 @@ import net.minecraft.block.BlockDoublePlant;
 		   
 		@Override
 		public int getModdedBiomeGrassColor(int original) {
-		    return super.getModdedBiomeGrassColor(0x45a147);
+		    return super.getModdedBiomeGrassColor(0x99C762);
 		}
 
 		@Override
 		public int getModdedBiomeFoliageColor(int original) {
-		    return super.getModdedBiomeFoliageColor(0x45a147);
+		    return super.getModdedBiomeFoliageColor(0x83B84D);
 		}
 	
 	}

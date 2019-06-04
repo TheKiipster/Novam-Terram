@@ -129,4 +129,8 @@ public class BlockInit {
 	public static final Block ORANGESANDSTONEFACE = new BlockSandstoneFace("orange_sandstone_face", Material.ROCK);
 	public static final Block ORANGESANDSTONEGLYPH = new BlockSandstoneGlyph("orange_sandstone_glyph", Material.ROCK);
 
+	//MISC
+	public static final Block REDPODZOL = new BlockPodzols("red_podzol", Material.GROUND);
+	public static final Block BLUEPODZOL = new BlockPodzols("blue_podzol", Material.GROUND);
+
 }

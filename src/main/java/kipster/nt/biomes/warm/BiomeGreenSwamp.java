@@ -3,6 +3,7 @@ package kipster.nt.biomes.warm;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
+import kipster.nt.world.gen.trees.WorldGenTreeDead;
 import kipster.nt.world.gen.trees.WorldGenTreeOak;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
@@ -33,7 +34,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BiomeGreenSwamp extends Biome 
 {
 	protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
-
+	protected static final WorldGenAbstractTree DEAD = new WorldGenTreeDead(false);
+	 
+		
 	public BiomeGreenSwamp(BiomeProperties properties)
 	{	
 		super(properties);
@@ -55,11 +58,17 @@ public class BiomeGreenSwamp extends Biome
 	        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 1, 1, 1));
 	    }
 
-	    public WorldGenAbstractTree getRandomTreeFeature(Random rand)
-	    {
-	        return SWAMP_FEATURE;
-	    }
-	    
+	@Override
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+	if (rand.nextInt(2) > 0)
+	{
+		  return DEAD;
+	}
+	else
+	{
+	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? SWAMP_FEATURE : SWAMP_FEATURE);
+	}
+	}
 	    public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	    {
 	        return rand.nextInt(4) == 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);

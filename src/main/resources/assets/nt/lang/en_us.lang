@@ -122,3 +122,7 @@ tile.orange_sandstone_smooth.name=Smooth Sandstone
 tile.orange_sandstone_carved.name=Carved Sandstone
 tile.orange_sandstone_face.name=Face Sandstone
 tile.orange_sandstone_glyph.name=Glyph Sandstone
+
+//MISC
+tile.blue_podzol.name= Podzol
+tile.red_podzol.name= Podzol

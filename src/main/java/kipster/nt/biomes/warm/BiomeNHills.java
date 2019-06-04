@@ -101,7 +101,7 @@ public class BiomeNHills extends Biome
 	
 	 @Override
 	  	public int getModdedBiomeGrassColor(int original) {
-	  	    return super.getModdedBiomeGrassColor(0x6BA157);
+	  	    return super.getModdedBiomeGrassColor(0x76B263);
 	  	}
 
 	  	@Override

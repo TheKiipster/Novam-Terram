@@ -27,7 +27,7 @@ public class WorldGenTreeMegaBlueSpruce extends WorldGenHugeTrees
 {
     private static final IBlockState TRUNK = Blocks.LOG.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.SPRUCE);
     private static final IBlockState LEAF = BlockInit.SPRUCELEAVESBLUE.getDefaultState();
-    private static final IBlockState PODZOL = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+    private static final IBlockState PODZOL = BlockInit.BLUEPODZOL.getDefaultState();
     private final boolean useBaseHeight;
 
     public WorldGenTreeMegaBlueSpruce(boolean notify, boolean p_i45457_2_)

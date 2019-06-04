@@ -118,7 +118,16 @@ public class BiomeMegaBlueTaiga extends Biome
        }
    }
    
+   @Override
+  	public int getModdedBiomeGrassColor(int original) {
+  	    return super.getModdedBiomeGrassColor(0x6BB88C);
+  	}
 
+  	@Override
+  	public int getModdedBiomeFoliageColor(int original) {
+  	    return super.getModdedBiomeFoliageColor(0x4AAE68);
+  	}
+  	
 	 public static class DiamondGenerator extends WorldGenerator
 	    {
 	        @Override

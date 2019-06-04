@@ -4,6 +4,7 @@ import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.cool.BiomeMegaMapleForest.DiamondGenerator;
+import kipster.nt.blocks.BlockInit;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeBigAutumnTaigaOrange;
 import kipster.nt.world.gen.trees.WorldGenTreeBigAutumnTaigaYellow;
@@ -67,7 +68,7 @@ public class BiomeMegaMapleForest extends Biome
             }
             else if (noiseVal > -0.95D)
             {
-                this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+                this.topBlock = BlockInit.REDPODZOL.getDefaultState();
             }
 
         this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
@@ -121,6 +122,17 @@ public class BiomeMegaMapleForest extends Biome
        }
    }
    
+   @Override
+ 	public int getModdedBiomeGrassColor(int original) {
+ 	    return super.getModdedBiomeGrassColor(0x9FBB53);
+ 	}
+
+ 	@Override
+ 	public int getModdedBiomeFoliageColor(int original) {
+ 	    return super.getModdedBiomeFoliageColor(0xD44335);
+ 	}
+ 	
+
 
 	 public static class DiamondGenerator extends WorldGenerator
 	    {

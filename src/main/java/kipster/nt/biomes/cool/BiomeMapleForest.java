@@ -4,15 +4,19 @@ import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.cool.BiomeMapleForest.DiamondGenerator;
+import kipster.nt.blocks.BlockInit;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeMaple;
 import kipster.nt.world.gen.trees.WorldGenTreeRedSpruce2;
+import kipster.nt.world.gen.trees.WorldGenTreeShrubOak;
+import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce2;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -28,7 +32,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeMapleForest extends Biome 
 {	
-	
+	protected static final WorldGenAbstractTree SHRUB_OAK = new WorldGenTreeShrubOak();
 	 protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
 	protected static final WorldGenAbstractTree MAPLE_TREE = new WorldGenTreeMaple(false, false);
    private final WorldGenTreeRedSpruce2 spruceGenerator = new WorldGenTreeRedSpruce2(true);
@@ -37,9 +41,6 @@ public class BiomeMapleForest extends Biome
  	{	
  		super(properties);
  	
-		topBlock = Blocks.GRASS.getDefaultState();
-		fillerBlock = Blocks.DIRT.getDefaultState();
-		
        
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
@@ -48,12 +49,19 @@ public class BiomeMapleForest extends Biome
        this.decorator.grassPerChunk = 4;
 
 	}
-
 	@Override
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
-
+	if (rand.nextInt(1) > 0)
+	{
+		  return SHRUB_OAK;
+	}
+	else
+	{
 	  return (WorldGenAbstractTree)(rand.nextInt(4) == 0 ? this.spruceGenerator : MAPLE_TREE);
 	}
+	}
+
+	
 
 	public WorldGenerator getRandomWorldGenForGrass(Random rand)
    {
@@ -92,7 +100,29 @@ public class BiomeMapleForest extends Biome
        super.decorate(worldIn, rand, pos);
        }
    }
-   
+   @Override
+   public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+       if (noiseVal > 2.50D) {
+           this.topBlock = BlockInit.REDPODZOL.getDefaultState();
+           this.fillerBlock = Blocks.DIRT.getDefaultState();  } 
+       else {
+        this.topBlock = Blocks.GRASS.getDefaultState();
+           this.fillerBlock = Blocks.DIRT.getDefaultState();
+       }
+
+       this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+}
+   @Override
+  	public int getModdedBiomeGrassColor(int original) {
+  	    return super.getModdedBiomeGrassColor(0x9FBB53);
+  	}
+
+  	@Override
+  	public int getModdedBiomeFoliageColor(int original) {
+  	    return super.getModdedBiomeFoliageColor(0xD9A44F);
+  	}
+  	
+ 
 	
 	 public static class DiamondGenerator extends WorldGenerator
 	    {

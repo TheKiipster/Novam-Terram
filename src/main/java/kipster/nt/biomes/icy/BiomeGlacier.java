@@ -5,6 +5,7 @@ import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
 import kipster.nt.biomes.icy.BiomeGlacier.LapisGenerator;
+import kipster.nt.config.MiscConfig;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeShrubSpruce;
 import net.minecraft.init.Biomes;
@@ -15,6 +16,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenIcePath;
 import net.minecraft.world.gen.feature.WorldGenIceSpike;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -32,7 +34,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeGlacier extends Biome 
 {
-	
+	protected static final WorldGenBlockBlob ICE_BOULDER = new WorldGenBlockBlob(Blocks.PACKED_ICE, 1);
 	private final WorldGenIceSpike iceSpike = new WorldGenIceSpike();
 	protected static final WorldGenPatches ICE_PATCHES = new WorldGenPatches(Blocks.PACKED_ICE.getDefaultState(), 5);
 
@@ -93,12 +95,26 @@ public class BiomeGlacier extends Biome
 				BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 				ICE_PATCHES.generate(worldIn, rand, blockpos);
 			}
-		
+			for (int i = 0; i < 3; ++i)
+            {
+                int j = rand.nextInt(16) + 8;
+                int k = rand.nextInt(16) + 8;
+                this.iceSpike.generate(worldIn, rand, worldIn.getHeight(pos.add(j, 0, k)));
+            }
 
+			if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	            int genChance = rand.nextInt(3);
+	            if (genChance == 0) {
+	                int k6 = rand.nextInt(16) + 8;
+	                int l = rand.nextInt(16) + 8;
+	                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
+	                ICE_BOULDER.generate(worldIn, rand, blockpos);
+	            
+	            }
            
 	    super.decorate(worldIn, rand, pos);
 		}
-
+	}
 	 public static class LapisGenerator extends WorldGenerator
 	    {
 	        @Override
