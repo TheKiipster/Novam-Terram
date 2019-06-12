@@ -31,7 +31,6 @@ public class BiomeWeightConfig {
 	//DESERT
 	public static int claylandWeight = 5;
 	public static int lushdesertWeight = 4;
-	public static int outbackWeight = 5;
 	public static int redsandduneWeight = 3;
 	public static int rocklandWeight = 5;
 	public static int sahelWeight = 6;
@@ -74,8 +73,6 @@ public class BiomeWeightConfig {
 	public static int blossomforestWeight = 8;
 	public static int estuaryWeight = 4;
 	public static int fenWeight = 5;
-	public static int forestedextremehillsWeight = 4;
-	public static int forestedlakesWeight = 3;
 	public static int fungaljunglehillsWeight = 1;
 	public static int fungaljungleWeight = 3;
 	public static int grasshillsWeight = 4;

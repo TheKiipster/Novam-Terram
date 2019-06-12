@@ -66,7 +66,7 @@ public class BiomeCliffs extends Biome
 	   
 	       net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 
-	       if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	       if (!MiscConfig.disableBouldersInCliffs && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 	            int genChance = rand.nextInt(3);
 	            if (genChance == 0) {
 	                int k6 = rand.nextInt(16) + 8;
@@ -74,7 +74,7 @@ public class BiomeCliffs extends Biome
 	                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	                COBBLESTONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 	            }
-	            if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	            if (!MiscConfig.disableBouldersInCliffs && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance1 = rand.nextInt(3);
 		            if (genChance1 == 0) {
 		                int k6 = rand.nextInt(16) + 8;
@@ -101,7 +101,7 @@ public class BiomeCliffs extends Biome
 	        @Override
 	        public boolean generate(World worldIn, Random rand, BlockPos pos)
 	        {
-	            int count = 5 + rand.nextInt(6);
+	            int count = 10 + rand.nextInt(6);
 	            for (int i = 0; i < count; i++)
 	            {
 	                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332

@@ -102,7 +102,7 @@ public class BiomeGlacier extends Biome
                 this.iceSpike.generate(worldIn, rand, worldIn.getHeight(pos.add(j, 0, k)));
             }
 
-			if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+			if (!MiscConfig.disableBouldersInGlacier && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 	            int genChance = rand.nextInt(3);
 	            if (genChance == 0) {
 	                int k6 = rand.nextInt(16) + 8;
@@ -120,7 +120,7 @@ public class BiomeGlacier extends Biome
 	        @Override
 	        public boolean generate(World worldIn, Random rand, BlockPos pos)
 	        {
-	            int count = 5 + rand.nextInt(6);
+	           int count = 10 + rand.nextInt(6);
 	            for (int i = 0; i < count; i++)
 	            {
 	                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332

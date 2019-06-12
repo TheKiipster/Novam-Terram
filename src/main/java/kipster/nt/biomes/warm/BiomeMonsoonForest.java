@@ -164,7 +164,7 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, emeralds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.EMERALD))
 	            emeralds.generate(worldIn, rand, pos);
 	        
-	        if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	        if (!MiscConfig.disableBouldersInMonsoonForest && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 	            int genChance = rand.nextInt(3);
 	            if (genChance == 0) {
 	                int k6 = rand.nextInt(16) + 8;
@@ -230,7 +230,7 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
         @Override
         public boolean generate(World worldIn, Random rand, BlockPos pos)
         {
-            int count = 5 + rand.nextInt(6);
+           int count = 10 + rand.nextInt(6);
             for (int i = 0; i < count; i++)
             {
                 int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332

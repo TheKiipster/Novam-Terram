@@ -57,7 +57,7 @@ public class BiomePinkBeach extends Biome
 		        @Override
 		        public boolean generate(World worldIn, Random rand, BlockPos pos)
 		        {
-		            int count = 5 + rand.nextInt(6);
+		           int count = 10 + rand.nextInt(6);
 		            for (int i = 0; i < count; i++)
 		            {
 		                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332

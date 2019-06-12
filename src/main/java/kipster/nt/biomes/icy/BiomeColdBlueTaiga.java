@@ -3,7 +3,7 @@ package kipster.nt.biomes.icy;
 import java.util.Random;
 
 import kipster.nt.biomes.BiomeInit;
-import kipster.nt.biomes.icy.BiomeColdBlueTaiga.DiamondGenerator;
+import kipster.nt.biomes.icy.BiomeColdBlueTaiga.LapisGenerator;
 import kipster.nt.world.gen.WorldGenPatches;
 import kipster.nt.world.gen.trees.WorldGenTreeBlueSpruce1;
 import kipster.nt.world.gen.trees.WorldGenTreeBlueSpruce2;
@@ -94,7 +94,7 @@ public class BiomeColdBlueTaiga extends Biome
        }
        
        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
-       WorldGenerator diamonds = new DiamondGenerator();
+       WorldGenerator diamonds = new LapisGenerator();
        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
     	   diamonds.generate(worldIn, rand, pos);
        
@@ -129,12 +129,12 @@ public class BiomeColdBlueTaiga extends Biome
 	        addFlower(Blocks.RED_FLOWER.getDefaultState().withProperty(Blocks.RED_FLOWER.getTypeProperty(), BlockFlower.EnumFlowerType.ALLIUM), 20);
 	    }
 	
-	 public static class DiamondGenerator extends WorldGenerator
+	 public static class LapisGenerator extends WorldGenerator
 	    {
 	        @Override
 	        public boolean generate(World worldIn, Random rand, BlockPos pos)
 	        {
-	            int count = 5 + rand.nextInt(6);
+	           int count = 10 + rand.nextInt(6);
 	            for (int i = 0; i < count; i++)
 	            {
 	                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332
@@ -143,8 +143,9 @@ public class BiomeColdBlueTaiga extends Biome
 	                net.minecraft.block.state.IBlockState state = worldIn.getBlockState(blockpos);
 	                if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, net.minecraft.block.state.pattern.BlockMatcher.forBlock(Blocks.STONE)))
 	                {
-	                    worldIn.setBlockState(blockpos, Blocks.DIAMOND_ORE.getDefaultState(), 16 | 2);
+	                    worldIn.setBlockState(blockpos, Blocks.LAPIS_ORE.getDefaultState(), 16 | 2);
 	                }
+	                net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	            }
 	            return true;
 	        }

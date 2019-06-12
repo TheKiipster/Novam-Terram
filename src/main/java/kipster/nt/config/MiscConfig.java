@@ -8,8 +8,18 @@ import net.minecraftforge.common.config.Config;
 @Config(modid = NovamTerram.modId, category = "misc")
 public class MiscConfig {
 
-
-	   public static boolean disableBoulders = false;
+		//MISC
+	   public static boolean disableBouldersInCliffs = false;
+	   public static boolean disableBouldersInRockyTaiga = false;
+	   public static boolean disableBouldersInStoneFields = false;
+	   public static boolean disableBouldersInClayland = false;
+	   public static boolean disableBouldersInRockland = false;
+	   public static boolean disableBouldersInSandyScrubland = false;
+	   public static boolean disableBouldersInGlacier = false;
+	   public static boolean disableBouldersInAegeanArchipelago = false;
+	   public static boolean disableBouldersInMonsoonForest = false;
+	   
+	   
 	   //VANILLA BIOMES
 	   public static boolean enableVillageInJungle = true;
 	   public static boolean enableVillageInJungleEdge = true;
@@ -29,8 +39,6 @@ public class MiscConfig {
 	   public static boolean enableVillageInBlossomForestHills = false;
 	   public static boolean enableVillageInEstuary = false;
 	   public static boolean enableVillageInFen = false;
-	   public static boolean enableVillageInForestedExtremeHills = true;
-	   public static boolean enableVillageInForestedLakes = false;
 	   public static boolean enableVillageInFungalJungle = true;
 	   public static boolean enableVillageInFungalJungleHills = false;
 	   public static boolean enableVillageInGrassHills = true;

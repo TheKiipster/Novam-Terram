@@ -21,7 +21,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @EventBusSubscriber
 public class RegistryHandler {
 
-  public static Configuration config;
 
   @SubscribeEvent
   public static void onItemRegister(RegistryEvent.Register<Item> event) {
@@ -55,7 +54,7 @@ public class RegistryHandler {
 
   public static void preInitRegistries(FMLPreInitializationEvent e) {
     File directory = e.getModConfigurationDirectory();
-    config = new Configuration(new File(directory.getPath(), "novamterram.cfg"));
+    
   }
 
   public static void initRegistries() {
@@ -65,9 +64,7 @@ public class RegistryHandler {
   }
 
   public static void postInitRegistries() {
-    if (config.hasChanged()) {
-      config.save();
+    
     }
 
   }
-}

@@ -74,7 +74,7 @@ public class BiomeStoneFields extends Biome
 			BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 			STONE_PATCHES.generate(worldIn, rand, blockpos);
 		}
-		if (!MiscConfig.disableBoulders && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+		if (!MiscConfig.disableBouldersInStoneFields && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
             int genChance = rand.nextInt(3);
             if (genChance == 0) {
                 int k6 = rand.nextInt(16) + 8;
@@ -97,7 +97,7 @@ public class BiomeStoneFields extends Biome
 	        @Override
 	        public boolean generate(World worldIn, Random rand, BlockPos pos)
 	        {
-	            int count = 5 + rand.nextInt(6);
+	           int count = 10 + rand.nextInt(6);
 	            for (int i = 0; i < count; i++)
 	            {
 	                int offset = net.minecraftforge.common.ForgeModContainer.fixVanillaCascading ? 8 : 0; // MC-114332
