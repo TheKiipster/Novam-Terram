@@ -136,7 +136,8 @@ public class BiomeRockland extends Biome
 		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 		                STONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 		            }
-		            if (!MiscConfig.disableBouldersInRockland && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
+	            }
+                if (!MiscConfig.disableBouldersInRockland && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 			            int genChance1 = rand.nextInt(3);
 			            if (genChance1 == 0) {
 			                int k6 = rand.nextInt(16) + 8;
@@ -145,7 +146,6 @@ public class BiomeRockland extends Biome
 			                STONE.generate(worldIn, rand, blockpos);
 			            }
 		            }
-	            }
 	          }
 	        
 	        @Override

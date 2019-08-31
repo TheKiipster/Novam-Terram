@@ -86,8 +86,8 @@ public class BiomeBirchHills extends Biome
 		           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, 1));
 		           LAKE.generate(worldIn, rand, blockpos);
 		         }
-	    super.decorate(worldIn, rand, pos);
 		}
+	    super.decorate(worldIn, rand, pos);
 			 }
 	
 

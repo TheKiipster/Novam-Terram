@@ -74,6 +74,7 @@ public class BiomeCliffs extends Biome
 	                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	                COBBLESTONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 	            }
+	       }
 	            if (!MiscConfig.disableBouldersInCliffs && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance1 = rand.nextInt(3);
 		            if (genChance1 == 0) {
@@ -83,7 +84,6 @@ public class BiomeCliffs extends Biome
 		                COBBLESTONE_LINE.generate(worldIn, rand, blockpos);
 		            }
 	            }
-	       }
 	super.decorate(worldIn, rand, pos);
 		
 	}

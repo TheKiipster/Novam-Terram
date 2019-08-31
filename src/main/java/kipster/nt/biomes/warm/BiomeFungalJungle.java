@@ -154,6 +154,7 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	           LAKE.generate(worldIn, rand, blockpos);
 	         }
+         }
 	         int i = rand.nextInt(16) + 8;
 	         int j = rand.nextInt(16) + 8;
 	         int height = worldIn.getHeight(pos.add(i, 0, j)).getY() * 2; // could == 0, which crashes nextInt
@@ -188,11 +189,10 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	 			BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	 			MUSHROOM_PATCHES.generate(worldIn, rand, blockpos);
 	        
-	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 	        }
+	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 
 	    super.decorate(worldIn, rand, pos);
-	        }
 	}
 	
 	   @Override

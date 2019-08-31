@@ -115,6 +115,7 @@ public class BiomeSandyScrubland extends Biome
 	    	             BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	    	             LAVA_LAKE_FEATURE.generate(worldIn, rand, blockpos);
 	    	           }
+				 }
 				
 				 if (!MiscConfig.disableBouldersInSandyScrubland && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 		            int genChance = rand.nextInt(3);
@@ -124,6 +125,7 @@ public class BiomeSandyScrubland extends Biome
 		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 		                SAND_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 		            }
+                }
 				
 	            if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.DESERT_WELL))
 	            if (rand.nextInt(1000) == 0)
@@ -140,8 +142,6 @@ public class BiomeSandyScrubland extends Biome
 	                (new WorldGenFossils()).generate(worldIn, rand, pos);
 	            }
 	            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-				 }
-				   }
 	        }
 				@Override
 			   	public int getModdedBiomeGrassColor(int original) {

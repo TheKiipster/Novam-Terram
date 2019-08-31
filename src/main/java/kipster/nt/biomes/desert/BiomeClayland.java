@@ -136,6 +136,7 @@ public class BiomeClayland extends Biome
 		                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 		                CLAY_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 		            }
+	          }
 		            if (!MiscConfig.disableBouldersInClayland && net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.ROCK)) {
 			            int genChance1 = rand.nextInt(3);
 			            if (genChance1 == 0) {
@@ -146,7 +147,6 @@ public class BiomeClayland extends Biome
 			            }
 		            }
 	            }
-	          }
 	        
 	        @Override
 	  			public int getModdedBiomeGrassColor(int original) {

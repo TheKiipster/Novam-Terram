@@ -78,17 +78,17 @@ public class BiomeAegeanArchipelago extends Biome
 	                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	                STONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 	            }
-	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
-	        if (rand.nextInt(64) == 0)  	
-	        {	            
+	        }
+	        //if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
+	        //if (rand.nextInt(64) == 0)  	
+	        //{	            
+	        //}
 	        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
 	        WorldGenerator emeralds = new EmeraldGenerator();
 	        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, emeralds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.EMERALD))
 	            emeralds.generate(worldIn, rand, pos);
 	      
 	        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-	        }
-	        }
 	    }
 	        @Override
 	    	public int getModdedBiomeGrassColor(int original) {

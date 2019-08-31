@@ -92,6 +92,7 @@ public class BiomeWhiteOrchard extends Biome
 		           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, 1));
 		           LAKE.generate(worldIn, rand, blockpos);
 		         }
+            }
 	        
 			 if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 			 for (int i = 0; i < 7; ++i)
@@ -103,7 +104,6 @@ public class BiomeWhiteOrchard extends Biome
 			
 			 }
 	    super.decorate(worldIn, rand, pos);
-		}
 	}
 	 @Override
 	    public void addDefaultFlowers()

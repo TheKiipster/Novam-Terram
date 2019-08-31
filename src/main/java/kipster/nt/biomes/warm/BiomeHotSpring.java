@@ -92,18 +92,15 @@ public class BiomeHotSpring extends Biome
 	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, 1));
 	           LAKE.generate(worldIn, rand, blockpos);
 	         }
+         }
 	         int grasspatchChance = rand.nextInt(4);
 				if (grasspatchChance == 0) {
 					int k6 = rand.nextInt(16) + 8;
 					int l = rand.nextInt(16) + 8;
 					BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 					GRASS_PATCHES.generate(worldIn, rand, blockpos);
-				
-	   
 	        }
-
 	    super.decorate(worldIn, rand, pos);
-	        }
 	}
 	
 	 public static class EmeraldGenerator extends WorldGenerator

@@ -112,8 +112,8 @@ public class BiomeGlacier extends Biome
 	            
 	            }
            
-	    super.decorate(worldIn, rand, pos);
 		}
+	    super.decorate(worldIn, rand, pos);
 	}
 	 public static class LapisGenerator extends WorldGenerator
 	    {
