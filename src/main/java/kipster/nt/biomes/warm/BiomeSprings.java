@@ -91,6 +91,7 @@ public class BiomeSprings extends Biome
 	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, 1));
 	           LAKE.generate(worldIn, rand, blockpos);
 	         }
+	     }
 	         int grasspatchChance = rand.nextInt(4);
 				if (grasspatchChance == 0) {
 					int k6 = rand.nextInt(16) + 8;
@@ -102,7 +103,6 @@ public class BiomeSprings extends Biome
 	        }
 
 	    super.decorate(worldIn, rand, pos);
-	        }
 	}
 	
 	 public static class EmeraldGenerator extends WorldGenerator

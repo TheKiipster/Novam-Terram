@@ -172,6 +172,7 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	                BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	                STONE_BOULDER_FEATURE.generate(worldIn, rand, blockpos);
 	            }
+            }
 	        
 		 if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
 	         int boulderChance = rand.nextInt(12);
@@ -181,6 +182,7 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
 	           LAKE.generate(worldIn, rand, blockpos);
 	         }
+         }
 	         int i = rand.nextInt(16) + 8;
 	         int j = rand.nextInt(16) + 8;
 	         int height = worldIn.getHeight(pos.add(i, 0, j)).getY() * 2; // could == 0, which crashes nextInt
@@ -208,9 +210,7 @@ public WorldGenerator getRandomWorldGenForGrass(Random rand)
 	         this.addDoublePlants(worldIn, rand, pos, i1);
 	         
 	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-	        }
 		 }
-	        }
 	    super.decorate(worldIn, rand, pos);
 	        
 	}

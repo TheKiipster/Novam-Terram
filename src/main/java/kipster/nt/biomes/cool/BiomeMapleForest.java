@@ -97,8 +97,8 @@ public class BiomeMapleForest extends Biome
            }
            net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
 
-       super.decorate(worldIn, rand, pos);
        }
+       super.decorate(worldIn, rand, pos);
    }
    @Override
    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {

@@ -99,6 +99,7 @@ public class BiomeScrubland extends Biome
   	             BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, l));
   	             LAVA_LAKE_FEATURE.generate(worldIn, rand, blockpos);
   	           }
+	     }
 	         
 	      
 	         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
@@ -107,7 +108,6 @@ public class BiomeScrubland extends Biome
 	 	    	   gold.generate(worldIn, rand, pos);
 
 	         super.decorate(worldIn, rand, pos);
-	     }
 	     }
 	     
 	     public static class GoldGenerator extends WorldGenerator

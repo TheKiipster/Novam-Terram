@@ -74,6 +74,7 @@ public class BiomeGrassHills extends Biome
 		           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, 1));
 		           LAKE.generate(worldIn, rand, blockpos);
 		         }
+            }
 	        
 	        
 			 if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -86,7 +87,6 @@ public class BiomeGrassHills extends Biome
 			
 			 }
 	    super.decorate(worldIn, rand, pos);
-		}
 	}
 
 	 public static class EmeraldGenerator extends WorldGenerator

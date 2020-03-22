@@ -88,8 +88,8 @@ public class BiomeStoneFields extends Biome
             int k = rand.nextInt(16) + 8;
             this.stoneSpike.generate(worldIn, rand, worldIn.getHeight(pos.add(j, 0, k)));
         }
-	    super.decorate(worldIn, rand, pos);
 		}
+	    super.decorate(worldIn, rand, pos);
 	}
 	
 	 public static class DiamondGenerator extends WorldGenerator

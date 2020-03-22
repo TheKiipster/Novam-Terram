@@ -68,6 +68,7 @@ public class BiomeMoorland extends Biome
 		           BlockPos blockpos = worldIn.getHeight(pos.add(k6, 0, 1));
 		           LAKE.generate(worldIn, rand, blockpos);
 		         }
+            }
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FOSSIL))
 	        if (rand.nextInt(64) == 0)
 	        {
@@ -79,7 +80,6 @@ public class BiomeMoorland extends Biome
 	            emeralds.generate(worldIn, rand, pos);
 	      
 	        net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
-	    }
 	    }
 
 	    @Override
